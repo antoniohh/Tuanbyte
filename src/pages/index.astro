@@ -1,0 +1,36 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const socialLinks = [
+  { label: "YouTube", href: "https://www.youtube.com/tuanbyte" },
+  { label: "Especiales", href: "https://especiales.antoniohorrillo.com/" },
+];
+
+const description =
+  "Tuanbyte — mecánica casera, bricolaje y tecnología en vídeo. Landing de marca en construcción.";
+---
+
+<BaseLayout title="Tuanbyte" description={description}>
+  <main
+    class="flex min-h-dvh flex-col items-center justify-center gap-6 bg-[#0c0e12] px-6 text-center font-mono text-neutral-200"
+  >
+    <img src="/favicon.svg" alt="" width="72" height="72" />
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Tuanbyte</h1>
+    <p class="max-w-[52ch] text-neutral-400">
+      Mecánica casera, bricolaje y tecnología en vídeo. Nueva web en
+      construcción.
+    </p>
+    <nav class="mt-2 flex flex-wrap items-center justify-center gap-3">
+      {
+        socialLinks.map((l) => (
+          <a
+            href={l.href}
+            class="border-b border-neutral-700 pb-1 text-sm uppercase tracking-[0.14em] transition-colors hover:border-amber-300 hover:text-amber-300"
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+  </main>
+</BaseLayout>
