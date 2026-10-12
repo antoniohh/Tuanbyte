@@ -8,55 +8,136 @@
         "role": "surface",
         "displayName": "Papel crema",
         "canonical": "#f2ead8",
-        "tonalRamp": ["#3f3422", "#5c4d33", "#7a6745", "#96835e", "#b09d76", "#c6b48f", "#dccba9", "#f2ead8"]
+        "tonalRamp": [
+          "#3f3422",
+          "#5c4d33",
+          "#7a6745",
+          "#96835e",
+          "#b09d76",
+          "#c6b48f",
+          "#dccba9",
+          "#f2ead8"
+        ]
       },
       "paper-2": {
         "role": "surface",
         "displayName": "Papel de segunda",
         "canonical": "#e9dfc8",
-        "tonalRamp": ["#39301d", "#564528", "#745f38", "#8f7b4b", "#a89561", "#bfaa78", "#d4c091", "#e9dfc8"]
+        "tonalRamp": [
+          "#39301d",
+          "#564528",
+          "#745f38",
+          "#8f7b4b",
+          "#a89561",
+          "#bfaa78",
+          "#d4c091",
+          "#e9dfc8"
+        ]
       },
       "paper-3": {
         "role": "surface",
         "displayName": "Papel de saco",
         "canonical": "#ddd0b2",
-        "tonalRamp": ["#332b18", "#4e4124", "#6a5932", "#837444", "#9c8a58", "#b2a06c", "#c8b882", "#ddd0b2"]
+        "tonalRamp": [
+          "#332b18",
+          "#4e4124",
+          "#6a5932",
+          "#837444",
+          "#9c8a58",
+          "#b2a06c",
+          "#c8b882",
+          "#ddd0b2"
+        ]
       },
       "ink": {
         "role": "foreground",
         "displayName": "Tinta",
         "canonical": "#20211c",
-        "tonalRamp": ["#0a0b08", "#20211c", "#363730", "#4d4e44", "#666758", "#80816f", "#9a9b87", "#b5b59f"]
+        "tonalRamp": [
+          "#0a0b08",
+          "#20211c",
+          "#363730",
+          "#4d4e44",
+          "#666758",
+          "#80816f",
+          "#9a9b87",
+          "#b5b59f"
+        ]
       },
       "ink-soft": {
         "role": "muted",
         "displayName": "Tinta suave",
         "canonical": "#5d574a",
-        "tonalRamp": ["#17150f", "#2b2820", "#403a2c", "#5d574a", "#787163", "#948c7b", "#b1aa99", "#d0c9b8"]
+        "tonalRamp": [
+          "#17150f",
+          "#2b2820",
+          "#403a2c",
+          "#5d574a",
+          "#787163",
+          "#948c7b",
+          "#b1aa99",
+          "#d0c9b8"
+        ]
       },
       "ink-line": {
         "role": "border",
         "displayName": "Línea de tinta",
         "canonical": "#b4a98f",
-        "tonalRamp": ["#242013", "#3a3422", "#514a30", "#6a6240", "#867d5b", "#b4a98f", "#c6bd9d", "#d8d2b6"]
+        "tonalRamp": [
+          "#242013",
+          "#3a3422",
+          "#514a30",
+          "#6a6240",
+          "#867d5b",
+          "#b4a98f",
+          "#c6bd9d",
+          "#d8d2b6"
+        ]
       },
       "minium": {
         "role": "primary",
         "displayName": "Rojo minio (tinta comercial)",
         "canonical": "#c22f1d",
-        "tonalRamp": ["#2e0602", "#521005", "#741c0a", "#932208", "#a92914", "#c22f1d", "#d6553f", "#ef978c"]
+        "tonalRamp": [
+          "#2e0602",
+          "#521005",
+          "#741c0a",
+          "#932208",
+          "#a92914",
+          "#c22f1d",
+          "#d6553f",
+          "#ef978c"
+        ]
       },
       "minium-dark": {
         "role": "primary-deep",
         "displayName": "Minio quemado",
         "canonical": "#932208",
-        "tonalRamp": ["#2e0602", "#4d0e04", "#6c1707", "#932208", "#ab3c1e", "#c25b35", "#d77c57", "#e9a17e"]
+        "tonalRamp": [
+          "#2e0602",
+          "#4d0e04",
+          "#6c1707",
+          "#932208",
+          "#ab3c1e",
+          "#c25b35",
+          "#d77c57",
+          "#e9a17e"
+        ]
       },
       "strike": {
         "role": "secondary",
         "displayName": "Amarillo seria (etiqueta)",
         "canonical": "#e9b611",
-        "tonalRamp": ["#3a2b00", "#5e4700", "#826600", "#a68600", "#c9a80a", "#e9b611", "#efc84a", "#f5db8f"]
+        "tonalRamp": [
+          "#3a2b00",
+          "#5e4700",
+          "#826600",
+          "#a68600",
+          "#c9a80a",
+          "#e9b611",
+          "#efc84a",
+          "#f5db8f"
+        ]
       }
     },
     "typographyMeta": {
@@ -117,8 +198,14 @@
       }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ]
   },
   "components": [
@@ -128,7 +215,7 @@
       "refersTo": "sello",
       "description": "El sello rojo de suscribirse: único bloque minio grande del catálogo, sombra dura de tinta, gira al hover.",
       "html": "<a class=\"ds-sello\" href=\"#\">Suscribirse al catálogo</a>",
-      "css": ".ds-sello{display:inline-block;background:var(--color-minium,#c22f1d);color:var(--color-paper,#f2ead8);font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:0.025em;padding:1rem 1.5rem;box-shadow:3px 3px 0 0 var(--color-ink,#20211c);transition:transform 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1);}.ds-sello:hover{transform:rotate(-1.5deg) translateY(-1px);}.ds-sello:focus-visible{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
+      "css": ".ds-sello{display:inline-block;background:var(--color-minium,#c22f1d);color:var(--color-paper,#f2ead8);font-family:'Barlow','Arial Narrow',sans-serif;font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:0.025em;padding:1rem 1.5rem;box-shadow:3px 3px 0 0 var(--color-ink,#20211c);transition:transform 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1);}.ds-sello:hover{transform:rotate(-1.5deg) translateY(-1px);}.ds-sello:focus-visible{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
     },
     {
       "name": "Enlace rotulador",
@@ -152,7 +239,7 @@
       "refersTo": "canto-apilado",
       "description": "Hoja paper sobre paper-3 (.canto) con cinta seria arriba: miniatura de YouTube con borde de tinta, título condensed y llamada en rotulador.",
       "html": "<figure class=\"ds-pieza\"><p class=\"ds-pieza-ref\">pieza no. A1F4</p><div class=\"ds-pieza-thumb\">miniatura HQ — YouTube</div><h3 class=\"ds-pieza-title\">Restauración completa de la maleta CB250</h3><p class=\"ds-pieza-meta\">12/9/2026 · <b>18.204 vistas</b></p><span class=\"ds-pieza-ver\">ver esta pieza ↗</span></figure>",
-      "css": ".ds-pieza{position:relative;background:var(--color-paper,#f2ead8);padding:1.5rem 1.25rem 1.25rem;box-shadow:0 1px 0 0 var(--color-paper-3,#ddd0b2);font-family:'Barlow',system-ui,sans-serif;}.ds-pieza::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-pieza::after{content:\"\";position:absolute;top:-0.55rem;left:50%;width:5.5rem;height:1.6rem;transform:translateX(-50%) rotate(-3deg);background:color-mix(in srgb,var(--color-strike,#e9b611) 62%,transparent);border-left:1px dashed rgba(32,33,28,0.3);border-right:1px dashed rgba(32,33,28,0.3);}.ds-pieza-ref{display:flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-ink-soft,#5d574a);}.ds-pieza-ref::before{content:\"\";width:0.75rem;height:0.75rem;border:1.5px solid var(--color-minium,#c22f1d);}.ds-pieza-thumb{margin-top:0.75rem;aspect-ratio:16/9;border:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-pieza-title{margin-top:1rem;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.2;color:var(--color-ink,#20211c);}.ds-pieza:hover .ds-pieza-title{color:var(--color-minium,#c22f1d);}.ds-pieza-meta{margin-top:0.25rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;color:var(--color-ink-soft,#5d574a);}.ds-pieza-meta b{color:var(--color-minium,#c22f1d);font-weight:500;}.ds-pieza-ver{display:inline-block;margin-top:0.75rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);padding-bottom:2px;}.ds-pieza:hover .ds-pieza-ver{color:var(--color-minium,#c22f1d);border-color:var(--color-minium,#c22f1d);}.ds-pieza:focus-within{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
+      "css": ".ds-pieza{position:relative;background:var(--color-paper,#f2ead8);padding:1.5rem 1.25rem 1.25rem;box-shadow:0 1px 0 0 var(--color-paper-3,#ddd0b2);font-family:'Barlow',system-ui,sans-serif;}.ds-pieza::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-pieza::after{content:\"\";position:absolute;top:-0.55rem;left:50%;width:5.5rem;height:1.6rem;transform:translateX(-50%) rotate(-3deg);background:color-mix(in srgb,var(--color-strike,#e9b611) 62%,transparent);border-left:1px dashed rgba(32,33,28,0.3);border-right:1px dashed rgba(32,33,28,0.3);}.ds-pieza-ref{display:flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-ink-soft,#5d574a);}.ds-pieza-ref::before{content:\"\";width:0.75rem;height:0.75rem;border:1.5px solid var(--color-minium,#c22f1d);}.ds-pieza-thumb{margin-top:0.75rem;aspect-ratio:16/9;border:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-pieza-title{margin-top:1rem;font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.2;color:var(--color-ink,#20211c);}.ds-pieza:hover .ds-pieza-title{color:var(--color-minium,#c22f1d);}.ds-pieza-meta{margin-top:0.25rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;color:var(--color-ink-soft,#5d574a);}.ds-pieza-meta b{color:var(--color-minium,#c22f1d);font-weight:500;}.ds-pieza-ver{display:inline-block;margin-top:0.75rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);padding-bottom:2px;}.ds-pieza:hover .ds-pieza-ver{color:var(--color-minium,#c22f1d);border-color:var(--color-minium,#c22f1d);}.ds-pieza:focus-within{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
     },
     {
       "name": "Fila de histórico (ledger row)",
@@ -184,7 +271,7 @@
       "refersTo": "canto-apilado",
       "description": "Tarjeta de captura del especial: borde de tinta 2px, tilt de rotulador, .canto debajo, \"leer el folleto ↗\" en Caveat minio.",
       "html": "<a class=\"ds-folleto\" href=\"#\"><div class=\"ds-folleto-shot\">captura del anexo</div><div class=\"ds-folleto-body\"><h3 class=\"ds-folleto-title\">Guía de motos de media cilindrada</h3><p class=\"ds-folleto-text\">14 motos a examen: fiabilidad, mantenimiento casero y precios.</p><span class=\"ds-folleto-ver\">leer el folleto ↗</span></div></a>",
-      "css": ".ds-folleto{position:relative;display:block;border:2px solid var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);transform:rotate(-0.8deg);font-family:'Barlow',system-ui,sans-serif;transition:color 150ms ease,transform 180ms cubic-bezier(0.16,1,0.3,1);}.ds-folleto::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-folleto:hover{transform:rotate(-0.8deg) translateY(-2px);}.ds-folleto-shot{aspect-ratio:16/10;border-bottom:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-folleto-body{padding:1.25rem 1.5rem;}.ds-folleto-title{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:-0.01em;color:var(--color-ink,#20211c);}.ds-folleto:hover .ds-folleto-title{color:var(--color-minium,#c22f1d);}.ds-folleto-text{margin-top:0.5rem;line-height:1.625;color:rgba(32,33,28,0.8);}.ds-folleto-ver{display:inline-block;margin-top:1rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-minium,#c22f1d);}"
+      "css": ".ds-folleto{position:relative;display:block;border:2px solid var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);transform:rotate(-0.8deg);font-family:'Barlow',system-ui,sans-serif;transition:color 150ms ease,transform 180ms cubic-bezier(0.16,1,0.3,1);}.ds-folleto::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-folleto:hover{transform:rotate(-0.8deg) translateY(-2px);}.ds-folleto-shot{aspect-ratio:16/10;border-bottom:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-folleto-body{padding:1.25rem 1.5rem;}.ds-folleto-title{font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:-0.01em;color:var(--color-ink,#20211c);}.ds-folleto:hover .ds-folleto-title{color:var(--color-minium,#c22f1d);}.ds-folleto-text{margin-top:0.5rem;line-height:1.625;color:rgba(32,33,28,0.8);}.ds-folleto-ver{display:inline-block;margin-top:1rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-minium,#c22f1d);}"
     }
   ],
   "narrative": {

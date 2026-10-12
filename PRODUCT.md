@@ -62,6 +62,9 @@ relevo Eclipse scrape + fallback JSON en repo).
   imperativos directos ("suscríbete", "échale un ojo"), léxico peninsular
   ("vídeos", "móvil", "ordenador", "coche"), sin giros de doblaje ni de
   traducción.
+- **Marca gráfica:** escudo circular rojo con "TUANBYTE" apilado (kit en
+  `docs/TB/`); tipografía de marca **Barlow 900**, identificada del propio
+  escudo. El antiguo motivo `>_` queda retirado: no pertenece al canal.
 - Guardadas contexto board (visual decisions): se documentan en `DESIGN.md` en
   la fase de dirección de arte, no aquí.
 

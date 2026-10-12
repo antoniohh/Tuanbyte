@@ -11,7 +11,7 @@
   --color-minium-dark: #932208;
   --color-strike: #e9b611;
 
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-display: "Barlow", system-ui, sans-serif;
   --font-sans: "Barlow", system-ui, sans-serif;
   --font-marker: "Caveat", cursive;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;

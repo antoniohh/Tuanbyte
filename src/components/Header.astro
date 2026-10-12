@@ -5,30 +5,47 @@ const links = [
   { href: "#anexos", label: "Anexos" },
   { href: "#contacto", label: "Contacto" },
 ];
+
+const tabClass =
+  "border border-ink-line bg-paper px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] whitespace-nowrap transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5";
 ---
 
 <header class="perfo-top border-b-2 border-ink bg-paper-2">
-  <div class="pt-3">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-      <a href="/" class="flex items-baseline gap-2 font-display text-2xl font-bold tracking-tight text-ink">
-        <span class="text-minium">&gt;_</span>
-        Tuanbyte
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="flex h-16 items-center justify-between pt-3">
+      <a href="/" class="flex items-center gap-2.5">
+        <img
+          src="/brand/mark-256.png"
+          alt=""
+          width="36"
+          height="36"
+          class="h-9 w-9"
+        />
+        <span class="font-display text-2xl font-black uppercase tracking-tight text-ink">
+          Tuanbyte
+        </span>
       </a>
-      <nav
-        class="flex items-center gap-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] sm:gap-2"
-        aria-label="Secciones del catálogo"
-      >
+      <nav class="hidden items-center gap-2 md:flex" aria-label="Secciones del catálogo">
         {
           links.map((l) => (
-            <a
-              href={l.href}
-              class="border border-ink-line bg-paper px-2.5 py-2 transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5"
-            >
+            <a href={l.href} class={tabClass}>
               {l.label}
             </a>
           ))
         }
       </nav>
     </div>
+    <nav
+      class="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-2 md:hidden"
+      aria-label="Secciones del catálogo"
+    >
+      {
+        links.map((l) => (
+          <a href={l.href} class={tabClass}>
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
   </div>
 </header>
