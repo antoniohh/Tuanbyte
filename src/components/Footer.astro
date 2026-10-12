@@ -1,24 +1,95 @@
 ---
+const anios = new Date().getFullYear() - 2016;
+
+const secciones = [
+  { href: "#catalogo", label: "Catálogo" },
+  { href: "#listas", label: "Listas" },
+  { href: "#anexos", label: "Anexos" },
+  { href: "#contacto", label: "Contacto" },
+];
+
+const tambien = [
+  { href: "https://www.youtube.com/tuanbyte", label: "El canal en YouTube", externo: true },
+  { href: "https://especiales.antoniohorrillo.com/", label: "Reportajes especiales", externo: true },
+  { href: "mailto:info@tuanbyte.es", label: "info@tuanbyte.es", externo: false },
+];
 ---
 
-<footer class="bg-paper">
-  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-10 sm:px-8">
-    <p class="flex items-center gap-2.5 text-ink">
-      <img src="/brand/mark-256.png" alt="" width="28" height="28" class="h-7 w-7" />
-      <span class="font-marker text-xl">
-        catálogo editado e impreso por Tuanbyte — Antonio Horrillo · CC BY 4.0
-      </span>
-    </p>
-    <div class="flex items-center gap-5 font-mono text-xs text-ink-soft">
-      <a href="/humans.txt" class="underline decoration-dotted underline-offset-2 hover:text-minium">humans.txt</a>
-      <a
-        href="https://github.com/antoniohh/Tuanbyte"
-        target="_blank"
-        rel="noopener"
-        class="underline decoration-dotted underline-offset-2 hover:text-minium"
-      >
-        el código ↗
-      </a>
+<footer class="bg-paper-2">
+  <div class="border-t-2 border-ink bg-paper">
+    <div class="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:px-8 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <a href="/" class="flex items-center gap-3">
+          <img
+            src="/brand/mark-256.png"
+            alt=""
+            width="48"
+            height="48"
+            class="h-12 w-12"
+          />
+          <span class="font-brand text-3xl uppercase tracking-tight text-ink">
+            Tuanbyte
+          </span>
+        </a>
+        <p class="mt-4 max-w-[36ch] font-marker text-xl text-minium">
+          mecánica casera, bricolaje y tecnología sin humo
+        </p>
+        <p
+          class="mt-6 inline-block -rotate-3 border-2 border-dashed border-minium px-4 py-2 font-marker text-xl text-minium"
+        >
+          {anios} años imprimiendo el catálogo
+        </p>
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-2 lg:col-span-7">
+        <div>
+          <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
+            este catálogo
+          </p>
+          <ul class="mt-4 space-y-2.5">
+            {
+              secciones.map((s) => (
+                <li>
+                  <a
+                    href={s.href}
+                    class="border-b border-ink-line pb-0.5 font-semibold text-ink transition-colors hover:border-minium hover:text-minium"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div>
+          <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
+            también
+          </p>
+          <ul class="mt-4 space-y-2.5">
+            {
+              tambien.map((t) => (
+                <li>
+                  <a
+                    href={t.href}
+                    target={t.externo ? "_blank" : undefined}
+                    rel={t.externo ? "noopener" : undefined}
+                    class="border-b border-ink-line pb-0.5 font-semibold text-ink transition-colors hover:border-minium hover:text-minium"
+                  >
+                    {t.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-marca-rojo text-paper">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-4 font-mono text-xs sm:px-8">
+      <span>© 2016–{new Date().getFullYear()} Tuanbyte · Antonio Horrillo · CC BY 4.0</span>
+      <span class="text-paper/90">impreso en GitHub Pages · tirada diaria</span>
     </div>
   </div>
 </footer>
