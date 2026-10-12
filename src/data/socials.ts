@@ -35,11 +35,6 @@ export const socials: Social[] = [
     href: "https://www.pinterest.es/tuanbyte",
     handle: "pinterest.es/tuanbyte",
   },
-  {
-    label: "GitHub",
-    href: "https://github.com/tuanbyte",
-    handle: "github.com/tuanbyte",
-  },
 ];
 
 export const email = "info@tuanbyte.es";
