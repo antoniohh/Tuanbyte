@@ -27,6 +27,15 @@ del agente).
   `legacy/` borrado por ti a conciencia (recuperable de git: commit
   `283316f`).
 
+## Release de producción (13/10)
+
+- Empaquetado **v1.0.0**: README completo (badges, arquitectura, árbol, puesta
+  en marcha, versionado), `CHANGELOG.md` nuevo y tags `v0.1.0`→`v1.0.0`.
+- `package.json` con descripción, repositorio, `homepage` y Node ≥22.
+- Limpieza: los artefactos de análisis del skill (`.impeccable/build`,
+  `.impeccable/questions`) salen del control de versiones.
+- **Falta pushear**: `git push && git push --tags`.
+
 ## Hecho tras la sesión inicial
 
 - Reconstrucción automática diaria del sitio (cron 06:17 UTC en el workflow): la
