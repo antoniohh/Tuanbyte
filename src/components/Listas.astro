@@ -1,0 +1,63 @@
+---
+import type { Playlist } from "@/lib/playlists";
+
+interface Props {
+  playlists: Playlist[];
+}
+
+const { playlists } = Astro.props;
+---
+
+<section id="listas" class="scroll-mt-20 bg-paper-2">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-3">
+      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+        Listas de reproducción
+      </h2>
+      <p class="font-marker text-2xl text-minium">
+        el canal ordenado por temas
+      </p>
+    </div>
+    <p class="mt-4 max-w-[62ch] leading-relaxed text-ink/85">
+      Las últimas listas con contenido, tal cual están en YouTube: cada tema
+      con sus vídeos seguidos, para verlos de un tirón.
+    </p>
+
+    <ul class="mt-10 divide-y-2 divide-ink-line border-2 border-ink">
+      {
+        playlists.map((p) => (
+          <li>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener"
+              class="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 bg-paper px-6 py-5 transition-colors hover:bg-strike/30 sm:px-8"
+            >
+              <span class="font-display text-2xl font-bold uppercase tracking-tight text-ink group-hover:text-minium">
+                {p.title}
+              </span>
+              <span class="flex items-baseline gap-6">
+                <span class="font-mono text-xs text-ink-soft">{p.countText}</span>
+                <span class="font-marker text-xl text-ink group-hover:text-minium">
+                  ver lista ↗
+                </span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-6 font-marker text-2xl text-ink">
+      todas las listas, en
+      <a
+        href="https://www.youtube.com/channel/UCD6wDPVAuQuQX0xNGIqq9xA/playlists"
+        target="_blank"
+        rel="noopener"
+        class="border-b-2 border-ink pb-0.5 transition-colors hover:border-minium hover:text-minium"
+      >
+        el canal ↗
+      </a>
+    </p>
+  </div>
+</section>

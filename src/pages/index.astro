@@ -5,13 +5,15 @@ import Hero from "@/components/Hero.astro";
 import Regleta from "@/components/Regleta.astro";
 import TapeDivider from "@/components/TapeDivider.astro";
 import Videos from "@/components/Videos.astro";
-import Pilares from "@/components/Pilares.astro";
+import Listas from "@/components/Listas.astro";
 import Especiales from "@/components/Especiales.astro";
 import Redes from "@/components/Redes.astro";
 import Footer from "@/components/Footer.astro";
 import { getVideos } from "@/lib/videos";
+import { getPlaylists } from "@/lib/playlists";
 
 const videos = await getVideos(10);
+const playlists = await getPlaylists(5);
 const [featured, ...rest] = videos;
 
 const now = new Date();
@@ -32,7 +34,7 @@ const description =
     <Regleta ultimoTexto={featured.dateText} listados={videos.length} />
     <Videos videos={rest} />
     <TapeDivider />
-    <Pilares />
+    <Listas playlists={playlists} />
     <TapeDivider flip />
     <Especiales />
     <TapeDivider />
