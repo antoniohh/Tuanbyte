@@ -57,7 +57,8 @@ relevo Eclipse scrape + fallback JSON en repo).
 - Nombre: **Tuanbyte** (una palabra; la "T" y la "B" en ficha de marca, como en
   el logotipo).
 - La tierra fértil del canal: manualidad técnica sin humo, honestidad de
-  costes, público español.
+  costes, público español. En activo **desde enero de 2016** (dato de marca que
+  puede citarse tal cual).
 - **Registro lingüístico: español de España.** Segunda persona del singular con
   imperativos directos ("suscríbete", "échale un ojo"), léxico peninsular
   ("vídeos", "móvil", "ordenador", "coche"), sin giros de doblaje ni de
