@@ -21,6 +21,7 @@ const editionText = new Intl.DateTimeFormat("es-ES", {
   month: "long",
   year: "numeric",
 }).format(now);
+const aniosText = now.getFullYear() - 2016;
 
 const title = "Tuanbyte — el catálogo del taller";
 const description =
@@ -30,7 +31,7 @@ const description =
 <BaseLayout title={title} description={description}>
   <Header />
   <main>
-    <Hero featured={featured} editionText={editionText} />
+    <Hero featured={featured} editionText={editionText} aniosText={aniosText} />
     <Regleta ultimoTexto={featured.dateText} listados={videos.length} />
     <Videos videos={rest} />
     <TapeDivider />

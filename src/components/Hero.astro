@@ -4,9 +4,10 @@ import type { Video } from "@/lib/videos";
 interface Props {
   featured: Video;
   editionText: string;
+  aniosText: number;
 }
 
-const { featured, editionText } = Astro.props;
+const { featured, editionText, aniosText } = Astro.props;
 ---
 
 <section>
@@ -18,8 +19,8 @@ const { featured, editionText } = Astro.props;
         El catálogo<br />del taller
       </h1>
       <p class="mt-4 font-marker text-2xl text-minium">
-        edición continua — {editionText}
-        <span class="whitespace-nowrap">· desde enero de 2016</span>
+        edición continua — desde enero de 2016 a {editionText}
+        <span class="whitespace-nowrap">· {aniosText} años en YouTube</span>
       </p>
       <p class="mt-6 max-w-[56ch] text-xl leading-relaxed text-ink/90">
         Aquí no hay estrenos de escaparate. Desde la CB250 en el garaje hasta
