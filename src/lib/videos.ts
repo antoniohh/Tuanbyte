@@ -40,6 +40,10 @@ export function fmtViews(views: number): string {
   return `${views} visualizaciones`;
 }
 
+function prettyAge(text: string): string {
+  return text.replace(/^hace\s+(\d+)\s+m$/, "hace $1 meses");
+}
+
 async function fromFeed(): Promise<Video[] | null> {
   try {
     const res = await fetch(FEED_URL, { headers: { "User-Agent": UA } });
@@ -139,7 +143,7 @@ async function fromChannelPage(): Promise<Video[] | null> {
           const views = /^\d+/.test(viewsText)
             ? Number(viewsText.replace(/[^\d]/g, ""))
             : null;
-          out.push(asVideo(id, title, parts[1] ?? "", views));
+          out.push(asVideo(id, title, prettyAge(parts[1] ?? ""), views));
         }
         return;
       }
@@ -156,7 +160,7 @@ function fromFallback(): Video[] {
   const raw = fallbackRaw as Array<Record<string, string>>;
   return raw
     .filter((v) => typeof v.id === "string" && typeof v.title === "string")
-    .map((v) => asVideo(v.id, v.title, v.age ?? "", null));
+    .map((v) => asVideo(v.id, v.title, prettyAge(v.age ?? ""), null));
 }
 
 export async function getVideos(limit = 6): Promise<Video[]> {

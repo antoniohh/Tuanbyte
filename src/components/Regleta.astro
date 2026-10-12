@@ -1,0 +1,33 @@
+---
+interface Props {
+  buildDateText: string;
+  piezas: number;
+}
+
+const { buildDateText, piezas } = Astro.props;
+---
+
+<aside
+  class="border-y-2 border-ink bg-ink text-paper"
+  aria-label="Estado del catálogo"
+>
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-2 px-5 py-3 font-mono text-xs tracking-[0.08em] sm:px-8">
+    <span class="flex items-center gap-2">
+      <span class="regleta-dot inline-block h-2 w-2 bg-strike" aria-hidden="true"> </span>
+      <span class="uppercase tracking-[0.14em] text-paper">en catálogo y cambiando</span>
+    </span>
+    <span>impresión: <span class="text-strike">{buildDateText}</span></span>
+    <span>piezas listadas: <span class="text-strike">{piezas}</span></span>
+    <span class="hidden sm:inline">
+      catálogo completo: <a
+        href="https://www.youtube.com/tuanbyte"
+        target="_blank"
+        rel="noopener"
+        class="text-strike underline decoration-dotted underline-offset-2">youtube/tuanbyte</a
+      >
+    </span>
+    <span class="ml-auto hidden font-mono text-paper lg:inline" aria-hidden="true">
+      <span class="regleta-dot">▍</span>
+    </span>
+  </div>
+</aside>

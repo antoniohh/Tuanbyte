@@ -1,58 +1,56 @@
 ---
-const pilares = [
+const secciones = [
   {
-    n: "01",
-    title: "Mecánica casera",
-    tag: "serie CB250 TwoFifty",
-    text: "La Honda CB250 TwoFifty como proyecto de serie: pastillas de tambor, kit de arrastre, bujías, LEDs homologados… cada operación con sus costes reales y lo que NO conviene hacer.",
+    dept: "Motocicletas",
+    tag: "departamento de garaje",
+    text: "La Honda CB250 TwoFifty en trato directo: kit de arrastre, zapatas de tambor, bujías, candado en U y una restauración completa de la maleta. Cada operación con manos, bielas y coste a la vista.",
     href: "https://www.youtube.com/tuanbyte",
   },
   {
-    n: "02",
-    title: "Bricolaje y herramientas",
-    tag: "parkside · workzone",
-    text: "Rejuntados, humedades, pinturas y restauraciones en casa, con las herramientas low-cost de Lidl y Aldi (Parkside y Workzone) puestas a prueba de verdad.",
+    dept: "Hogar & obra",
+    tag: "departamento de chalet",
+    text: "Rejuntados, humedades, pintura de puertas y restauración de taburetes, con las herramientas low-cost de Parkside y Workzone testadas aquí delante, en garaje propio.",
     href: "https://www.youtube.com/tuanbyte",
   },
   {
-    n: "03",
-    title: "Tecnología",
-    tag: "linux · obs · web",
-    text: "Linux de sobremesa (Zorin OS), OBS, desarrollo web y el gadgets que uso para grabar: lo que funciona, lo que no y cuánto cuesta.",
+    dept: "Tecnología",
+    tag: "departamento de despacho",
+    text: "Linux de sobremesa (Zorin OS), OBS, cámaras y la parte de github donde vive esta web: lo que de verdad uso para grabar y publicar, con su precio.",
     href: "https://github.com/tuanbyte",
   },
 ];
 ---
 
-<section id="pilares" class="border-b border-white/10 bg-white/[0.02]">
-  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
-    <h2 class="text-3xl font-bold tracking-tight text-neutral-50 sm:text-4xl">
-      Qué hace Tuanbyte
+<section id="secciones" class="scroll-mt-20 border-b-2 border-ink bg-paper-2">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
+    <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+      Departamentos
     </h2>
+    <p class="mt-2 font-marker text-2xl text-minium">
+      qué vas a encontrar en este catálogo
+    </p>
 
-    <div class="mt-12 divide-y divide-neutral-800 border-t-2 border-neutral-800">
+    <div class="mt-10 space-y-8">
       {
-        pilares.map((p) => (
-          <div class="grid gap-4 py-8 sm:grid-cols-[5rem_1fr_auto] sm:gap-8 lg:py-10">
-            <p class="font-mono text-3xl font-bold text-neutral-700" aria-hidden="true">
-              {p.n}
-            </p>
-            <div class="min-w-0">
-              <h3 class="text-2xl font-bold text-neutral-50">
-                {p.title}
-                <span class="ml-3 align-middle font-mono text-[0.6875rem] font-normal uppercase tracking-[0.14em] text-amber-300">
-                  {p.tag}
-                </span>
+        secciones.map((s) => (
+          <div class="canto grid items-baseline gap-3 bg-paper px-6 py-6 sm:grid-cols-[1fr_7rem_auto] sm:gap-8 sm:px-8">
+            <div>
+              <h3 class="font-display text-3xl font-bold uppercase tracking-tight text-ink">
+                {s.dept}
               </h3>
-              <p class="mt-3 max-w-[64ch] leading-relaxed text-neutral-400">{p.text}</p>
+              <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-minium">
+                {s.tag}
+              </p>
+              <p class="mt-3 max-w-[68ch] leading-relaxed text-ink/85">{s.text}</p>
             </div>
+            <div />
             <a
-              href={p.href}
+              href={s.href}
               target="_blank"
               rel="noopener"
-              class="self-end border-b border-neutral-700 pb-0.5 font-mono text-sm text-neutral-300 transition-colors hover:border-amber-300 hover:text-amber-300"
+              class="justify-self-start border-b-2 border-ink pb-0.5 font-marker text-xl text-ink transition-colors hover:border-minium hover:text-minium sm:justify-self-end"
             >
-              ver en el canal ↗
+              pasillo ↗
             </a>
           </div>
         ))

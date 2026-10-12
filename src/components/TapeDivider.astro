@@ -1,0 +1,19 @@
+---
+interface Props {
+  flip?: boolean;
+}
+
+const { flip = false } = Astro.props;
+---
+
+<div aria-hidden="true" class={flip ? "py-8" : "py-8"} class:list={[flip ? "rotate-180" : ""]}>
+  <svg class="block h-4 w-full" viewBox="0 0 1200 20" preserveAspectRatio="none">
+    <path
+      d="M0 10 C 150 -2, 300 20, 450 9 C 620 -3, 780 21, 950 8 C 1050 4, 1130 12, 1200 8"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      vector-effect="non-scaling-stroke"
+    />
+  </svg>
+</div>

@@ -2,6 +2,8 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
+import Regleta from "@/components/Regleta.astro";
+import TapeDivider from "@/components/TapeDivider.astro";
 import Videos from "@/components/Videos.astro";
 import Pilares from "@/components/Pilares.astro";
 import Especiales from "@/components/Especiales.astro";
@@ -10,17 +12,26 @@ import Footer from "@/components/Footer.astro";
 import { getVideos } from "@/lib/videos";
 
 const videos = await getVideos(6);
+const [featured, ...rest] = videos;
 
-const title = "Tuanbyte — mecánica casera, bricolaje y tecnología";
+const buildDateText = new Intl.DateTimeFormat("es-ES", {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+}).format(new Date());
+
+const title = "Tuanbyte — el catálogo del taller";
 const description =
-  "Mecánica casera con una Honda CB250 TwoFifty, bricolaje con herramientas low-cost y tecnología sin humo, contados paso a paso con el coste real.";
+  "Mecánica casera con una Honda CB250 TwoFifty, bricolaje con herramientas low-cost y tecnología sin humo, listados pieza a pieza con su coste real.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
   <main>
-    <Hero />
-    <Videos videos={videos} />
+    <Hero featured={featured} buildDateText={buildDateText} />
+    <Regleta buildDateText={buildDateText} piezas={videos.length} />
+    <Videos videos={rest} />
+    <TapeDivider />
     <Pilares />
     <Especiales />
     <Redes />

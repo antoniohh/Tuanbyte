@@ -7,8 +7,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const siteUrl = "https://tuanbyte.es";
-
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
@@ -23,18 +21,28 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta name="robots" content="index, follow" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0c0e12" />
+    <meta name="theme-color" content="#f2ead8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
+    <meta
+      property="og:title"
+      content={title}
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Tuanbyte" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Tuanbyte" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@tuanbyte" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
-  <body>
+  <body class="bg-paper text-ink min-h-dvh antialiased">
     <slot />
   </body>
 </html>

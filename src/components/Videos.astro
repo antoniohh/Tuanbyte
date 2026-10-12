@@ -6,94 +6,79 @@ interface Props {
 }
 
 const { videos } = Astro.props;
-const [featured, ...rest] = videos;
+const fmt = new Intl.NumberFormat("es-ES");
 ---
 
-<section id="videos" class="border-b border-white/10">
-  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
-    <div class="flex items-baseline justify-between gap-4">
-      <h2 class="text-3xl font-bold tracking-tight text-neutral-50 sm:text-4xl">
-        Últimos vídeos
+<section id="catalogo" class="scroll-mt-20 border-b-2 border-ink">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-3">
+      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+        Última hornada
       </h2>
-      <p class="font-mono text-xs uppercase tracking-[0.14em] text-neutral-500">
-        directo desde el canal
+      <p class="font-marker text-2xl text-minium">
+        lo recién impreso, de corrido
       </p>
     </div>
 
-    {
-      featured && (
-        <a
-          href={featured.url}
-          target="_blank"
-          rel="noopener"
-          class="group mt-10 block border border-white/10 bg-white/[0.03] transition-colors hover:border-amber-300/40"
-        >
-          <div class="grid md:grid-cols-2">
-            <div class="relative aspect-video overflow-hidden">
-              <img
-                src={featured.thumbnail.replace("mqdefault", "hqdefault")}
-                alt={`Miniatura de «${featured.title}»`}
-                class="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="flex flex-col justify-center gap-3 p-6 sm:p-8">
-              <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-amber-300">
-                el más reciente
-              </p>
-              <h3 class="text-xl font-bold leading-snug text-neutral-50 sm:text-2xl">
-                {featured.title}
-              </h3>
-              <p class="font-mono text-sm text-neutral-400">
-                {featured.dateText}
-                {featured.viewsText ? ` · ${featured.viewsText}` : ""}
-              </p>
-              <p class="mt-2 font-mono text-sm text-neutral-500 transition-colors group-hover:text-amber-300">
-                ver en YouTube ↗
-              </p>
-            </div>
-          </div>
-        </a>
-      )
-    }
-
-    <div class="mt-8 divide-y divide-white/10 border border-white/10">
+    <div class="mt-10 border-2 border-ink bg-paper">
+      <div class="hidden grid-cols-[7rem_1fr_auto_auto_minmax(9rem,auto)] gap-4 border-b-2 border-ink bg-paper-2 px-5 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-soft sm:grid">
+        <span>ref.</span>
+        <span>pieza</span>
+        <span>fecha</span>
+        <span class="text-right">vistas</span>
+        <span></span>
+      </div>
       {
-        rest.map((v) => (
+        videos.map((v, i) => (
           <a
             href={v.url}
             target="_blank"
             rel="noopener"
-            class="group flex items-center gap-4 bg-white/[0.03] p-3 transition-colors hover:bg-white/[0.06] sm:gap-6 sm:p-4"
+            class:list={[
+              "group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-4 transition-colors hover:bg-paper-2 sm:grid-cols-[7rem_1fr_auto_auto_minmax(9rem,auto)] sm:px-5",
+              i !== videos.length - 1 ? "border-b border-ink-line" : "",
+            ]}
           >
-            <img
-              src={v.thumbnail}
-              alt={`Miniatura de «${v.title}»`}
-              class="aspect-video w-36 shrink-0 object-cover sm:w-48"
-              loading="lazy"
-            />
-            <div class="min-w-0">
-              <h3 class="truncate text-sm font-semibold text-neutral-100 group-hover:text-amber-300 sm:text-base">
-                {v.title}
-              </h3>
-              <p class="mt-1 font-mono text-xs text-neutral-500">
-                {v.dateText}
-                {v.viewsText ? ` · ${v.viewsText}` : ""}
-              </p>
-            </div>
+            <span class="hidden font-mono text-xs tracking-[0.08em] text-ink-soft sm:block">
+              {v.id.slice(-4).toUpperCase()}
+            </span>
+            <span class="flex min-w-0 items-center gap-4">
+              <img
+                src={v.thumbnail}
+                alt={`Miniatura de «${v.title}»`}
+                class="aspect-video w-28 shrink-0 border border-ink object-cover"
+                loading="lazy"
+              />
+              <span class="min-w-0">
+                <span class="block truncate font-semibold text-ink group-hover:text-minium sm:text-lg">
+                  {v.title}
+                </span>
+                <span class="font-mono text-xs text-ink-soft sm:hidden">{v.dateText}</span>
+              </span>
+            </span>
+            <span class="hidden font-mono text-xs text-ink-soft sm:block">{v.dateText}</span>
+            <span class="hidden font-mono text-xs tabular-nums text-ink-soft sm:block">
+              {v.viewsText ? v.viewsText.replace(" visualizaciones", "") : "—"}
+            </span>
+            <span class="justify-self-end font-marker text-xl text-ink transition-colors group-hover:text-minium">
+              <>
+                {v.id ? "ver ficha ↗" : ""}
+              </>
+            </span>
           </a>
         ))
       }
     </div>
 
-    <p class="mt-6 font-mono text-sm text-neutral-500">
+    <p class="mt-6 font-marker text-2xl text-ink">
+      piezas descatalogadas y episodios viejos,
       <a
         href="https://www.youtube.com/tuanbyte"
         target="_blank"
         rel="noopener"
-        class="border-b border-neutral-700 pb-0.5 transition-colors hover:border-amber-300 hover:text-amber-300"
+        class="border-b-2 border-ink pb-0.5 transition-colors hover:border-minium hover:text-minium"
       >
-        todos los vídeos en el canal ↗
+        en el almacén del canal ↗
       </a>
     </p>
   </div>

@@ -1,1 +1,131 @@
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #f2ead8;
+  --color-paper-2: #e9dfc8;
+  --color-paper-3: #ddd0b2;
+  --color-ink: #20211c;
+  --color-ink-soft: #5d574a;
+  --color-ink-line: #b4a98f;
+  --color-minium: #c22f1d;
+  --color-minium-dark: #932208;
+  --color-strike: #e9b611;
+
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-marker: "Caveat", cursive;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+}
+
+::selection {
+  background-color: var(--color-minium);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-minium);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+html {
+  scrollbar-color: var(--color-ink) var(--color-paper-2);
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility font-marker {
+  font-family: var(--font-marker);
+}
+
+.canto {
+  position: relative;
+}
+
+.canto::before {
+  content: "";
+  position: absolute;
+  inset: 4px -4px -4px 4px;
+  background: var(--color-paper-3);
+  z-index: -1;
+}
+
+.tape {
+  position: relative;
+}
+
+.tape::after {
+  content: "";
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.6rem;
+  transform: translateX(-50%) rotate(-3deg);
+  background: color-mix(in srgb, var(--color-strike) 62%, transparent);
+  border-left: 1px dashed color-mix(in srgb, var(--color-ink) 30%, transparent);
+  border-right: 1px dashed color-mix(in srgb, var(--color-ink) 30%, transparent);
+}
+
+.perfo-top {
+  background-image: radial-gradient(
+    circle at 50% 0,
+    var(--color-paper) 5px,
+    transparent 5.5px
+  );
+  background-size: 22px 10px;
+  background-repeat: repeat-x;
+}
+
+.regleta-dot {
+  animation: regleta-pulse 2.2s steps(2, jump-none) infinite;
+}
+
+@keyframes regleta-pulse {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
+.sello {
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sello:hover {
+  transform: rotate(-1.5deg) translateY(-1px);
+}

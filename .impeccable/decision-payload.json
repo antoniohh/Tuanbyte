@@ -1,0 +1,144 @@
+{
+  "title": "Elegir el mundo visual de tuanbyte.es",
+  "question": "El rollo ha repartido una mano de direcciones de arte. Elige la tuya, toma una alternativa o re-rollea.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Catálogo de barrio",
+      "kicker": "THE ROLL",
+      "lineage": "catálogos de ferretería de barrio, con precios a rotulador",
+      "thesis": "La web como catálogo del taller: cada vídeo es una pieza codificada, fechada y con su anotación de presupuesto.",
+      "palette": ["#f2ead8", "#20211c", "#c22f1d", "#e9b611"],
+      "materials": ["papel abatido", "números de goma para tarifar", "retratos a corral"],
+      "viewport": "Cabecera tipo folleto con la marca y el canal; los últimos vídeos como primera fila de piezas con código y fecha; la suscripción golpeada como sello sobre el folio.",
+      "risk": "Si se juega a fondo, degenera en grid de app SaaS con miniaturas en tarjeta. La textura manda o no es un catálogo.",
+      "raised": [
+        {
+          "from": "challenger-oscilloscope",
+          "raise": "Regleta viva y medida abajo: fecha y build actual, contador del canal y piezas en catálogo, tickando en continuo."
+        },
+        {
+          "from": "aww2-zoo-map",
+          "raise": "Las fronteras entre productos no son reglas rectas: litoral curvo trazado a cinta que fluidece de corazón en corazón."
+        },
+        {
+          "from": "craft-making-lowicz-layered-papercut",
+          "raise": "Profundidad sin sombra: los elementos clave son capas planas apiladas, con canto de papel a la vista."
+        }
+      ],
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "cabecera-catálogo", "x": 0, "y": 0, "w": 12, "h": 2, "accent": true },
+        { "label": "pieza destacada", "x": 0, "y": 2, "w": 5, "h": 4 },
+        { "label": "fila de piezas", "x": 5, "y": 2, "w": 7, "h": 4 },
+        { "label": "regleta viva", "x": 0, "y": 6, "w": 12, "h": 1 },
+        { "label": "pasillo de redes", "x": 0, "y": 7, "w": 12, "h": 3 }
+      ] }
+    },
+    {
+      "id": "build-collage",
+      "label": "Mesa de taller",
+      "verdict": "wins",
+      "lineage": "collage de recortes dadaísta llevado al mundo del taller",
+      "thesis": "Una mesa de trabajo real: fotos de la CB250, tickets con costes, etiquetas Parkside y cinta de celo, todo recortado y fechado a mano.",
+      "palette": ["#e9e0cd", "#191614", "#b5301c", "#d9a41d"],
+      "materials": ["recortes de papel kraft", "cinta adhesiva", "tipografía sellada"],
+      "viewport": "Hero como collage: miniaturas del canal pasadas a fotos pegadas con cinta, ticket con el coste real de la última reparación y sello rojo de suscribirse.",
+      "case": "Fusiona perfecto: material epocular real (fotos propias, tickets, etiquetas) que el aficionado reconoce al instante; el mecanismo de 'datos con la mano' ya vive en la forma.",
+      "risk": "Un collage exige oficio al corte: sin ritmo, va de efimera a bazar chino.",
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "cinta superior", "x": 0, "y": 0, "w": 12, "h": 1, "accent": true },
+        { "label": "foto hero pegada", "x": 0, "y": 1, "w": 6, "h": 5 },
+        { "label": "ticket suscripción", "x": 6, "y": 1, "w": 6, "h": 3 },
+        { "label": "recortes sueltos", "x": 6, "y": 4, "w": 6, "h": 2 },
+        { "label": "reparto fotográfico", "x": 0, "y": 6, "w": 12, "h": 4 }
+      ] },
+      "hero": "https://impeccable.style/worlds/cards/design-canon-merz-collage-page-hero.webp"
+    },
+    {
+      "id": "challenger-graph",
+      "label": "Diagrama de cargas",
+      "verdict": "competitive",
+      "lineage": "escultura de tensión con anotaciones de ingeniería",
+      "thesis": "Todo lo que la web muestra va anotado con sus números: líneas de guía desde cada dato hasta su etiqueta (km, costes, visualizaciones).",
+      "palette": ["#15161a", "#c3342b", "#d6d3cc", "#6f6f68"],
+      "materials": ["hormigón gris", "hilo rojo de tensión", "anotaciones monoespaciadas"],
+      "viewport": "Escultura vertical del taller dibujada como pieza de museo técnico, con leader-lines sobre fondo de hormigón y llamadas de datos reales.",
+      "case": "El rival serio: honestidad numérica hecha forma pura; pierde contra el material carnal del taller en identificación con el aficionado.",
+      "risk": "El abstracto cansa rápido a un público para ver pasos: sin fotos del taller no convence.",
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "anotación funcional", "x": 0, "y": 0, "w": 12, "h": 1 },
+        { "label": "escultura central", "x": 4, "y": 1, "w": 4, "h": 8 },
+        { "label": "leader-lines y datos", "x": 8, "y": 1, "w": 4, "h": 8 },
+        { "label": "precio atado", "x": 0, "y": 1, "w": 4, "h": 8, "accent": true }
+      ] },
+      "hero": "https://impeccable.style/worlds/cards/kinetic-sculpture-automata-tensegrity-breathing-column-hero.webp"
+    },
+    {
+      "id": "challenger-oscilloscope",
+      "label": "Banco de señal",
+      "verdict": "declined",
+      "lineage": "osciloscopio CRT sobre banco de pruebas",
+      "palette": ["#0a0f0a", "#41d94a", "#d98a1a"],
+      "materials": ["fósforo verde", "retícula grabada", "contadores de 7 segmentos"],
+      "case": "Fusión floja: el público mecánico y de bricolaje no habita el banco de señal, y el negro con neón y brillos es el estereotipo de los modelos.",
+      "kept": "El tick en vivo: señal continua, nada congelado.",
+      "hero": "https://impeccable.style/worlds/cards/scientific-notation-oscilloscope-signal-bench-hero.webp"
+    },
+    {
+      "id": "aww2-zoo-map",
+      "label": "Plano de jardines",
+      "verdict": "declined",
+      "lineage": "plano-guía de zoo con lóbulos de color plano",
+      "palette": ["#f3ead8", "#7da05a", "#d47c4a", "#e9c932"],
+      "materials": ["papel justo con pliegues", "lóbulos planos", "cápsulas de etiqueta"],
+      "case": "Encanto alto, pero el taller no se recorre como un zoo: la navegación por lóbulos no serviría a los vídeos.",
+      "kept": "Fronteras como litoral curvo, nunca reglas rectas.",
+      "hero": "https://impeccable.style/worlds/cards/aww2-zoo-gardens-guide-map-hero.webp"
+    },
+    {
+      "id": "operate-b-struck-cathode-gauze",
+      "label": "Gauza catódica",
+      "verdict": "declined",
+      "lineage": "contador de décadas Nixie con malla de ánodo",
+      "palette": ["#12141c", "#ff7a1a", "#8d7b3d"],
+      "materials": ["malla de ánodo", "bombillas naranjas grabadas", "glow sin atenuación"],
+      "case": "Se agrupa con el cliché 'casi negro más neón' de los modelos, y es un mundo Operate donde la ronda pide Persuade.",
+      "kept": "La opción no elegida queda visible como fantasma detrás de la gauza.",
+      "hero": "https://impeccable.style/worlds/cards/operate-b-struck-cathode-gauze-hero.webp"
+    },
+    {
+      "id": "craft-making-lowicz-layered-papercut",
+      "label": "Papercut de Łowicz",
+      "verdict": "declined",
+      "lineage": "recorte simétrico polaco en capas",
+      "palette": ["#ffffff", "#d92b2b", "#f5c518", "#237a63"],
+      "materials": ["papel brillante apilado", "simetría de pliegue", "capas sin sombra"],
+      "case": "Precioso, pero folclore ajeno al taller en un garaje español: no identifica a nadie del público.",
+      "kept": "Profundidad construida apilando capas planas, jamás con sombras.",
+      "hero": "https://impeccable.style/worlds/cards/craft-making-lowicz-layered-papercut-hero.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Manual de despiece",
+      "kicker": "IMPECCABLE'S PICK",
+      "lineage": "manuales de taller Haynes/Clymer de los 70",
+      "thesis": "La web como manual de la CB250: cada sección es un paso numerado del despiece, sin adornos y con su herramienta en mano.",
+      "palette": ["#efe9dc", "#1c1a16", "#e8c20f", "#b8331c"],
+      "materials": ["cartulina recalca", "tipografía técnica", "diagramas de línea"],
+      "viewport": "Portada de manual a media página con el paso siguiente despegado; navegación vertical por pasos; suscribirse como la 'fase 1' sellada.",
+      "risk": "Familiaridad: es la dirección donde cae la mayoría en esta categoría, elegida por costumbre mejor que por medida."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code", "toggle": false },
+  "canon": true,
+  "canonCard": {
+    "label": "La estándar de la categoría",
+    "thesis": "Landing de creador de YouTube bien ejecutada: hero centrado, grid de vídeos y botón de suscribirse.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["grid limpio", "fotografía de producto"],
+    "viewport": "La disposición que el visitante espera, sin singularidad tapada con limosna.",
+    "risk": "Indistinguible de la competencia por decisión propia."
+  },
+  "steer": true
+}
