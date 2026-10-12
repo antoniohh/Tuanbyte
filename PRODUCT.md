@@ -54,10 +54,14 @@ relevo Eclipse scrape + fallback JSON en repo).
 
 ## Brand Commitments
 
-- Nombre: **Tuanbyte** (una palabra, minúscula de marca con la "T" y "B" mayúscu­las
-  informáticas según contexto).
+- Nombre: **Tuanbyte** (una palabra; la "T" y la "B" en ficha de marca, como en
+  el logotipo).
 - La tierra fértil del canal: manualidad técnica sin humo, honestidad de
   costes, público español.
+- **Registro lingüístico: español de España.** Segunda persona del singular con
+  imperativos directos ("suscríbete", "échale un ojo"), léxico peninsular
+  ("vídeos", "móvil", "ordenador", "coche"), sin giros de doblaje ni de
+  traducción.
 - Guardadas contexto board (visual decisions): se documentan en `DESIGN.md` en
   la fase de dirección de arte, no aquí.
 

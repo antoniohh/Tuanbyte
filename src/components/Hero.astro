@@ -23,7 +23,7 @@ const { featured, editionText } = Astro.props;
       <p class="mt-6 max-w-[56ch] text-xl leading-relaxed text-ink/90">
         Todo lo que hago, listado pieza a pieza: la Honda CB250 en el garaje,
         el chalet a golpe de rejuntado y la tecnología sin humo. Nada de
-        estreno vacío — esto se imprime de nuevo con cada vídeo.
+        adorno: este catálogo se reimprime con cada vídeo.
       </p>
       <p class="mt-4 max-w-[56ch] leading-relaxed text-ink-soft">
         Como en la ferretería de siempre: lo que ves está probado, viene con
@@ -36,7 +36,7 @@ const { featured, editionText } = Astro.props;
           rel="noopener"
           class="sello bg-minium px-6 py-4 font-display text-xl font-bold uppercase tracking-wide text-paper shadow-[3px_3px_0_0_var(--color-ink)]"
         >
-          Suscribirse al catálogo
+          Suscríbete al catálogo
         </a>
         <a
           href="#catalogo"
@@ -54,7 +54,7 @@ const { featured, editionText } = Astro.props;
             <rect x="1" y="1" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5" />
             <rect x="4" y="4" width="4" height="4" fill="currentColor" />
           </svg>
-          pieza no. {featured.id.slice(-4).toUpperCase()}
+          pieza n.º {featured.id.slice(-4).toUpperCase()}
         </p>
         <a href={featured.url} target="_blank" rel="noopener" class="group block">
           <img

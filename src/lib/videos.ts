@@ -57,26 +57,31 @@ async function fromFeed(): Promise<Video[] | null> {
       const m = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`));
       return m ? m[1] : "";
     };
-    return entries.map((e) => {
-      const id = fields(e, "yt:videoId");
-      const title = fields(e, "title");
-      const published = fields(e, "published");
-      const viewsRaw = e.match(/media:statistics\s+views="(\d+)"/);
-      let dateText = "";
-      if (published) {
-        try {
-          dateText = dateFmt.format(new Date(published));
-        } catch {
-          dateText = "";
+    return entries
+      .map((e) => {
+        const id = fields(e, "yt:videoId");
+        const title = fields(e, "title");
+        const published = fields(e, "published");
+        const viewsRaw = e.match(/media:statistics\s+views="(\d+)"/);
+        let dateText = "";
+        if (published) {
+          try {
+            dateText = dateFmt.format(new Date(published));
+          } catch {
+            dateText = "";
+          }
         }
-      }
-      return asVideo(
-        id,
-        title,
-        dateText,
-        viewsRaw ? Number(viewsRaw[1]) : null,
-      );
-    });
+        return asVideo(
+          id,
+          title,
+          dateText,
+          viewsRaw ? Number(viewsRaw[1]) : null,
+        );
+      })
+      .filter((v) => {
+        const hashtags = (v.title.match(/#\w+/g) ?? []).length;
+        return hashtags < 3;
+      });
   } catch {
     return null;
   }
@@ -166,11 +171,11 @@ function fromFallback(): Video[] {
 }
 
 export async function getVideos(limit = 6): Promise<Video[]> {
-  const viaFeed = await fromFeed();
-  if (viaFeed?.length) return viaFeed.slice(0, limit);
-  console.warn("[videos] feed no disponible; probando scrape del canal");
   const viaScrape = await fromChannelPage();
   if (viaScrape?.length) return viaScrape.slice(0, limit);
-  console.warn("[videos] scrape no disponible; usando fallback local");
+  console.warn("[videos] scrape no disponible; probando el feed");
+  const viaFeed = await fromFeed();
+  if (viaFeed?.length) return viaFeed.slice(0, limit);
+  console.warn("[videos] feed no disponible; usando fallback local");
   return fromFallback().slice(0, limit);
 }
