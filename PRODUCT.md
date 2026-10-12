@@ -28,7 +28,7 @@ suscriptores del canal** — es la única acción que debe dominar la página.
 
 ## Positioning
 
-"Mecánica casera, bricolaje low-cost y tecnología sin humo, con el coste real
+"Mecánica casera, bricolaje low-cost y tecnología de uso diario, con el coste real
 de cada cosa": todo hecho en un garaje propio, paso a paso, sin dilución
 Corporación. El vecino no puede copiar que el contenido sale de un taller
 real con números en la mano.
@@ -56,7 +56,7 @@ relevo Eclipse scrape + fallback JSON en repo).
 
 - Nombre: **Tuanbyte** (una palabra; la "T" y la "B" en ficha de marca, como en
   el logotipo).
-- La tierra fértil del canal: manualidad técnica sin humo, honestidad de
+- La tierra fértil del canal: manualidad técnica de verdad, honestidad de
   costes, público español. En activo **desde enero de 2016** (dato de marca que
   puede citarse tal cual).
 - **Registro lingüístico: español de España.** Segunda persona del singular con
