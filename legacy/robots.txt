@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+
+# Site Map Definition
+Sitemap: http://www.tuanbyte.es/sitemap.xml
+
+# Que tipo de URL deseamos mostrar
+host: www.tuanbyte.es/

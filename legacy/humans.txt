@@ -1,0 +1,15 @@
+﻿Links de Redes Sociales y Contacto para Tuanbyte
+Location: Spain
+Site: http://www.tuanbyte.es/
+
+/* TEAM */
+Webmaster: Tuanbyte
+Contact: info [at] tuanbyte.es
+Twitter: [at] tuanbyte
+
+/* SITE */
+Last update: 2022/03/27
+Language: Castellano
+Standards: HTML5, CSS3, Javascript
+Components: jQuery, Modernizr, bootstrap
+Software: Notepad++, Visual Studio Code, Photoshop, Illustrator
