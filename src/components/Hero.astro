@@ -35,7 +35,7 @@ const { featured, editionText } = Astro.props;
           rel="noopener"
           class="sello bg-minium px-6 py-4 font-display text-xl font-bold uppercase tracking-wide text-paper shadow-[3px_3px_0_0_var(--color-ink)]"
         >
-          Suscríbete al catálogo
+          Suscríbete al canal
         </a>
         <a
           href="#catalogo"
@@ -53,7 +53,7 @@ const { featured, editionText } = Astro.props;
             <rect x="1" y="1" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5" />
             <rect x="4" y="4" width="4" height="4" fill="currentColor" />
           </svg>
-          pieza n.º {featured.id.slice(-4).toUpperCase()}
+          vídeo nº {featured.id.slice(-4).toUpperCase()}
         </p>
         <a href={featured.url} target="_blank" rel="noopener" class="group block">
           <img
@@ -75,7 +75,7 @@ const { featured, editionText } = Astro.props;
             }
           </p>
           <p class="mt-3 inline-block border-b-2 border-ink pb-0.5 font-marker text-xl text-ink group-hover:border-minium group-hover:text-minium">
-            ver esta pieza ↗
+            ver el vídeo ↗
           </p>
         </a>
       </article>
