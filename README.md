@@ -26,4 +26,4 @@ npm run preview  # sirve dist/
 Se publica con `git push` a `main` (workflow de GitHub Pages).
 Ver `docs/info/despliegue-github-pages.md` para el detalle de dominio y DNS.
 
-Licencia CC BY 4.0 · Antonio Horrillo.
+Licencia: [CC BY 4.0](LICENSE) · Antonio Horrillo.
