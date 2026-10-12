@@ -5,82 +5,67 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
-## [1.0.0] — 2026-10-13
+## [1.1.0] — 2026-10-13
 
-Primera release de producción de **tuanbyte.es**: el catálogo del taller en
-línea, con el mundo visual «catálogo de barrio» y contenido del canal que se
-refresca solo.
+Release de producción de **tuanbyte.es**. Sobre el esqueleto de la 1.0.x, esta
+versión pone la marca, el contenido real y la licencia.
 
 ### Añadido
 
-- Landing completa: hero (edición continua desde enero de 2016 y 10 años de
-  canal), regleta viva, últimos 10 vídeos, listas de reproducción, especiales,
-  contacto y colofón de pie.
-- Vídeos del canal en build con cadena de resiliencia: scrape de la pestaña
-  Vídeos → feed RSS (con filtro de Shorts) → `videos-fallback.json`.
-- Listas de reproducción reales (scrape de `/playlists` + fallback), con
-  filtro de mínimo 5 vídeos.
-- Mundo visual «catálogo de barrio» documentado en `DESIGN.md` y
-  `.impeccable/design.json`, con revisión de acabado externa.
-- Marca del canal aplicada: escudo como favicon y cabecera, tipografía de
-  marca (Barlow 900) reservada al wordmark, banda roja de marca en el pie.
-- Imagen Open Graph propia (1200×630) y datos estructurados JSON-LD
-  (Person + WebSite).
-- SEO: `robots.txt`, `sitemap.xml`, canónicas, Open Graph y Twitter Card.
-- `LICENSE` con el texto legal completo de CC BY 4.0 y fórmula de atribución.
-- `CHANGELOG.md` y `README.md` de proyecto.
-- `public/CNAME` (`tuanbyte.es`) y workflow de GitHub Pages.
+- **Marca del canal**: escudo como favicon (48/96/180 px) y cabecera, y
+  tipografía de marca (Barlow 900, identificada del propio escudo) reservada
+  al wordmark.
+- **Listas de reproducción reales** del canal (scrape de `/playlists` con
+  fallback), filtradas a ≥ 5 vídeos, con enlace «ver lista».
+- **Sección de contacto** rediseñada como tarjeta: correo en manuscrita y
+  redes con su identificador real.
+- **Colofón de pie** con marca, sello de años y enlaces de sección; banda roja
+  de marca al cierre.
+- **Copyright**: `LICENSE` con el texto legal completo de CC BY 4.0, fórmula
+  de atribución y enlace a la licencia desde el pie; `CHANGELOG.md` y
+  `README.md` de proyecto.
+- **Rebuild diario programado** (cron `06:17 UTC`) para refrescar vídeos y
+  fecha de edición sin intervención.
+- **Línea de edición** en el hero: «edición continua — enero de 2016 a <mes> de
+  <año> · N años en YouTube», con los años calculados en build.
 
 ### Cambiado
 
-- Registro del copy al español de España, revisado término a término.
-- Cabecera: aire simétrico (78 px de alto) y navegación móvil en tira de
-  4 pestañas.
-- Carrusel de "Especiales" con marco limpio tras descartar el tratamiento
-  experimental con cinta.
+- **Copy revisado al español de España**, término a término (suscríbete,
+  vídeo n.º, ver el vídeo, «Especiales» en lugar de «Folletos anexos»).
+- **Cadena de datos de vídeos** reordenada: scrape de la pestaña Vídeos →
+  feed RSS (filtrando Shorts) → fallback local. Fuera los Shorts del catálogo.
+- **Cabecera**: aire simétrico (78 px) y navegación móvil en tira de 4
+  pestañas a lo ancho.
+- **Tarjetas de Especiales**: marco limpio, sin el canto desplazado que
+  parecía un borde descuadrado.
+- `package.json` con descripción, repositorio, `homepage` y Node ≥ 22.
 
 ### Corregido
 
-- Fecha de edición mal parseada (mostraba diciembre en mitad de octubre).
-- Shorts colados en el catálogo de vídeos (prioridad invertida y filtro).
-- Sección "Departamentos" sustituida por las listas de reproducción reales y
-  eliminada la lista con 1 vídeo.
-- Enlaces a `humans.txt` y «el código» retirados del pie; cuenta de GitHub
-  inexistente retirada de contacto y JSON-LD.
-- Recorte de la línea roja heredada en las capturas de los especiales.
+- Fecha de edición mal parseada (llegó a mostrar «diciembre» en octubre).
+- Capturas de los especiales con una línea roja heredada en el borde superior.
 
 ### Eliminado
 
 - El motivo `>_` del placeholder inicial (no pertenece a la marca).
+- La cuenta de GitHub inexistente de la sección de contacto y del JSON-LD.
 - La carpeta `legacy/` con la vieja landing de 2022.
 
-## [0.4.0] — 2026-10-12
+## [1.0.0] — 2026-10-12
 
-Fase 5 (pulido). Imagen Open Graph propia, JSON-LD, `preconnect` a
-`i.ytimg.com`, `fetchpriority` en la pieza destacada. Lighthouse 99/100/100/100.
+Puesta en marcha del proyecto en ocho pasos taggeados (`v1.0.0` → `v1.0.7`):
 
-## [0.3.0] — 2026-10-12
+- **v1.0.0** — Esqueleto Astro + Tailwind, workflow de GitHub Pages y `CNAME`
+  (`tuanbyte.es`).
+- **v1.0.1** — Landing completa: hero, últimos vídeos y departamentos.
+- **v1.0.2** — Mundo visual «catálogo de barrio».
+- **v1.0.3** — Dirección de arte documentada (`DESIGN.md`, `design.json`) y
+  correcciones del review.
+- **v1.0.4** — Restauración de `legacy/`.
+- **v1.0.5** — Retirada de `legacy/` (decisión del autor).
+- **v1.0.6** — Open Graph propia, JSON-LD y pulido de rendimiento.
+- **v1.0.7** — Estado de sesión documentado.
 
-Fase 4 (dirección de arte). Mundo visual «catálogo de barrio» elegido en la
-página de decisión del skill de diseño, con review de acabado (veredicto
-_ship_) y documentación del sistema.
-
-## [0.2.0] — 2026-10-12
-
-Fases 2 y 3. Contenido completo de la landing y vídeos dinámicos con cadena
-de resiliencia.
-
-## [0.1.0] — 2026-10-12
-
-Fase 1. Esqueleto Astro + Tailwind, workflow de GitHub Pages y `CNAME`.
-
-## [0.0.0] — 2026-10-12
-
-Fase 0. Plan de la web (`docs/plans/web-landing-plan.md`), guía de despliegue
-y snapshot DNS.
-
+[1.1.0]: ../../releases/tag/v1.1.0
 [1.0.0]: ../../releases/tag/v1.0.0
-[0.4.0]: ../../releases/tag/v0.4.0
-[0.3.0]: ../../releases/tag/v0.3.0
-[0.2.0]: ../../releases/tag/v0.2.0
-[0.1.0]: ../../releases/tag/v0.1.0

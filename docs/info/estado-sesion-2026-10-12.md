@@ -29,8 +29,9 @@ del agente).
 
 ## Release de producción (13/10)
 
-- Empaquetado **v1.0.0**: README completo (badges, arquitectura, árbol, puesta
-  en marcha, versionado), `CHANGELOG.md` nuevo y tags `v0.1.0`→`v1.0.0`.
+- Empaquetado **v1.1.0** (los tags `v1.0.0`→`v1.0.7` ya existían en origin, de la
+  puesta en marcha): README completo (badges, arquitectura, árbol, puesta en
+  marcha, versionado) y `CHANGELOG.md` nuevo.
 - `package.json` con descripción, repositorio, `homepage` y Node ≥22.
 - Limpieza: los artefactos de análisis del skill (`.impeccable/build`,
   `.impeccable/questions`) salen del control de versiones.

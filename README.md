@@ -124,7 +124,7 @@ histórico de cambios en [`CHANGELOG.md`](CHANGELOG.md). La versión vigente se
 declara en `package.json` y en el badge de arriba.
 
 ```bash
-git tag -a v1.0.1 -m "Correcciones" && git push --tags
+git tag -a v1.1.1 -m "Correcciones" && git push --tags
 ```
 
 ## ✍️ Autoría
