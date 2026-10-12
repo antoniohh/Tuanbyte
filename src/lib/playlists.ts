@@ -70,7 +70,7 @@ async function fromChannelPlaylists(): Promise<Playlist[] | null> {
             ? `${countMatch[1]} ${countMatch[1] === "1" ? "vídeo" : "vídeos"}`
             : "";
           const num = countMatch ? Number(countMatch[1].replace(/\./g, "")) : 0;
-          if (id && title && num > 0) out.push(asPlaylist(id, title, countText));
+          if (id && title && num >= 5) out.push(asPlaylist(id, title, countText));
         }
         return;
       }
