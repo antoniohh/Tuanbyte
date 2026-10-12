@@ -11,15 +11,10 @@ import Redes from "@/components/Redes.astro";
 import Footer from "@/components/Footer.astro";
 import { getVideos } from "@/lib/videos";
 
-const videos = await getVideos(6);
+const videos = await getVideos(10);
 const [featured, ...rest] = videos;
 
 const now = new Date();
-const buildDateText = new Intl.DateTimeFormat("es-ES", {
-  day: "numeric",
-  month: "numeric",
-  year: "numeric",
-}).format(now);
 const editionText = new Intl.DateTimeFormat("es-ES", {
   month: "long",
   year: "numeric",
@@ -27,14 +22,14 @@ const editionText = new Intl.DateTimeFormat("es-ES", {
 
 const title = "Tuanbyte — el catálogo del taller";
 const description =
-  "Mecánica casera con una Honda CB250 TwoFifty, bricolaje con herramientas low-cost y tecnología sin humo, listados pieza a pieza con su coste real.";
+  "Mecánica casera con la CB250, bricolaje en el chalet y tecnología de uso diario: todo probado, con su coste real y sin letra pequeña.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
   <main>
     <Hero featured={featured} editionText={editionText} />
-    <Regleta buildDateText={buildDateText} piezas={videos.length} />
+    <Regleta ultimoTexto={featured.dateText} listados={videos.length} />
     <Videos videos={rest} />
     <TapeDivider />
     <Pilares />

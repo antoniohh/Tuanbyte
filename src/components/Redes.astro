@@ -2,49 +2,56 @@
 import { socials, email } from "@/data/socials";
 ---
 
-<section id="pedidos" class="scroll-mt-20 border-b-2 border-ink bg-paper-2">
-  <div class="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-5 lg:py-20">
-    <div class="lg:col-span-2">
-      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
-        Pedidos y contacto
-      </h2>
-      <p class="mt-3 font-marker text-2xl text-minium">
-        o como se diría por aquí: el mostrador
-      </p>
-      <p class="mt-4 max-w-[44ch] leading-relaxed text-ink/85">
-        Estoy por todas partes con el mismo nombre. Si quieres escribir
-        directo al mostrador:
-      </p>
-      <p class="mt-4">
-        <a
-          href={`mailto:${email}`}
-          class="font-marker text-3xl text-ink underline decoration-wavy decoration-minium/60 underline-offset-4 transition-colors hover:text-minium"
-        >
-          {email}
-        </a>
-      </p>
-    </div>
+<section id="contacto" class="scroll-mt-20 border-b-2 border-ink bg-paper-2">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
+    <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+      Contacto y redes
+    </h2>
+    <p class="mt-4 max-w-[58ch] leading-relaxed text-ink/85">
+      Para consultas, colaboraciones o cualquier duda sobre lo que enseño:
+    </p>
 
-    <div class="lg:col-span-3">
-      <ul class="divide-y-2 divide-ink-line border-2 border-ink">
-        {
-          socials.map((s) => (
-            <li>
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener"
-                class="group flex items-baseline justify-between gap-4 bg-paper px-5 py-4 transition-colors hover:bg-strike/30 sm:px-6"
-              >
-                <span class="font-display text-xl font-bold uppercase tracking-wide text-ink group-hover:text-minium">
-                  {s.label}
-                </span>
-                <span class="font-mono text-xs text-ink-soft">{s.note}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    <div class="mt-8 grid gap-10 lg:grid-cols-5">
+      <div class="lg:col-span-2">
+        <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
+          correo
+        </p>
+        <p class="mt-2">
+          <a
+            href={`mailto:${email}`}
+            class="break-all text-xl font-semibold text-ink underline decoration-ink-line underline-offset-4 transition-colors hover:text-minium hover:decoration-minium"
+          >
+            {email}
+          </a>
+        </p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
+          redes sociales
+        </p>
+        <ul class="mt-2 divide-y divide-ink-line border-y border-ink-line">
+          {
+            socials.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener"
+                  class="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3.5 transition-colors hover:text-minium"
+                >
+                  <span class="font-semibold text-ink group-hover:text-minium">
+                    {s.label}
+                  </span>
+                  <span class="font-mono text-xs text-ink-soft group-hover:text-minium">
+                    {s.handle} ↗
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </div>
 </section>

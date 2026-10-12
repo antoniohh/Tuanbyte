@@ -1,10 +1,10 @@
 ---
 interface Props {
-  buildDateText: string;
-  piezas: number;
+  ultimoTexto: string;
+  listados: number;
 }
 
-const { buildDateText, piezas } = Astro.props;
+const { ultimoTexto, listados } = Astro.props;
 ---
 
 <aside
@@ -13,21 +13,20 @@ const { buildDateText, piezas } = Astro.props;
 >
   <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-2 px-5 py-3 font-mono text-xs tracking-[0.08em] sm:px-8">
     <span class="flex items-center gap-2">
-      <span class="regleta-dot inline-block h-2 w-2 bg-strike" aria-hidden="true"> </span>
-      <span class="uppercase tracking-[0.14em] text-paper">en catálogo y cambiando</span>
+      <span class="regleta-dot inline-block h-2 w-2 bg-strike" aria-hidden="true"></span>
+      <span class="uppercase tracking-[0.14em] text-paper">Últimos vídeos</span>
     </span>
-    <span>impresión: <span class="text-strike">{buildDateText}</span></span>
-    <span>piezas listadas: <span class="text-strike">{piezas}</span></span>
-    <span class="hidden sm:inline">
-      catálogo completo: <a
+    <span>fecha del último vídeo: <span class="text-strike">{ultimoTexto}</span></span>
+    <span>vídeos listados: <span class="text-strike">{listados}</span></span>
+    <span class="sm:ml-auto">
+      <a
         href="https://www.youtube.com/tuanbyte"
         target="_blank"
         rel="noopener"
-        class="text-strike underline decoration-dotted underline-offset-2">youtube/tuanbyte</a
+        class="text-strike underline decoration-dotted underline-offset-2"
       >
-    </span>
-    <span class="ml-auto hidden font-mono text-paper lg:inline" aria-hidden="true">
-      <span class="regleta-dot">▍</span>
+        todos los vídeos ↗
+      </a>
     </span>
   </div>
 </aside>

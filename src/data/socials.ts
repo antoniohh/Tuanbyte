@@ -1,44 +1,44 @@
 export interface Social {
   label: string;
   href: string;
-  note: string;
+  handle: string;
 }
 
 export const socials: Social[] = [
   {
     label: "YouTube",
     href: "https://www.youtube.com/tuanbyte",
-    note: "el canal, la casa de todo",
+    handle: "youtube.com/tuanbyte",
   },
   {
     label: "X / Twitter",
     href: "https://twitter.com/tuanbyte",
-    note: "notas rápidas y avisos de vídeo",
+    handle: "x.com/tuanbyte",
   },
   {
     label: "Instagram",
     href: "https://instagram.com/tuanbyte",
-    note: "el taller en imágenes",
+    handle: "instagram.com/tuanbyte",
   },
   {
     label: "TikTok",
     href: "https://www.tiktok.com/@tuanbyte",
-    note: "clips cortos",
+    handle: "tiktok.com/@tuanbyte",
   },
   {
     label: "Facebook",
     href: "https://www.facebook.com/tuanbyte",
-    note: "el canal en FB",
+    handle: "facebook.com/tuanbyte",
   },
   {
     label: "Pinterest",
     href: "https://www.pinterest.es/tuanbyte",
-    note: "clasificación visual",
+    handle: "pinterest.es/tuanbyte",
   },
   {
     label: "GitHub",
     href: "https://github.com/tuanbyte",
-    note: "código y proyectos",
+    handle: "github.com/tuanbyte",
   },
 ];
 
