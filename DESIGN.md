@@ -13,7 +13,7 @@ colors:
   strike: "#e9b611"
 typography:
   display:
-    fontFamily: '"Barlow", system-ui, sans-serif'
+    fontFamily: '"Barlow Condensed", "Arial Narrow", sans-serif'
     fontWeight: 800
     lineHeight: 0.9
     letterSpacing: "-0.01em"
@@ -122,7 +122,7 @@ de sección ni texto principal fuera de la banda-instrumento.
 
 ## Typography
 
-**Display Font:** Barlow 900 (Black) — la tipografía de la marca TUANBYTE, identificada del escudo del canal; titulares de folleto en mayúsculas.
+**Display Font:** Barlow Condensed (500–800) para titulares de folleto. La tipografía de la marca TUANBYTE (Barlow 900, identificada del escudo) se usa **solo** en el wordmark de cabecera (utilidad `font-brand`).
 **Body Font:** Barlow (400/500/600), cuerpo de párrafo, 65–75ch en columnas largas.
 **Marker Font:** Caveat (600/700), el rotulador.
 **Mono Font:** IBM Plex Mono (400/500), la regleta y los datos.
@@ -132,8 +132,8 @@ conviven como conviven en una ferretería de verdad. Dos registros: lo
 condensado grita el nombre del departamento; lo manuscrito comenta al margen.
 
 ### Hierarchy
-- **Display** (Barlow 900, clamp(2.5rem,7vw,4.5rem) en hero y 2.25–3rem en secciones, leading 0.9, mayúsculas, tracking estrecho): h1, h2 de sección y wordmark. Siempre `uppercase`.
-- **Título de pieza** (Barlow 900, 1.5rem, leading tight): títulos de vídeo y folletos. Hover → minio.
+- **Display** (Barlow Condensed 800, clamp(3.25rem,9vw,6rem) en hero y 2.25–3rem en secciones, leading 0.9, mayúsculas, tracking estrecho): h1 y h2 de sección. Siempre `uppercase`.
+- **Título de pieza** (Barlow Condensed 700, 1.5rem, leading tight): títulos de vídeo y folletos. Hover → minio.
 - **Body** (Barlow 400, 17px base `1.0625rem`, leading relaxed, máx 56–68ch): párrafos de folleto. Variantes `ink/85–ink/90` para texto sobre paper.
 - **Marker** (Caveat 600–700, 1.25–1.875rem): subrayados dobles de tinta, bajadas de sección ("lo recién impreso, de corrido"), email en tamaño 1.875rem con subrayado ondulado minio.
 - **Label / mono** (IBM Plex Mono, 0.6875–0.75rem, tracking 0.12–0.14em, mayúsculas): cabecera de tabla, etiquetas de departamento, metadatos, todo número.
@@ -182,7 +182,7 @@ Radios de esquina: 0. Un catálogo no tiene cantoneras.
 ## Components
 
 ### El Sello (CTA primario)
-- **Forma:** bloque rectangular, esquina viva; fondo minio, letra paper en Barlow 900, mayúsculas (`padding: 1rem 1.5rem`).
+- **Forma:** bloque rectangular, esquina viva; fondo minio, letra paper en Barlow Condensed 700, mayúsculas (`padding: 1rem 1.5rem`).
 - **Dorsal:** sombra dura 3px 3px tinta; al hover gira −1.5° y sube 1px (ease-out `cubic-bezier(0.16,1,0.3,1)`, 180ms), como sello que se descuelga del plástico.
 - **Focus:** anillo minio de 2px con offset 2px (estándar del navegador).
 
