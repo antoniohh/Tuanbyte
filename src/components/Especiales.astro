@@ -1,0 +1,54 @@
+---
+const especiales = [
+  {
+    href: "https://especiales.antoniohorrillo.com/#/guia-motos",
+    title: "Guía de motos de media cilindrada",
+    text: "14 motos A2 retro/scrambler/roadster/trail a examen: fiabilidad, mantenimiento casero y ranking multicriterio.",
+  },
+  {
+    href: "https://especiales.antoniohorrillo.com/#/suv-hev",
+    title: "SUVs híbridos HEV",
+    text: "8 SUVs con hibridación completa de los segmentos B y C: consumo, maletero, fiabilidad y coste de propiedad.",
+  },
+];
+---
+
+<section id="especiales" class="border-b border-white/10">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="text-3xl font-bold tracking-tight text-neutral-50 sm:text-4xl">
+        Especiales
+      </h2>
+      <p class="font-mono text-xs uppercase tracking-[0.14em] text-neutral-500">
+        reportajes a fondo
+      </p>
+    </div>
+    <p class="mt-4 max-w-[60ch] leading-relaxed text-neutral-400">
+      Cuando un tema da para más que un vídeo, lo convierto en un reportaje
+      editorial con datos, tablas y comparativas.
+    </p>
+
+    <div class="mt-10 divide-y divide-white/10 border border-white/10">
+      {
+        especiales.map((e) => (
+          <a
+            href={e.href}
+            class="group block bg-white/[0.03] p-6 transition-colors hover:bg-white/[0.06] sm:p-8"
+          >
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-neutral-50 group-hover:text-amber-300 sm:text-2xl">
+                {e.title}
+              </h3>
+              <span class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-neutral-500">
+                leer el especial ↗
+              </span>
+            </div>
+            <p class="mt-3 max-w-[70ch] leading-relaxed text-neutral-400">
+              {e.text}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+const links = [
+  { href: "#videos", label: "Vídeos" },
+  { href: "#pilares", label: "Qué hago" },
+  { href: "#especiales", label: "Especiales" },
+  { href: "#redes", label: "Redes" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-[#0c0e12]/90 backdrop-blur">
+  <div class="h-1 bg-amber-300"></div>
+  <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 sm:px-8">
+    <a href="/" class="font-mono text-sm font-bold tracking-tight text-neutral-100">
+      <span class="text-amber-300">&gt;_</span>
+      tuanbyte
+    </a>
+    <nav class="flex items-center gap-4 font-mono text-[0.6875rem] uppercase tracking-[0.14em] sm:gap-6">
+      {
+        links.map((l) => (
+          <a href={l.href} class="text-neutral-400 transition-colors hover:text-amber-300">
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  <div class="h-px bg-white/10"></div>
+</header>

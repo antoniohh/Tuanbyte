@@ -1,0 +1,100 @@
+---
+import type { Video } from "@/lib/videos";
+
+interface Props {
+  videos: Video[];
+}
+
+const { videos } = Astro.props;
+const [featured, ...rest] = videos;
+---
+
+<section id="videos" class="border-b border-white/10">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="text-3xl font-bold tracking-tight text-neutral-50 sm:text-4xl">
+        Últimos vídeos
+      </h2>
+      <p class="font-mono text-xs uppercase tracking-[0.14em] text-neutral-500">
+        directo desde el canal
+      </p>
+    </div>
+
+    {
+      featured && (
+        <a
+          href={featured.url}
+          target="_blank"
+          rel="noopener"
+          class="group mt-10 block border border-white/10 bg-white/[0.03] transition-colors hover:border-amber-300/40"
+        >
+          <div class="grid md:grid-cols-2">
+            <div class="relative aspect-video overflow-hidden">
+              <img
+                src={featured.thumbnail.replace("mqdefault", "hqdefault")}
+                alt={`Miniatura de «${featured.title}»`}
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="flex flex-col justify-center gap-3 p-6 sm:p-8">
+              <p class="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-amber-300">
+                el más reciente
+              </p>
+              <h3 class="text-xl font-bold leading-snug text-neutral-50 sm:text-2xl">
+                {featured.title}
+              </h3>
+              <p class="font-mono text-sm text-neutral-400">
+                {featured.dateText}
+                {featured.viewsText ? ` · ${featured.viewsText}` : ""}
+              </p>
+              <p class="mt-2 font-mono text-sm text-neutral-500 transition-colors group-hover:text-amber-300">
+                ver en YouTube ↗
+              </p>
+            </div>
+          </div>
+        </a>
+      )
+    }
+
+    <div class="mt-8 divide-y divide-white/10 border border-white/10">
+      {
+        rest.map((v) => (
+          <a
+            href={v.url}
+            target="_blank"
+            rel="noopener"
+            class="group flex items-center gap-4 bg-white/[0.03] p-3 transition-colors hover:bg-white/[0.06] sm:gap-6 sm:p-4"
+          >
+            <img
+              src={v.thumbnail}
+              alt={`Miniatura de «${v.title}»`}
+              class="aspect-video w-36 shrink-0 object-cover sm:w-48"
+              loading="lazy"
+            />
+            <div class="min-w-0">
+              <h3 class="truncate text-sm font-semibold text-neutral-100 group-hover:text-amber-300 sm:text-base">
+                {v.title}
+              </h3>
+              <p class="mt-1 font-mono text-xs text-neutral-500">
+                {v.dateText}
+                {v.viewsText ? ` · ${v.viewsText}` : ""}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="mt-6 font-mono text-sm text-neutral-500">
+      <a
+        href="https://www.youtube.com/tuanbyte"
+        target="_blank"
+        rel="noopener"
+        class="border-b border-neutral-700 pb-0.5 transition-colors hover:border-amber-300 hover:text-amber-300"
+      >
+        todos los vídeos en el canal ↗
+      </a>
+    </p>
+  </div>
+</section>

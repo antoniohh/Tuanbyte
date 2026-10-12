@@ -1,0 +1,49 @@
+---
+import { socials, email } from "@/data/socials";
+---
+
+<section id="redes" class="border-b border-white/10 bg-white/[0.02]">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+    <div class="grid gap-10 lg:grid-cols-5">
+      <div class="lg:col-span-2">
+        <h2 class="text-3xl font-bold tracking-tight text-neutral-50 sm:text-4xl">
+          Redes y contacto
+        </h2>
+        <p class="mt-4 max-w-[44ch] leading-relaxed text-neutral-400">
+          Estoy por todas partes con el mismo nombre — y si prefieres escribir
+          directo:
+        </p>
+        <p class="mt-4">
+          <a
+            href={`mailto:${email}`}
+            class="border-b border-amber-300/40 pb-0.5 font-mono text-lg text-amber-300 transition-colors hover:border-amber-300 hover:text-amber-200"
+          >
+            {email}
+          </a>
+        </p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <ul class="divide-y divide-white/10 border border-white/10">
+          {
+            socials.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener"
+                  class="group flex items-baseline justify-between gap-4 bg-white/[0.03] px-5 py-4 transition-colors hover:bg-white/[0.06] sm:px-6"
+                >
+                  <span class="font-mono font-bold text-neutral-100 group-hover:text-amber-300">
+                    {s.label}
+                  </span>
+                  <span class="font-mono text-xs text-neutral-500">{s.note}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
