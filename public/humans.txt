@@ -8,8 +8,8 @@ Contact: info [at] tuanbyte.es
 Twitter: [at] tuanbyte
 
 /* SITE */
-Last update: 2022/03/27
+Last update: 2026/10/12
 Language: Castellano
 Standards: HTML5, CSS3, Javascript
-Components: jQuery, Modernizr, bootstrap
-Software: Notepad++, Visual Studio Code, Photoshop, Illustrator
+Components: Astro, Tailwind, Node
+Software: Visual Studio Code, Opencode, Github, Photoshop

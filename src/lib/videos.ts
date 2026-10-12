@@ -13,6 +13,8 @@ const CHANNEL_URL =
   "https://www.youtube.com/channel/UCD6wDPVAuQuQX0xNGIqq9xA/videos";
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/125 Safari/537.36";
+// Las miniaturas se enlazan hot desde i.ytimg.com (permitido por YouTube,
+// con `loading="lazy"`); no se almacenan copias locales.
 import fallbackRaw from "@/data/videos-fallback.json";
 
 const dateFmt = new Intl.DateTimeFormat("es-ES", {

@@ -14,11 +14,16 @@ import { getVideos } from "@/lib/videos";
 const videos = await getVideos(6);
 const [featured, ...rest] = videos;
 
+const now = new Date();
 const buildDateText = new Intl.DateTimeFormat("es-ES", {
   day: "numeric",
   month: "numeric",
   year: "numeric",
-}).format(new Date());
+}).format(now);
+const editionText = new Intl.DateTimeFormat("es-ES", {
+  month: "long",
+  year: "numeric",
+}).format(now);
 
 const title = "Tuanbyte — el catálogo del taller";
 const description =
@@ -28,12 +33,14 @@ const description =
 <BaseLayout title={title} description={description}>
   <Header />
   <main>
-    <Hero featured={featured} buildDateText={buildDateText} />
+    <Hero featured={featured} editionText={editionText} />
     <Regleta buildDateText={buildDateText} piezas={videos.length} />
     <Videos videos={rest} />
     <TapeDivider />
     <Pilares />
+    <TapeDivider flip />
     <Especiales />
+    <TapeDivider />
     <Redes />
   </main>
   <Footer />
