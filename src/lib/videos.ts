@@ -8,11 +8,13 @@ export interface Video {
 }
 
 const FEED_URL =
-  "https://www.youtube.com/feeds/videos.xml?channel_id=UCD6wDPVAuQuQX0xNGIqq9xA";
+  "https://www.youtube.com/feeds/videos.xml?channel_id=UCD6wDPVAuQuQX0xNGIqq9xA&hl=es&gl=ES";
 const CHANNEL_URL =
   "https://www.youtube.com/channel/UCD6wDPVAuQuQX0xNGIqq9xA/videos";
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/125 Safari/537.36";
+const LANG = "es-ES,es;q=0.9";
+const COOKIE = "CONSENT=YES+1; PREF=hl=es&gl=ES";
 // Las miniaturas se enlazan hot desde i.ytimg.com (permitido por YouTube,
 // con `loading="lazy"`); no se almacenan copias locales.
 import fallbackRaw from "@/data/videos-fallback.json";
@@ -48,7 +50,9 @@ function prettyAge(text: string): string {
 
 async function fromFeed(): Promise<Video[] | null> {
   try {
-    const res = await fetch(FEED_URL, { headers: { "User-Agent": UA } });
+    const res = await fetch(FEED_URL, {
+      headers: { "User-Agent": UA, "Accept-Language": LANG },
+    });
     if (!res.ok) return null;
     const xml = await res.text();
     const entries = xml.match(/<entry>([\s\S]*?)<\/entry>/g);
@@ -111,7 +115,11 @@ function extractJson(html: string): unknown | null {
 async function fromChannelPage(): Promise<Video[] | null> {
   try {
     const res = await fetch(CHANNEL_URL, {
-      headers: { "User-Agent": UA, Cookie: "CONSENT=YES+1" },
+      headers: {
+        "User-Agent": UA,
+        "Accept-Language": LANG,
+        Cookie: COOKIE,
+      },
     });
     if (!res.ok) return null;
     const data = extractJson(await res.text());

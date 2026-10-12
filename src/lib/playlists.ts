@@ -9,6 +9,8 @@ const PLAYLISTS_URL =
   "https://www.youtube.com/channel/UCD6wDPVAuQuQX0xNGIqq9xA/playlists";
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/125 Safari/537.36";
+const LANG = "es-ES,es;q=0.9";
+const COOKIE = "CONSENT=YES+1; PREF=hl=es&gl=ES";
 import fallbackRaw from "@/data/playlists-fallback.json";
 
 function asPlaylist(id: string, title: string, countText: string): Playlist {
@@ -44,7 +46,11 @@ function extractJson(html: string): unknown | null {
 async function fromChannelPlaylists(): Promise<Playlist[] | null> {
   try {
     const res = await fetch(PLAYLISTS_URL, {
-      headers: { "User-Agent": UA, Cookie: "CONSENT=YES+1" },
+      headers: {
+        "User-Agent": UA,
+        "Accept-Language": LANG,
+        Cookie: COOKIE,
+      },
     });
     if (!res.ok) return null;
     const data = extractJson(await res.text());
