@@ -27,6 +27,12 @@ del agente).
   `legacy/` borrado por ti a conciencia (recuperable de git: commit
   `283316f`).
 
+## Hecho tras la sesión inicial
+
+- Reconstrucción automática diaria del sitio (cron 06:17 UTC en el workflow): la
+  fecha de edición y la lista de vídeos se refrescan solas aunque no haya
+  `push`.
+
 ## Pendiente mañana (lista corta)
 
 1. `git push` desde tu terminal.
