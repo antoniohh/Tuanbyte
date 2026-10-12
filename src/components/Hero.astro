@@ -62,6 +62,7 @@ const { featured, editionText } = Astro.props;
             alt={`Miniatura del vídeo «${featured.title}»`}
             class="mt-3 aspect-video w-full border-2 border-ink object-cover"
             loading="eager"
+            fetchpriority="high"
           />
           <h2 class="mt-4 font-display text-2xl font-bold leading-tight text-ink group-hover:text-minium">
             {featured.title}
