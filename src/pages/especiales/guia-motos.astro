@@ -7,6 +7,7 @@ import Portada from "@/especiales/shared/Portada.astro";
 import Veredicto from "@/especiales/shared/Veredicto.astro";
 import Ranking from "@/especiales/shared/Ranking.astro";
 import Fichas from "@/especiales/shared/Fichas.astro";
+import Galeria from "@/especiales/shared/Galeria.astro";
 import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
 import { modelClass } from "@/especiales/shared/lib";
 import { bikes, ciclo, diy, precios, ranking, revision } from "@/especiales/guia-motos/data/bikes";
@@ -114,6 +115,12 @@ const jsonLd = [
       desc="Ponderación del ranking: fiabilidad mecánica 25% · mantenimiento casero 25% · relación potencia/PVP 20% · polivalencia 20% · consumo y desgaste 10%."
       criteria={criterios}
       rows={ranking}
+    />
+
+    <Galeria
+      title="Las 14, de un vistazo"
+      desc="El garaje completo: pica en cualquiera para bajar a su ficha con motor, frenos, peso y precio."
+      items={fichas}
     />
 
     <Fichas

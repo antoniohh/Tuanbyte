@@ -1,0 +1,70 @@
+---
+interface Item {
+  id: string;
+  name: string;
+  type: string;
+  rank: number;
+  scoreValue: number;
+  img: string;
+}
+
+interface Props {
+  title: string;
+  desc: string;
+  items: Item[];
+}
+
+const { title, desc, items } = Astro.props;
+---
+
+<section id="escaparate" class="scroll-mt-24">
+  <div class="mx-auto max-w-6xl px-5 pt-14 sm:px-8 lg:pt-20">
+    <h2
+      class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl"
+    >
+      {title}
+    </h2>
+    <p class="mt-2 max-w-[68ch] text-sm leading-relaxed text-ink-soft">{desc}</p>
+  </div>
+
+  <div class="mx-auto mt-8 max-w-6xl px-5 sm:px-8">
+    <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        items.map((it) => (
+          <li>
+            <a
+              href={`#ficha-${it.id}`}
+              class="group flex h-full flex-col border-2 border-ink bg-paper p-3 transition-colors hover:bg-paper-2"
+            >
+              <span class="flex items-baseline justify-between">
+                <span class="font-mono text-[0.625rem] text-ink-soft tabular-nums">
+                  {String(it.rank).padStart(2, "0")}
+                </span>
+                <span class="font-mono text-xs font-semibold text-minium tabular-nums">
+                  {it.scoreValue.toFixed(2).replace(".", ",")}
+                </span>
+              </span>
+              <span class="mt-1 flex h-24 items-center justify-center">
+                <img
+                  src={it.img}
+                  alt={it.name}
+                  class="max-h-24 w-full object-contain"
+                  loading="lazy"
+                />
+              </span>
+              <span class="mt-2 font-display text-base font-bold uppercase leading-tight tracking-tight text-ink group-hover:text-minium">
+                {it.name}
+              </span>
+              <span class="mt-0.5 font-mono text-[0.625rem] uppercase tracking-[0.08em] text-ink-soft">
+                {it.type}
+              </span>
+              <span class="mt-auto pt-2 font-marker text-lg text-ink group-hover:text-minium">
+                ver ficha ↴
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

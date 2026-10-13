@@ -7,6 +7,7 @@ import Portada from "@/especiales/shared/Portada.astro";
 import Veredicto from "@/especiales/shared/Veredicto.astro";
 import Ranking from "@/especiales/shared/Ranking.astro";
 import Fichas from "@/especiales/shared/Fichas.astro";
+import Galeria from "@/especiales/shared/Galeria.astro";
 import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
 import { modelClass } from "@/especiales/shared/lib";
 import { cars, consumo, mantenimiento, precios, ranking, tecnicos } from "@/especiales/suvs-hev/data/cars";
@@ -164,6 +165,12 @@ const jsonLd = [
       desc="Ponderación del ranking: fiabilidad mecánica 25% · mantenimiento 25% · relación precio/equipamiento 20% · espacio 20% · consumo 10%."
       criteria={criterios}
       rows={ranking}
+    />
+
+    <Galeria
+      title="Los 8, de un vistazo"
+      desc="El escaparate completo: pica en cualquiera para bajar a su ficha con motor, cambio, consumo y garantía."
+      items={fichas}
     />
 
     <Fichas

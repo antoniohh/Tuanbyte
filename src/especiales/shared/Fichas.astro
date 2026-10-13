@@ -48,7 +48,7 @@ const badgeClass: Record<Ficha["badge"], string> = {
   <div class="mx-auto mt-8 grid max-w-6xl gap-4 px-5 sm:px-8 lg:grid-cols-2">
     {
       fichas.map((f) => (
-        <details class="border-2 border-ink bg-paper open:bg-paper-2/60">
+        <details id={`ficha-${f.id}`} class="scroll-mt-24 border-2 border-ink bg-paper open:bg-paper-2/60">
           <summary class="flex cursor-pointer flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-4 [&::-webkit-details-marker]:hidden">
             <span class="font-mono text-xs text-ink-soft tabular-nums">
               {String(f.rank).padStart(2, "0")}
