@@ -48,7 +48,7 @@ const badgeClass: Record<Ficha["badge"], string> = {
   <div class="mx-auto mt-8 grid max-w-6xl gap-4 px-5 sm:px-8 lg:grid-cols-2">
     {
       fichas.map((f) => (
-        <details id={`ficha-${f.id}`} class="scroll-mt-24 border-2 border-ink bg-paper open:bg-paper-2/60">
+        <details id={`ficha-${f.id}`} class="scroll-mt-24 border-2 border-ink bg-paper open:bg-paper-2/60 open:lg:col-span-2">
           <summary class="flex cursor-pointer flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-4 [&::-webkit-details-marker]:hidden">
             <span class="font-mono text-xs text-ink-soft tabular-nums">
               {String(f.rank).padStart(2, "0")}
@@ -84,13 +84,15 @@ const badgeClass: Record<Ficha["badge"], string> = {
               loading="lazy"
             />
             <div>
-              <dl class="grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+              <dl class="grid gap-x-8 sm:grid-cols-2">
                 {f.specs.map((s) => (
-                  <div class="flex items-baseline gap-2">
-                    <dt class="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
+                  <div class="flex items-baseline gap-3 border-b border-ink-line/60 py-1.5">
+                    <dt class="w-28 shrink-0 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
                       {s.label}
                     </dt>
-                    <dd class="font-mono text-[0.8125rem] text-ink">{s.value}</dd>
+                    <dd class="min-w-0 flex-1 font-mono text-[0.8125rem] text-ink">
+                      {s.value}
+                    </dd>
                   </div>
                 ))}
               </dl>
