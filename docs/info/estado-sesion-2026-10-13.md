@@ -6,8 +6,9 @@ los títulos en español.
 
 ## Resumen del día
 
-- **Release v1.1.0** preparada y commiteada (falta publicar el tag, ver abajo):
-  marca del canal, licencia CC BY 4.0, README y CHANGELOG.
+- **Release final v1.2.0** preparada: titular «El taller de Tuanbyte», meta
+  título con los pilares, especiales mudados a `especiales.tuanbyte.es`,
+  documentación del dominio y detalles de copy.
 - **Marca aplicada**: escudo como favicon (48/96/180) y cabecera; tipografía de
   marca (Barlow 900, identificada del escudo) **solo** en el wordmark; banda
   roja de marca en el pie. Fuera el `>_` del placeholder.
@@ -31,9 +32,10 @@ los títulos en español.
 
 ## Pendiente mañana (por orden)
 
-1. **Publicar el tag**: `git push --tags` → queda en GitHub la release
-   `v1.1.0` (el único tag que falta en origin). Después, opcional: crear la
-   *Release* en GitHub pegando la sección 1.1.0 del CHANGELOG.
+1. **Publicar la release**: commit + `git tag -a v1.2.0` + `git push && git
+   push --tags`. Después, opcional: crear la *Release* en GitHub pegando la
+   sección 1.2.0 del CHANGELOG. (El tag `v1.1.2` local se retiró: nunca se
+   publicó y su contenido va dentro de la 1.2.0.)
 2. **DNS de `tuanbyte.es`**: GitHub mostraba «DNS Check in Progress» y por eso
    Enforce HTTPS sigue bloqueado. Comprobar si ya está en verde y, si no:
    - Esperar el rechequeo (hasta 24 h).

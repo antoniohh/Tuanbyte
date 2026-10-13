@@ -5,16 +5,31 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
-## [1.1.2] — 2026-10-13
+## [1.2.0] — 2026-10-13
 
-Documentación de la configuración de dominio, ya resuelta.
+Release final de producción de **tuanbyte.es**.
 
 ### Añadido
 
-- Guía de despliegue reescrita con la **configuración final**: raíz con A/AAAA
-  y `www` con CNAME directo a `antoniohh.github.io`, certificado único que
-  cubre ambos nombres y **Enforce HTTPS** activado.
-- Explicación del montaje en el `README.md` y snapshot DNS actualizado.
+- **Titular del hero**: «El taller de Tuanbyte» (antes «El catálogo del
+  taller»), con **meta título** orientado a búsqueda — «Tuanbyte — mecánica
+  casera, parcela, bricolaje y tecnología» — e **imagen Open Graph**
+  regenerada con el titular nuevo.
+- **Guía de despliegue reescrita** con la configuración de dominio ya
+  resuelta: raíz con A/AAAA, `www` con CNAME directo a `antoniohh.github.io`,
+  certificado único que cubre los dos nombres y **Enforce HTTPS** activado.
+  Explicación del montaje en el `README.md` y snapshot DNS actualizado.
+- **Los especiales, en su nueva casa**: `especiales.tuanbyte.es` (repo
+  *Especiales* v1.3.4, con CNAME, canónica, OG, sitemap y robots migrados) y
+  enlazados desde este catálogo y su pie.
+
+### Cambiado
+
+- **Línea de edición** sin «10 años en YouTube»: queda «edición continua —
+  enero de 2016 a <mes> de <año>», cuerpо 24 px y una sola línea.
+- **Sello del pie**: «10 años creando contenido».
+- **Contacto**: sin el rótulo «correo» y sin margen superior en el párrafo del
+  email.
 
 ## [1.1.1] — 2026-10-13
 
@@ -82,6 +97,6 @@ Puesta en marcha del proyecto en ocho pasos taggeados (`v1.0.0` → `v1.0.7`):
 - **v1.0.6** — Open Graph propia, JSON-LD y pulido de rendimiento.
 - **v1.0.7** — Estado de sesión documentado.
 
-[1.1.2]: ../../releases/tag/v1.1.2
+[1.2.0]: ../../releases/tag/v1.2.0
 [1.1.1]: ../../releases/tag/v1.1.1
 [1.0.0]: ../../releases/tag/v1.0.0
