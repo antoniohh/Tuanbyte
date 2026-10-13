@@ -1,0 +1,191 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Migas from "@/especiales/shared/Migas.astro";
+import Portada from "@/especiales/shared/Portada.astro";
+import Veredicto from "@/especiales/shared/Veredicto.astro";
+import Ranking from "@/especiales/shared/Ranking.astro";
+import Fichas from "@/especiales/shared/Fichas.astro";
+import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
+import { modelClass } from "@/especiales/shared/lib";
+import { bikes, ciclo, diy, precios, ranking, revision } from "@/especiales/guia-motos/data/bikes";
+
+const title = "Guía de motos de media cilindrada · Comparativa y ranking de 14 modelos";
+const description =
+  "Reportaje comparativo de 14 motos de media cilindrada: motor y ciclo, precios orientativos, consumo y mantenimiento casero, con un ranking multicriterio y fichas de cada modelo.";
+
+const criterios = [
+  { key: "fiabilidad", label: "Fiabilidad", weight: "25%" },
+  { key: "casero", label: "Mant. casero", weight: "25%" },
+  { key: "potencia", label: "Pot./PVP", weight: "20%" },
+  { key: "polivalencia", label: "Polivalencia", weight: "20%" },
+  { key: "consumo", label: "Consumo", weight: "10%" },
+];
+
+const factores = [
+  {
+    title: "Fiabilidad a prueba de bombas",
+    text: "El bicilíndrico 471 cc tiene el récord indiscutible de durabilidad sin fallos endémicos frente a motores recién lanzados.",
+  },
+  {
+    title: "Garaje 100% amigable",
+    text: "Aceite, bujías, filtros, pastillas y líquido se realizan con herramienta universal, sin máquinas OBD que bloqueen el servicio.",
+  },
+  {
+    title: "Equilibrio dinámico",
+    text: "192 kg en orden de marcha y 47 CV: rueda en autovía sin vibraciones y sin el sobrepeso de una 650.",
+  },
+  {
+    title: "Mínima depreciación",
+    text: "Excelente valor en reventa y disponibilidad absoluta de recambios económicos de por vida.",
+  },
+];
+
+const fichas = bikes.map((b) => ({
+  id: b.id,
+  name: b.name,
+  type: b.type,
+  rank: b.rank,
+  scoreValue: b.scoreValue,
+  img: b.img,
+  badge: b.badge,
+  diyText: b.diyText.replace("10/10 - ", "").replace("9/10 - ", "").replace(/^\d+\/10 - /, ""),
+  desc: b.desc,
+  specs: [
+    { label: "Motor", value: b.motor },
+    { label: "Frenos", value: b.frenos },
+    { label: "Llantas", value: b.llantas },
+    { label: "Peso", value: b.peso },
+    { label: "Precio", value: b.precio },
+  ],
+}));
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: "https://tuanbyte.es/images/especiales/guia-motos/og.png",
+    datePublished: "2026-10-10",
+    dateModified: "2026-10-10",
+    inLanguage: "es",
+    author: { "@type": "Person", name: "Tuanbyte" },
+    publisher: { "@type": "Organization", name: "Tuanbyte" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": "https://tuanbyte.es/especiales/guia-motos" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Especiales", item: "https://tuanbyte.es/especiales" },
+      { "@type": "ListItem", position: 2, name: "Guía de motos", item: "https://tuanbyte.es/especiales/guia-motos" },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} image="images/especiales/guia-motos/og.png" jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <Migas title="Guía de motos" />
+    <Portada
+      subtitle="Catorce motos de media cilindrada a examen"
+      title="Guía de motos"
+      intro="El mercado de media cilindrada se ha llenado de propuestas que prometen carácter retro y precio ajustado. Este reportaje las pone en fila y las mide con la misma vara: fiabilidad mecánica, facilidad de mantenimiento en casa, relación potencia-precio, polivalencia y coste de uso."
+      intro2="Ninguna cifra aquí es tarifa oficial; todas son orientativas."
+      img="/images/especiales/guia-motos/honda-cl500.png"
+      imgAlt="Honda CL 500, ganadora de la comparativa"
+      caption="Honda CL 500 · la ganadora"
+      strip={["14 modelos", "ranking multicriterio", "datos orientativos"]}
+    />
+
+    <Veredicto
+      winner="Honda CL 500"
+      score="9,15"
+      lead="Dejando de lado gustos estéticos personales, la Honda CL 500 se impone como la opción más equilibrada, fiable y sensata de todo el mercado de media cilindrada. Es la única del grupo que combina fiabilidad sobradamente demostrada, mantenimiento casero sin ataduras electrónicas, polivalencia real carretera/ciudad/pistas y 47 CV bicilíndricos con consumo mínimo y peso contenido."
+      factors={factores}
+      img="/images/especiales/guia-motos/honda-cl500.png"
+      imgAlt="Honda CL 500"
+    />
+
+    <Ranking
+      desc="Ponderación del ranking: fiabilidad mecánica 25% · mantenimiento casero 25% · relación potencia/PVP 20% · polivalencia 20% · consumo y desgaste 10%."
+      criteria={criterios}
+      rows={ranking}
+    />
+
+    <Fichas
+      title="Las 14 fichas"
+      desc="Ábrela que te interese: motor, frenos, llantas, peso, precio y el veredicto de cada modelo."
+      fichas={fichas}
+    />
+
+    <div class="mx-auto max-w-6xl border-t-2 border-ink px-5 pt-10 sm:px-8" id="datos">
+      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+        Dossier
+      </h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-soft">
+        Los cuatro apéndices técnicos completos. Cifras orientativas, no tarifas oficiales.
+      </p>
+    </div>
+
+    <TablaTecnica
+      title="Motor y ciclo"
+      desc="Ficha mecánica y parte ciclo de cada modelo."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "Motor", key: "motor" },
+        { label: "Potencia", key: "potencia", mono: true },
+        { label: "Suspensión", key: "suspension" },
+        { label: "Frenos", key: "frenos" },
+        { label: "Neumáticos", key: "neumaticos", mono: true },
+        { label: "Peso", key: "peso", align: "right", mono: true },
+      ]}
+      rows={ciclo}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+
+    <TablaTecnica
+      title="Precios orientativos"
+      desc="PVP orientativo en España y observaciones."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "PVP orientativo", key: "pvp", mono: true },
+        { label: "Observaciones", key: "obs" },
+      ]}
+      rows={precios}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+
+    <TablaTecnica
+      title="Revisiones y consumo"
+      desc="Intervalos, consumo real y coste de taller."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "Intervalo", key: "intervalo", mono: true },
+        { label: "Consumo", key: "consumo", align: "right", mono: true },
+        { label: "Coste taller", key: "coste", align: "right", mono: true },
+        { label: "Complejidad", key: "complejidad" },
+      ]}
+      rows={revision}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+
+    <TablaTecnica
+      title="Mantenimiento casero"
+      desc="Qué puedes hacer tú y qué exige taller."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "Básicos", key: "basicos" },
+        { label: "Válvulas", key: "valvulas" },
+        { label: "Frenos", key: "frenos" },
+        { label: "Embrague", key: "embrague" },
+      ]}
+      rows={diy}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+  </main>
+  <Footer />
+</BaseLayout>

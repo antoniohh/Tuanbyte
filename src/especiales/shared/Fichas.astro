@@ -1,0 +1,104 @@
+---
+import { formatScore } from "./lib";
+
+interface Spec {
+  label: string;
+  value: string;
+}
+
+interface Ficha {
+  id: string;
+  name: string;
+  type: string;
+  rank: number;
+  scoreValue: number;
+  img: string;
+  specs: Spec[];
+  desc: string;
+  diyText?: string;
+  badge?: "high" | "med" | "low";
+}
+
+interface Props {
+  id?: string;
+  title: string;
+  desc: string;
+  fichas: Ficha[];
+}
+
+const { id = "fichas", title, desc, fichas } = Astro.props;
+
+const badgeClass: Record<Ficha["badge"], string> = {
+  high: "bg-ink text-paper",
+  med: "border border-ink-line text-ink",
+  low: "bg-minium text-paper",
+};
+---
+
+<section id={id} class="scroll-mt-24">
+  <div class="mx-auto max-w-6xl px-5 pt-14 sm:px-8 lg:pt-20">
+    <h2
+      class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl"
+    >
+      {title}
+    </h2>
+    <p class="mt-2 max-w-[68ch] text-sm leading-relaxed text-ink-soft">{desc}</p>
+  </div>
+
+  <div class="mx-auto mt-8 grid max-w-6xl gap-4 px-5 sm:px-8 lg:grid-cols-2">
+    {
+      fichas.map((f) => (
+        <details class="border-2 border-ink bg-paper open:bg-paper-2/60">
+          <summary class="flex cursor-pointer flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-4 [&::-webkit-details-marker]:hidden">
+            <span class="font-mono text-xs text-ink-soft tabular-nums">
+              {String(f.rank).padStart(2, "0")}
+            </span>
+            <span class="font-display text-xl font-bold uppercase tracking-tight text-ink">
+              {f.name}
+            </span>
+            <span class="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
+              {f.type}
+            </span>
+            <span class="ml-auto font-mono text-sm font-semibold text-minium tabular-nums">
+              {formatScore(f.scoreValue)}/10
+            </span>
+            {
+              f.badge && f.diyText ? (
+                <span
+                  class:list={[
+                    "px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.1em]",
+                    badgeClass[f.badge],
+                  ]}
+                >
+                  casero {f.diyText}
+                </span>
+              ) : null
+            }
+          </summary>
+
+          <div class="grid gap-6 border-t-2 border-ink px-5 py-5 sm:grid-cols-[14rem_1fr]">
+            <img
+              src={f.img}
+              alt={f.name}
+              class="h-36 w-full object-contain"
+              loading="lazy"
+            />
+            <div>
+              <dl class="grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+                {f.specs.map((s) => (
+                  <div class="flex items-baseline gap-2">
+                    <dt class="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
+                      {s.label}
+                    </dt>
+                    <dd class="font-mono text-[0.8125rem] text-ink">{s.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p class="mt-4 leading-relaxed text-ink/85">{f.desc}</p>
+            </div>
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>

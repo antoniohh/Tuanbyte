@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<nav
+  class="mx-auto max-w-6xl px-5 pt-6 sm:px-8"
+  aria-label="Migas de pan"
+>
+  <ol class="flex flex-wrap items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-soft">
+    <li>
+      <a href="/" class="transition-colors hover:text-minium">Inicio</a>
+    </li>
+    <li aria-hidden="true" class="text-ink-line">/</li>
+    <li>
+      <a href="/especiales" class="transition-colors hover:text-minium">Especiales</a>
+    </li>
+    <li aria-hidden="true" class="text-ink-line">/</li>
+    <li class="text-ink" aria-current="page">{title}</li>
+  </ol>
+</nav>

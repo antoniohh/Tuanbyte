@@ -1,0 +1,107 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+const title = "Especiales · reportajes a fondo de Tuanbyte";
+const description =
+  "Reportajes comparativos de elaboración propia con tablas, fichas y ranking multicriterio: guía de motos de media cilindrada y SUVs híbridos HEV.";
+
+const reportajes = [
+  {
+    href: "/especiales/guia-motos",
+    title: "Guía de motos de media cilindrada",
+    kicker: "14 modelos",
+    blurb:
+      "Motos retro, scrambler, roadster y trail puestas en fila y medidas con la misma vara: fiabilidad mecánica, mantenimiento casero, potencia-precio, polivalencia y coste de uso.",
+    img: "/images/especiales/guia-motos/honda-cl500.png",
+    alt: "Honda CL 500, ganadora de la guía de motos",
+    caption: "honda cl 500 · la ganadora",
+    tilt: "lg:-rotate-[0.7deg]",
+  },
+  {
+    href: "/especiales/suvs-hev",
+    title: "SUVs híbridos HEV",
+    kicker: "8 modelos",
+    blurb:
+      "Solo híbridos completos (HEV) de segmentos B y C: los que mueven el coche con el motor eléctrico y no se enchufan. Consumo, maletero, garantía y coste de propiedad.",
+    img: "/images/especiales/suvs-hev/kia-niro.png",
+    alt: "Kia Niro HEV, ganador de la comparativa de SUVs",
+    caption: "kia niro hev · el ganador",
+    tilt: "lg:rotate-[0.8deg]",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Especiales",
+    description,
+    url: "https://tuanbyte.es/especiales",
+    inLanguage: "es",
+    isPartOf: { "@type": "WebSite", name: "Tuanbyte", url: "https://tuanbyte.es/" },
+  },
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 pt-12 sm:px-8 lg:pt-16">
+      <p class="font-marker text-2xl text-minium">
+        cuando un tema da para reportaje entero
+      </p>
+      <h1
+        class="mt-3 font-display text-[clamp(2.75rem,7vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink"
+      >
+        Especiales
+      </h1>
+      <p class="mt-5 max-w-[62ch] text-xl leading-relaxed text-ink/90">
+        Reportajes comparativos de elaboración propia: fichas, tablas y un
+        ranking con la ponderación a la vista. Los mismos criterios con los que
+        elijo y mantengo lo que enseño en el canal.
+      </p>
+      <p class="mt-3 max-w-[62ch] leading-relaxed text-ink-soft">
+        Cifras orientativas, sin tarifa oficial. Cada modelo lleva su ficha con
+        lo que cuesta y lo que cuesta mantenerlo.
+      </p>
+    </section>
+
+    <section class="mx-auto mt-12 max-w-6xl px-5 sm:px-8 lg:mt-16">
+      <div class="grid gap-8 lg:grid-cols-2">
+        {
+          reportajes.map((r) => (
+            <a
+              href={r.href}
+              class:list={["tape canto group block bg-paper px-5 pt-6 pb-5", r.tilt]}
+            >
+              <div class="flex h-56 items-center justify-center">
+                <img
+                  src={r.img}
+                  alt={r.alt}
+                  class="max-h-56 w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p class="mt-3 text-center font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
+                {r.caption}
+              </p>
+              <div class="mt-4 flex items-baseline justify-between gap-3">
+                <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink group-hover:text-minium">
+                  {r.title}
+                </h2>
+                <span class="shrink-0 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-minium">
+                  {r.kicker}
+                </span>
+              </div>
+              <p class="mt-3 leading-relaxed text-ink/80">{r.blurb}</p>
+              <p class="mt-4 font-marker text-xl text-minium">leer el reportaje ↗</p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

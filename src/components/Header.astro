@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { absolute = false } = Astro.props;
+const path = Astro.url.pathname;
+const enEspeciales = path.startsWith("/especiales");
 
 const links = [
   { href: "#catalogo", label: "Catálogo" },
@@ -16,7 +18,7 @@ const links = [
 <header class="perfo-top border-b-2 border-ink bg-paper-2">
   <div class="pt-2.5 pb-2.5">
     <div class="mx-auto max-w-6xl">
-      <div class="flex h-14 items-center justify-between px-5 sm:px-8">
+      <div class="flex h-14 items-center justify-between gap-4 px-5 sm:px-8">
         <a href="/" class="flex items-center gap-2.5">
           <img
             src="/brand/mark-256.png"
@@ -30,7 +32,20 @@ const links = [
           </span>
         </a>
 
-        <details class="group relative" data-menu>
+        <nav class="flex items-center gap-2" aria-label="Principal">
+          <a
+            href="/especiales"
+            class:list={[
+              "border border-ink-line px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors sm:px-4 sm:py-1.5",
+              enEspeciales
+                ? "bg-ink text-paper"
+                : "bg-paper text-ink hover:border-ink hover:bg-strike/40",
+            ]}
+          >
+            Especiales
+          </a>
+
+          <details class="group relative" data-menu>
           <summary
             class="flex cursor-pointer select-none items-center gap-2 border border-ink-line bg-paper px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5 [&::-webkit-details-marker]:hidden"
             aria-label="Secciones de la portada"
@@ -61,7 +76,8 @@ const links = [
               ))
             }
           </ul>
-        </details>
+          </details>
+        </nav>
       </div>
     </div>
   </div>

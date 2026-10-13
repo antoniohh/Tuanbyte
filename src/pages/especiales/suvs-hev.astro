@@ -1,0 +1,240 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Migas from "@/especiales/shared/Migas.astro";
+import Portada from "@/especiales/shared/Portada.astro";
+import Veredicto from "@/especiales/shared/Veredicto.astro";
+import Ranking from "@/especiales/shared/Ranking.astro";
+import Fichas from "@/especiales/shared/Fichas.astro";
+import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
+import { modelClass } from "@/especiales/shared/lib";
+import { cars, consumo, mantenimiento, precios, ranking, tecnicos } from "@/especiales/suvs-hev/data/cars";
+
+const title = "SUVs híbridos HEV · Comparativa y ranking de 8 modelos";
+const description =
+  "Comparativa de 8 SUVs híbridos completos (HEV) de segmentos B y C: consumo, maletero, precio, fiabilidad y mantenimiento, con ranking multicriterio y fichas de cada modelo.";
+
+const criterios = [
+  { key: "fiabilidad", label: "Fiabilidad", weight: "25%" },
+  { key: "mantenimiento", label: "Mantenimiento", weight: "25%" },
+  { key: "precioEquip", label: "Precio/equip.", weight: "20%" },
+  { key: "espacio", label: "Espacio", weight: "20%" },
+  { key: "consumo", label: "Consumo", weight: "10%" },
+];
+
+const factores = [
+  {
+    title: "Consumo mínimo",
+    text: "4,1 L/100 km en ciclo combinado: el más bajo de la comparativa, gracias a su híbrido completo sin enchufe.",
+  },
+  {
+    title: "Espacio real",
+    text: "451 litros de maletero, más que varios rivales de segmento superior. Plazas traseras amplias y bien resueltas.",
+  },
+  {
+    title: "Garantía y red",
+    text: "Siete años o 150.000 km de garantía y una red de servicio amplia, con mantenimiento predecible.",
+  },
+  {
+    title: "Equilibrio total",
+    text: "No destaca en una sola cosa: combina consumo, espacio, fiabilidad y precio mejor que ningún otro del grupo.",
+  },
+];
+
+const tipos = [
+  {
+    tipo: "HEV",
+    nombre: "Híbrido completo",
+    mueve: "Sí, por sí solo a baja velocidad",
+    enchufa: "No (se recarga solo)",
+    bateria: "Pequeña (~1–1,5 kWh)",
+    dgt: "ECO",
+    nota: "Los de este reportaje",
+  },
+  {
+    tipo: "MHEV",
+    nombre: "Híbrido ligero",
+    mueve: "No, solo asiste (48 V)",
+    enchufa: "No",
+    bateria: "Muy pequeña (~0,5 kWh)",
+    dgt: "ECO",
+    nota: "Fuera del reportaje",
+  },
+  {
+    tipo: "PHEV",
+    nombre: "Híbrido enchufable",
+    mueve: "Sí, con autonomía eléctrica",
+    enchufa: "Sí",
+    bateria: "Grande (~10–20 kWh)",
+    dgt: "0 (Cero)",
+    nota: "Fuera del reportaje",
+  },
+];
+
+const fichas = cars.map((c) => ({
+  id: c.id,
+  name: c.name,
+  type: `Segmento ${c.segment} · ${c.sistema}`,
+  rank: c.rank,
+  scoreValue: c.scoreValue,
+  img: c.img,
+  desc: c.desc,
+  specs: [
+    { label: "Motor", value: c.motor },
+    { label: "Potencia", value: c.potencia },
+    { label: "Cambio", value: c.cambio },
+    { label: "Tracción", value: c.traccion },
+    { label: "Consumo", value: c.consumo },
+    { label: "Maletero", value: c.maletero },
+    { label: "Peso", value: c.peso },
+    { label: "Precio", value: c.precio },
+    { label: "Garantía", value: c.garantia },
+    { label: "Etiqueta DGT", value: c.etiqueta },
+  ],
+}));
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: "https://tuanbyte.es/images/especiales/suvs-hev/og.png",
+    datePublished: "2026-10-10",
+    dateModified: "2026-10-10",
+    inLanguage: "es",
+    author: { "@type": "Person", name: "Tuanbyte" },
+    publisher: { "@type": "Organization", name: "Tuanbyte" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": "https://tuanbyte.es/especiales/suvs-hev" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Especiales", item: "https://tuanbyte.es/especiales" },
+      { "@type": "ListItem", position: 2, name: "SUVs híbridos HEV", item: "https://tuanbyte.es/especiales/suvs-hev" },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} image="images/especiales/suvs-hev/og.png" jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <Migas title="SUVs híbridos HEV" />
+    <Portada
+      subtitle="Ocho SUVs híbridos de verdad a examen"
+      title="SUVs HEV"
+      intro="No todo lo que se anuncia como híbrido es igual. Este reportaje solo admite híbridos completos (HEV): los que mueven el coche con el motor eléctrico sin necesidad de enchufar. Ocho modelos de segmentos B y C medidos con la misma vara: precio, fiabilidad, mantenimiento, espacio y consumo."
+      intro2="Sin MHEV ni enchufables. Cifras orientativas, no tarifas oficiales."
+      img="/images/especiales/suvs-hev/kia-niro.png"
+      imgAlt="Kia Niro HEV, ganador de la comparativa"
+      caption="KIA NIRO HEV · EL GANADOR"
+      strip={["8 modelos", "solo HEV · etiqueta ECO", "ranking multicriterio", "datos orientativos"]}
+    />
+
+    <Veredicto
+      winner="Kia Niro HEV"
+      score="8,45"
+      lead="El Kia Niro se impone como la opción más equilibrada del grupo: híbrido completo sin enchufe, maletero de 451 litros, el consumo más bajo de la comparativa y siete años de garantía. No gana en una sola cosa, pero suma mejor que ningún otro."
+      factors={factores}
+      img="/images/especiales/suvs-hev/kia-niro.png"
+      imgAlt="Kia Niro HEV"
+    />
+
+    <TablaTecnica
+      id="tipos"
+      title="¿Qué es un HEV?"
+      desc="No todo lo que se anuncia como híbrido es igual. Este especial solo incluye híbridos completos (HEV): los que mueven el coche con el motor eléctrico y no se enchufan."
+      columns={[
+        { label: "Tipo", key: "tipo" },
+        { label: "Nombre", key: "nombre" },
+        { label: "Eléctrico mueve el coche", key: "mueve" },
+        { label: "Se enchufa", key: "enchufa" },
+        { label: "Batería", key: "bateria" },
+        { label: "Etiqueta DGT", key: "dgt" },
+        { label: "En este reportaje", key: "nota" },
+      ]}
+      rows={tipos}
+      modelKey="tipo"
+    />
+
+    <Ranking
+      desc="Ponderación del ranking: fiabilidad mecánica 25% · mantenimiento 25% · relación precio/equipamiento 20% · espacio 20% · consumo 10%."
+      criteria={criterios}
+      rows={ranking}
+    />
+
+    <Fichas
+      title="Las 8 fichas"
+      desc="Ábrela que te interese: motor, potencia, cambio, consumo, maletero, precio y garantía de cada modelo."
+      fichas={fichas}
+    />
+
+    <div class="mx-auto max-w-6xl border-t-2 border-ink px-5 pt-10 sm:px-8" id="datos">
+      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+        Dossier
+      </h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-soft">
+        Los cuatro apéndices técnicos completos. Cifras orientativas, no tarifas oficiales.
+      </p>
+    </div>
+
+    <TablaTecnica
+      title="Ficha técnica"
+      desc="Motor, potencia, cambio, maletero y garantía de cada modelo."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "Segmento", key: "segmento", mono: true },
+        { label: "Motor", key: "motor" },
+        { label: "Potencia", key: "potencia", mono: true },
+        { label: "Cambio", key: "cambio" },
+        { label: "Maletero", key: "maletero", align: "right", mono: true },
+        { label: "Garantía", key: "garantia", mono: true },
+      ]}
+      rows={tecnicos}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+
+    <TablaTecnica
+      title="Precios orientativos"
+      desc="PVP orientativo y observaciones."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "PVP orientativo", key: "pvp", mono: true },
+        { label: "Observaciones", key: "obs" },
+      ]}
+      rows={precios}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+
+    <TablaTecnica
+      title="Consumo y mantenimiento"
+      desc="Consumo WLTP y notas generales de mantenimiento."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "Consumo", key: "consumo", align: "right", mono: true },
+        { label: "Mantenimiento", key: "mantenimiento" },
+      ]}
+      rows={consumo}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+
+    <TablaTecnica
+      title="Mantenimiento casero"
+      desc="Aceite y filtros, frenos, suspensión, batería, luces e interiores: qué puedes hacer tú y qué exige taller."
+      columns={[
+        { label: "Modelo", key: "model" },
+        { label: "Aceite y filtros", key: "aceiteFiltros" },
+        { label: "Frenos", key: "frenos" },
+        { label: "Suspensión", key: "suspension" },
+        { label: "Batería y luces", key: "bateriaLuces" },
+        { label: "Interior y exterior", key: "interiorExterior" },
+      ]}
+      rows={mantenimiento}
+      modelClass={(r) => modelClass(r.tag as never)}
+    />
+  </main>
+  <Footer />
+</BaseLayout>

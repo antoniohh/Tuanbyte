@@ -1,0 +1,93 @@
+---
+interface Column {
+  label: string;
+  key: string;
+  align?: "left" | "right";
+  weight?: string;
+  mono?: boolean;
+}
+
+interface Props {
+  id?: string;
+  title: string;
+  desc: string;
+  columns: Column[];
+  rows: Record<string, unknown>[];
+  modelKey?: string;
+  modelClass?: (row: Record<string, unknown>) => string;
+}
+
+const {
+  id,
+  title,
+  desc,
+  columns,
+  rows,
+  modelKey = "model",
+  modelClass,
+} = Astro.props;
+---
+
+<section id={id} class="scroll-mt-24">
+  <div class="mx-auto max-w-6xl px-5 pt-14 sm:px-8 lg:pt-20">
+    <h2
+      class="font-display text-3xl font-extrabold uppercase tracking-tight text-ink sm:text-4xl"
+    >
+      {title}
+    </h2>
+    <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-soft">{desc}</p>
+  </div>
+
+  <div class="mx-auto mt-6 max-w-6xl px-5 sm:px-8">
+    <div class="overflow-x-auto border-2 border-ink">
+      <table class="w-full min-w-[860px] border-collapse text-left">
+        <thead>
+          <tr class="border-b-2 border-ink bg-paper-2">
+            {
+              columns.map((c) => (
+                <th
+                  class:list={[
+                    "px-4 py-3 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-soft",
+                    (c.align ?? "left") === "right" ? "text-right" : "",
+                  ]}
+                >
+                  {c.label}
+                  {c.weight ? <span class="ml-1 text-ink-line">{c.weight}</span> : null}
+                </th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map((row, i) => (
+              <tr
+                class:list={[
+                  "transition-colors hover:bg-paper-2",
+                  i !== rows.length - 1 ? "border-b border-ink-line" : "",
+                ]}
+              >
+                {columns.map((c) => (
+                  <td
+                    class:list={[
+                      "px-4 py-3 align-top text-sm text-ink/85",
+                      (c.align ?? "left") === "right" ? "text-right tabular-nums" : "",
+                      c.mono ? "font-mono text-[0.8125rem]" : "",
+                      c.key === modelKey
+                        ? `whitespace-nowrap font-display text-base ${modelClass ? modelClass(row) : "text-ink"}`
+                        : "",
+                    ]}
+                  >
+                    <span class="whitespace-pre-line">
+                      {String(row[c.key] ?? "")}
+                    </span>
+                  </td>
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
