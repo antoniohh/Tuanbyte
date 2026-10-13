@@ -26,9 +26,10 @@ proyecto aparte y pasan a ser **páginas de este sitio**.
 - **Cero JavaScript de framework**: se abandona React (el build anterior eran
   ~270 KB de JS) y las fichas se despliegan con `<details>` nativo.
 
-- **Escaparate**: rejilla con todos los modelos a la vista (foto recortada,
-  puesto y nota) que enlaza a su ficha; al abrirse, cada ficha ocupa el ancho
-  completo con las especificaciones en filas.
+- **El garaje / el escaparate**: una sola rejilla donde cada tarjeta es su
+  propia ficha. Cerrada muestra la foto recortada, el puesto y la nota; al
+  abrirla se despliega a lo ancho con la ficha completa (especificaciones en
+  filas, sello de mantenimiento casero y descripción). Sin JavaScript.
 - **Unificación**: un único componente `Reportaje.astro` pinta los dos
   reportajes a partir de su configuración; cada página es solo datos y textos.
 

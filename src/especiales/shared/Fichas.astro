@@ -28,7 +28,7 @@ interface Props {
 
 const { id = "fichas", title, desc, fichas } = Astro.props;
 
-const badgeClass: Record<Ficha["badge"], string> = {
+const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
   high: "bg-ink text-paper",
   med: "border border-ink-line text-ink",
   low: "bg-minium text-paper",
@@ -45,44 +45,68 @@ const badgeClass: Record<Ficha["badge"], string> = {
     <p class="mt-2 max-w-[68ch] text-sm leading-relaxed text-ink-soft">{desc}</p>
   </div>
 
-  <div class="mx-auto mt-8 grid max-w-6xl gap-4 px-5 sm:px-8 lg:grid-cols-2">
+  <div
+    class="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-3 px-5 sm:grid-cols-3 sm:px-8 lg:grid-cols-4"
+  >
     {
       fichas.map((f) => (
-        <details id={`ficha-${f.id}`} class="scroll-mt-24 border-2 border-ink bg-paper open:bg-paper-2/60 open:lg:col-span-2">
-          <summary class="flex cursor-pointer flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-4 [&::-webkit-details-marker]:hidden">
-            <span class="font-mono text-xs text-ink-soft tabular-nums">
-              {String(f.rank).padStart(2, "0")}
+        <details
+          id={`ficha-${f.id}`}
+          class="group scroll-mt-24 border-2 border-ink bg-paper open:col-span-full open:bg-paper-2/60 open:lg:grid open:lg:grid-cols-[20rem_1fr] open:lg:items-start"
+        >
+          <summary class="flex h-full cursor-pointer flex-col p-3 transition-colors hover:bg-paper-2 [&::-webkit-details-marker]:hidden lg:group-open:h-auto lg:group-open:border-r-2 lg:group-open:border-ink">
+            <span class="flex items-baseline justify-between">
+              <span class="font-mono text-[0.625rem] text-ink-soft tabular-nums">
+                {String(f.rank).padStart(2, "0")}
+              </span>
+              <span class="font-mono text-xs font-semibold text-minium tabular-nums">
+                {formatScore(f.scoreValue)}
+              </span>
             </span>
-            <span class="font-display text-xl font-bold uppercase tracking-tight text-ink">
+
+            <span class="mt-1 flex h-24 items-center justify-center">
+              <img
+                src={f.img}
+                alt={f.name}
+                class="max-h-24 w-full object-contain"
+                loading="lazy"
+              />
+            </span>
+
+            <span class="mt-2 font-display text-base font-bold uppercase leading-tight tracking-tight text-ink">
               {f.name}
             </span>
-            <span class="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
+            <span class="mt-0.5 font-mono text-[0.625rem] uppercase tracking-[0.08em] text-ink-soft">
               {f.type}
             </span>
-            <span class="ml-auto font-mono text-sm font-semibold text-minium tabular-nums">
-              {formatScore(f.scoreValue)}/10
+            <span class="mt-auto pt-2 font-marker text-lg text-ink">
+              <span class="group-open:hidden">ver ficha ↴</span>
+              <span class="hidden group-open:inline text-ink-soft">cerrar ↥</span>
             </span>
-            {
-              f.badge && f.diyText ? (
-                <span
-                  class:list={[
-                    "px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.1em]",
-                    badgeClass[f.badge],
-                  ]}
-                >
-                  casero {f.diyText}
-                </span>
-              ) : null
-            }
           </summary>
 
-          <div class="grid gap-6 border-t-2 border-ink px-5 py-5 sm:grid-cols-[14rem_1fr]">
-            <img
-              src={f.img}
-              alt={f.name}
-              class="h-36 w-full object-contain"
-              loading="lazy"
-            />
+          <div class="grid gap-6 border-t-2 border-ink px-5 py-5 lg:group-open:border-t-0">
+            <div class="flex flex-col gap-4">
+              <img
+                src={f.img}
+                alt={f.name}
+                class="h-40 w-full object-contain"
+                loading="lazy"
+              />
+              {
+                f.badge && f.diyText ? (
+                  <span
+                    class:list={[
+                      "self-start px-2 py-1 font-mono text-[0.625rem] uppercase tracking-[0.1em]",
+                      badgeClass[f.badge],
+                    ]}
+                  >
+                    casero {f.diyText}
+                  </span>
+                ) : null
+              }
+            </div>
+
             <div>
               <dl class="grid gap-x-8 sm:grid-cols-2">
                 {f.specs.map((s) => (

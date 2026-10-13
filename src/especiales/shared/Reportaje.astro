@@ -6,7 +6,6 @@ import Migas from "@/especiales/shared/Migas.astro";
 import Portada from "@/especiales/shared/Portada.astro";
 import Veredicto from "@/especiales/shared/Veredicto.astro";
 import Ranking from "@/especiales/shared/Ranking.astro";
-import Galeria from "@/especiales/shared/Galeria.astro";
 import Fichas from "@/especiales/shared/Fichas.astro";
 import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
 import { modelClass } from "@/especiales/shared/lib";
@@ -36,7 +35,6 @@ interface Props {
       rows: Record<string, unknown>[];
       winnerLabel?: string;
     };
-    galeria: { title: string; desc: string };
     fichas: { title: string; desc: string; items: Record<string, unknown>[] };
     dossier: { tablas: Tabla[] };
     jsonLd: Record<string, unknown>[];
@@ -77,8 +75,6 @@ const { cfg } = Astro.props;
       rows={cfg.ranking.rows as never}
       winnerLabel={cfg.ranking.winnerLabel}
     />
-
-    <Galeria title={cfg.galeria.title} desc={cfg.galeria.desc} items={cfg.fichas.items as never} />
 
     <Fichas title={cfg.fichas.title} desc={cfg.fichas.desc} fichas={cfg.fichas.items as never} />
 
