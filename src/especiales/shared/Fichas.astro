@@ -52,7 +52,7 @@ const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
       fichas.map((f) => (
         <details
           id={`ficha-${f.id}`}
-          class="group scroll-mt-24 border-2 border-ink bg-paper open:col-span-full open:bg-paper-2/60 open:lg:grid open:lg:grid-cols-[20rem_1fr] open:lg:items-start"
+          class="group scroll-mt-24 border-2 border-ink bg-paper open:col-span-full open:bg-paper-2/60 open:lg:grid open:lg:grid-cols-[24rem_1fr] open:lg:items-start"
         >
           <summary class="flex h-full cursor-pointer flex-col p-3 transition-colors hover:bg-paper-2 [&::-webkit-details-marker]:hidden lg:group-open:h-auto lg:group-open:border-r-2 lg:group-open:border-ink">
             <span class="flex items-baseline justify-between">
@@ -64,11 +64,11 @@ const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
               </span>
             </span>
 
-            <span class="mt-1 flex h-24 items-center justify-center lg:group-open:h-52">
+            <span class="ficha-media mt-1">
               <img
                 src={f.img}
                 alt={f.name}
-                class="max-h-24 w-full object-contain"
+                
                 loading="lazy"
               />
             </span>

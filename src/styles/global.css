@@ -137,3 +137,26 @@ html {
 .sello:hover {
   transform: rotate(-1.5deg) translateY(-1px);
 }
+
+.ficha-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6rem;
+}
+
+.ficha-media img {
+  max-height: 6rem;
+  width: 100%;
+  object-fit: contain;
+}
+
+details[open] .ficha-media img {
+  max-height: 10rem;
+}
+
+@media (min-width: 1024px) {
+  details[open] .ficha-media img {
+    max-height: 13rem;
+  }
+}
