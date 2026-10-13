@@ -34,6 +34,7 @@ Los documentos que gobiernan el proyecto:
 | [`PRODUCT.md`](PRODUCT.md) | Verdad de producto: público, propósito, compromisos de marca. |
 | [`DESIGN.md`](DESIGN.md) | Sistema de diseño: tokens, tipografía, leyes de composición. |
 | [`docs/plans/web-landing-plan.md`](docs/plans/web-landing-plan.md) | Plan por fases de la web. |
+| [`docs/plans/migracion-especiales.md`](docs/plans/migracion-especiales.md) | Plan para traer los especiales dentro del catálogo. |
 | [`docs/info/despliegue-github-pages.md`](docs/info/despliegue-github-pages.md) | Publicación, dominio y DNS. |
 
 ## 🧱 Arquitectura
