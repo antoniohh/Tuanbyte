@@ -27,7 +27,7 @@ const links = [
             height="36"
             class="h-9 w-9"
           />
-          <span class="font-brand text-2xl uppercase tracking-tight text-ink">
+          <span class="font-brand hidden text-2xl uppercase tracking-tight text-ink sm:inline">
             Tuanbyte
           </span>
         </a>
@@ -36,7 +36,7 @@ const links = [
           <a
             href="/especiales"
             class:list={[
-              "border border-ink-line px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] transition-colors sm:px-4 sm:py-1.5",
+              "border border-ink-line px-2.5 py-2 font-mono text-[0.625rem] uppercase tracking-[0.1em] transition-colors sm:px-4 sm:py-1.5 sm:text-[0.6875rem] sm:tracking-[0.12em]",
               enEspeciales
                 ? "bg-ink text-paper"
                 : "bg-paper text-ink hover:border-ink hover:bg-strike/40",
@@ -47,10 +47,11 @@ const links = [
 
           <details class="group relative" data-menu>
           <summary
-            class="flex cursor-pointer select-none items-center gap-2 border border-ink-line bg-paper px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5 [&::-webkit-details-marker]:hidden"
+            class="flex cursor-pointer select-none items-center gap-2 border border-ink-line bg-paper px-2.5 py-2 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5 sm:text-[0.6875rem] sm:tracking-[0.12em] [&::-webkit-details-marker]:hidden"
             aria-label="Secciones de la portada"
           >
-            Secciones
+            <span class="sm:hidden">Menú</span>
+            <span class="hidden sm:inline">Secciones</span>
             <svg
               class="h-3 w-3 shrink-0 transition-transform group-open:rotate-180"
               viewBox="0 0 12 8"

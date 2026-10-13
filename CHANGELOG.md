@@ -5,6 +5,37 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
+## [1.4.0] — 2026-10-14
+
+Migración de los especiales al catálogo: los reportajes dejan de vivir en un
+proyecto aparte y pasan a ser **páginas de este sitio**.
+
+### Añadido
+
+- **Sección de especiales** en el sitio: índice editorial en `/especiales` y los
+  dos reportajes en `/especiales/guia-motos` y `/especiales/suvs-hev`, con el
+  sistema del catálogo (papel, cinta, minio, tipografías).
+- **Contenido portado completo**: portada, veredicto en banda de tinta, ranking
+  multicriterio, 14 + 8 fichas desplegables y los cuatro apéndices técnicos de
+  cada reportaje.
+- **Navegación multipágina**: la cabecera estrena la página real *Especiales*
+  con estado activo, migas dentro de los reportajes y las secciones de la
+  portada movidas a un **submenú** («Secciones ▾», sin anclas sueltas).
+- **SEO por reportaje**: canónica, Open Graph propio, JSON-LD
+  (`Article` + `BreadcrumbList`) y entradas en el `sitemap.xml`.
+- **Cero JavaScript de framework**: se abandona React (el build anterior eran
+  ~270 KB de JS) y las fichas se despliegan con `<details>` nativo.
+
+### Cambiado
+
+- La sección *Especiales* de la portada enlaza dentro del sitio y muestra las
+  portadas de los modelos ganadores (antes, capturas del sitio antiguo).
+
+### Eliminado
+
+- Las capturas `anexo-*.png` del proyecto anterior.
+
+[1.4.0]: ../../releases/tag/v1.4.0
 ## [1.3.0] — 2026-10-14
 
 ### Añadido

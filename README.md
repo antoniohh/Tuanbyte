@@ -43,8 +43,9 @@ Los documentos que gobiernan el proyecto:
   framework de cliente ni JavaScript propio en el navegador.
 - **Tailwind CSS 4** (vía plugin de Vite) con los tokens del mundo visual en
   `src/styles/global.css` (`@theme`): papel, tinta, minio, cinta, marca.
-- **Una única ruta** (`src/pages/index.astro`) compuesta de componentes de
-  sección; el layout común vive en `src/layouts/BaseLayout.astro`.
+- **Multipágina**: la portada (`src/pages/index.astro`), la sección de
+  especiales (`src/pages/especiales/`) y la página de cookies, todas con el
+  mismo layout (`src/layouts/BaseLayout.astro`) y la misma cabecera y pie.
 - **Contenido en build, no en cliente.** Dos fuentes de datos del canal, con
   cadena de resiliencia para que el build no dependa de terceros:
 
@@ -76,7 +77,11 @@ Los documentos que gobiernan el proyecto:
 │   ├── data/                      # redes + fallbacks de vídeos y listas
 │   ├── layouts/BaseLayout.astro   # head, metadatos, fuentes, JSON-LD
 │   ├── lib/                       # videos.ts · playlists.ts (scrape + fallback)
-│   ├── pages/index.astro          # la landing (única ruta)
+│   ├── especiales/                # los reportajes: shared/ + <slug>/(data)
+│   ├── pages/
+│   │   ├── index.astro            # el taller (portada)
+│   │   ├── cookies.astro          # cookies y datos
+│   │   └── especiales/            # índice + guia-motos + suvs-hev
 │   └── styles/global.css          # tokens @theme, texturas y utilidades
 ├── DESIGN.md · PRODUCT.md         # verdad de diseño y de producto
 ├── CHANGELOG.md · LICENSE         # cambios y licencia

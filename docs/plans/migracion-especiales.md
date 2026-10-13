@@ -5,6 +5,9 @@ Traer los reportajes (hoy en un proyecto aparte, servido en
 del catálogo, para que dejen de "irse fuera": misma casa, misma cabecera,
 mismo pie.
 
+Estado: **F1–F4 y F6 hechas** (2026-10-14). Queda F7 (borrar el subdominio y
+archivar el repo, en manos del autor).
+
 Estado de partida (comprobado):
 
 - Proyecto *Especiales*: **SPA de React + react-router** con dos reportajes
