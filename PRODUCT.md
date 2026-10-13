@@ -77,7 +77,7 @@ relevo Eclipse scrape + fallback JSON en repo).
 - Redes sociales reales con enlaces (`src/data/socials.ts`) — heredadas de la
   landing de 2022 (`legacy/index.html`).
 - Dos especiales propios publicados con páginas diseñadas
-  (`especiales.antoniohorrillo.com`).
+  (`especiales.tuanbyte.es`).
 - La web actual es un placeholder de fase 1 con estética provisional (oscura,
   "terminal", ámbar `#fbbf24`): autoridad de diseño aún no definida — se
   decide en new-work, no es una lanzadera de marca.

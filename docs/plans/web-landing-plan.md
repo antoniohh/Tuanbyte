@@ -45,7 +45,7 @@ Orden top-down:
    (Linux, desarrollo web). Nada de "tarjetas iguales de icono + título +
    texto": más bien un índice editorial con jerarquía tipográfica.
 5. **Los especiales** — bloque compacto que enlaza a
-   `especiales.antoniohorrillo.com` (guía de motos A2, SUVs HEV…), presentado
+   `especiales.tuanbyte.es` (guía de motos A2, SUVs HEV…), presentado
    como "reportajes a fondo que salen del canal".
 6. **Redes y contacto** — mosaico de enlaces: YouTube, X/Twitter, Instagram,
    email, lo que exista (se puede reutilizar la lista de la landing actual).
@@ -172,7 +172,7 @@ web nueva ya hoja en verde en GitHub.
   interactivo real, Cloudflare Workers/D1 o Vercel/Render como ya tienes
   apuntado — fuera de alcance aquí.
 - **Consistencia de marca entre tres casas:** tuanbyte.es (marca/canal),
-  antoniohorrillo.com (blog/motor) y especiales.antoniohorrillo.com
+  antoniohorrillo.com (blog/motor) y especiales.tuanbyte.es
   (reportajes). No compartir sistema de diseño, pero sí huele familia:
   rótulos, si acaso el mismo tipo de letra display.
 
