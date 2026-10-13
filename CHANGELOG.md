@@ -26,10 +26,24 @@ proyecto aparte y pasan a ser **páginas de este sitio**.
 - **Cero JavaScript de framework**: se abandona React (el build anterior eran
   ~270 KB de JS) y las fichas se despliegan con `<details>` nativo.
 
+- **Escaparate**: rejilla con todos los modelos a la vista (foto recortada,
+  puesto y nota) que enlaza a su ficha; al abrirse, cada ficha ocupa el ancho
+  completo con las especificaciones en filas.
+- **Unificación**: un único componente `Reportaje.astro` pinta los dos
+  reportajes a partir de su configuración; cada página es solo datos y textos.
+
 ### Cambiado
 
+- **Navegación sin anclas**: la barra queda en *El Taller* y *Especiales* (con
+  estado activo) y el pie en *secciones: El Taller y Especiales*. Los enlaces a
+  secciones de la portada se retiran (también el submenú).
 - La sección *Especiales* de la portada enlaza dentro del sitio y muestra las
   portadas de los modelos ganadores (antes, capturas del sitio antiguo).
+
+### Corregido
+
+- Concordancia de género: el chip del ranking dice **ganadora** en las motos y
+  **ganador** en los coches.
 
 ### Eliminado
 

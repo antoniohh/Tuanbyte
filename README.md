@@ -77,7 +77,8 @@ Los documentos que gobiernan el proyecto:
 │   ├── data/                      # redes + fallbacks de vídeos y listas
 │   ├── layouts/BaseLayout.astro   # head, metadatos, fuentes, JSON-LD
 │   ├── lib/                       # videos.ts · playlists.ts (scrape + fallback)
-│   ├── especiales/                # los reportajes: shared/ + <slug>/(data)
+│   ├── especiales/                # reportajes: shared/ (piezas y Reportaje.astro)
+│   │                              # + guia-motos/(data) y suvs-hev/(data)
 │   ├── pages/
 │   │   ├── index.astro            # el taller (portada)
 │   │   ├── cookies.astro          # cookies y datos

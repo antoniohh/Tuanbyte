@@ -1,0 +1,109 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Migas from "@/especiales/shared/Migas.astro";
+import Portada from "@/especiales/shared/Portada.astro";
+import Veredicto from "@/especiales/shared/Veredicto.astro";
+import Ranking from "@/especiales/shared/Ranking.astro";
+import Galeria from "@/especiales/shared/Galeria.astro";
+import Fichas from "@/especiales/shared/Fichas.astro";
+import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
+import { modelClass } from "@/especiales/shared/lib";
+
+interface Tabla {
+  id?: string;
+  title: string;
+  desc: string;
+  columns: { label: string; key: string; align?: "left" | "right"; mono?: boolean }[];
+  rows: Record<string, unknown>[];
+  modelKey?: string;
+}
+
+interface Props {
+  cfg: {
+    slug: string;
+    migas: string;
+    seoTitle: string;
+    seoDescription: string;
+    ogImage: string;
+    portada: Record<string, unknown>;
+    veredicto: Record<string, unknown>;
+    tablaAntes?: Tabla;
+    ranking: {
+      desc: string;
+      criteria: { key: string; label: string; weight: string }[];
+      rows: Record<string, unknown>[];
+      winnerLabel?: string;
+    };
+    galeria: { title: string; desc: string };
+    fichas: { title: string; desc: string; items: Record<string, unknown>[] };
+    dossier: { tablas: Tabla[] };
+    jsonLd: Record<string, unknown>[];
+  };
+}
+
+const { cfg } = Astro.props;
+---
+
+<BaseLayout
+  title={cfg.seoTitle}
+  description={cfg.seoDescription}
+  image={cfg.ogImage}
+  jsonLd={cfg.jsonLd}
+>
+  <Header />
+  <main class="pb-16 lg:pb-24">
+    <Migas title={cfg.migas} />
+    <Portada {...cfg.portada} />
+    <Veredicto {...cfg.veredicto} />
+
+    {
+      cfg.tablaAntes && (
+        <TablaTecnica
+          id={cfg.tablaAntes.id}
+          title={cfg.tablaAntes.title}
+          desc={cfg.tablaAntes.desc}
+          columns={cfg.tablaAntes.columns}
+          rows={cfg.tablaAntes.rows}
+          modelKey={cfg.tablaAntes.modelKey}
+        />
+      )
+    }
+
+    <Ranking
+      desc={cfg.ranking.desc}
+      criteria={cfg.ranking.criteria}
+      rows={cfg.ranking.rows as never}
+      winnerLabel={cfg.ranking.winnerLabel}
+    />
+
+    <Galeria title={cfg.galeria.title} desc={cfg.galeria.desc} items={cfg.fichas.items as never} />
+
+    <Fichas title={cfg.fichas.title} desc={cfg.fichas.desc} fichas={cfg.fichas.items as never} />
+
+    <div class="mx-auto max-w-6xl border-t-2 border-ink px-5 pt-10 sm:px-8" id="datos">
+      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+        Dossier
+      </h2>
+      <p class="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-soft">
+        Los apéndices técnicos completos. Cifras orientativas, no tarifas oficiales.
+      </p>
+    </div>
+
+    {
+      cfg.dossier.tablas.map((t) => (
+        <TablaTecnica
+          id={t.id}
+          title={t.title}
+          desc={t.desc}
+          columns={t.columns}
+          rows={t.rows}
+          modelKey={t.modelKey}
+          modelClass={(r) => modelClass(r.tag as never)}
+        />
+      ))
+    }
+  </main>
+  <Footer />
+</BaseLayout>

@@ -21,10 +21,13 @@ export function modelClass(tag: Tag): string {
   }
 }
 
-export function tagChip(tag: Tag): { label: string; class: string } | null {
+export function tagChip(
+  tag: Tag,
+  winnerLabel = "ganadora",
+): { label: string; class: string } | null {
   if (tag === "winner")
     return {
-      label: "ganadora",
+      label: winnerLabel,
       class: "bg-minium text-paper",
     };
   if (tag === "new")

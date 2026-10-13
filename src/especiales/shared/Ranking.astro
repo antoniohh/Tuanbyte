@@ -20,9 +20,17 @@ interface Props {
   desc: string;
   criteria: Criterion[];
   rows: Row[];
+  winnerLabel?: string;
 }
 
-const { id = "clasificacion", title = "El cuadro", desc, criteria, rows } = Astro.props;
+const {
+  id = "clasificacion",
+  title = "El cuadro",
+  desc,
+  criteria,
+  rows,
+  winnerLabel = "ganadora",
+} = Astro.props;
 ---
 
 <section id={id} class="scroll-mt-24">
@@ -65,7 +73,7 @@ const { id = "clasificacion", title = "El cuadro", desc, criteria, rows } = Astr
           {
             rows.map((row, i) => {
               const isTop = i === 0;
-              const chip = tagChip(row.tag as never);
+              const chip = tagChip(row.tag as never, winnerLabel);
               return (
                 <tr
                   class:list={[
