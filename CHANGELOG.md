@@ -11,6 +11,13 @@ y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/
 
 - **Google Analytics 4** (gtag.js, `G-JPK8PQEMEM`) en el `<head>`, cargado
   **solo en producción** (los builds de desarrollo no envían datos).
+- **Consent Mode v2 con aviso de cookies** propio: todo denegado por defecto y
+  la analítica solo se habilita si la persona acepta. La decisión se guarda en
+  el navegador (almacenamiento local) y se puede revisar desde el pie.
+- **Página `/cookies`** (Cookies y datos) explicando qué se guarda, para qué y
+  cómo cambiar de opinión; enlazada desde el aviso, el pie y el `sitemap.xml`.
+- El titular de las secciones funciona también fuera de la portada (enlaces
+  absolutos).
 
 ## [1.2.0] — 2026-10-13
 

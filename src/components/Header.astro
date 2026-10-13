@@ -1,4 +1,10 @@
 ---
+interface Props {
+  absolute?: boolean;
+}
+
+const { absolute = false } = Astro.props;
+
 const links = [
   { href: "#catalogo", label: "Catálogo" },
   { href: "#listas", label: "Listas" },

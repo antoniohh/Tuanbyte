@@ -1,0 +1,93 @@
+---
+---
+
+<aside
+  id="tb-cookies"
+  class="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-md border-2 border-ink bg-paper p-5 shadow-[6px_6px_0_0_var(--color-paper-3)] sm:inset-x-auto sm:left-6 sm:bottom-6"
+  role="dialog"
+  aria-labelledby="tb-cookies-titulo"
+  hidden
+>
+  <p
+    id="tb-cookies-titulo"
+    class="font-display text-2xl font-extrabold uppercase tracking-tight text-ink"
+  >
+    Cookies
+  </p>
+  <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+    Uso Google Analytics para saber qué vídeos y listas se ven, y hacer más de
+    lo que funciona. Solo se carga si me das permiso. Nada de publicidad.
+  </p>
+  <div class="mt-4 flex flex-wrap items-center gap-3">
+    <button
+      type="button"
+      data-cookies-accept
+      class="bg-minium px-4 py-2 font-display text-lg font-bold uppercase tracking-wide text-paper transition-colors hover:bg-minium-dark"
+    >
+      Aceptar
+    </button>
+    <button
+      type="button"
+      data-cookies-reject
+      class="border-2 border-ink px-4 py-2 font-display text-lg font-bold uppercase tracking-wide text-ink transition-colors hover:bg-strike/30"
+    >
+      Solo lo necesario
+    </button>
+    <a href="/cookies" class="font-mono text-xs text-ink-soft underline decoration-dotted underline-offset-2 hover:text-minium">
+      más información
+    </a>
+  </div>
+</aside>
+
+<script is:inline>
+  (function () {
+    var KEY = "tb-consent";
+    var banner = document.getElementById("tb-cookies");
+
+    function actualiza(concedido) {
+      if (typeof window.gtag !== "function") return;
+      window.gtag("consent", "update", {
+        ad_storage: concedido ? "granted" : "denied",
+        ad_user_data: concedido ? "granted" : "denied",
+        ad_personalization: concedido ? "granted" : "denied",
+        analytics_storage: concedido ? "granted" : "denied",
+      });
+    }
+
+    var guardado = null;
+    try {
+      guardado = window.localStorage.getItem(KEY);
+    } catch (e) {}
+
+    if (guardado === "granted" || guardado === "denied") {
+      actualiza(guardado === "granted");
+    } else if (banner) {
+      banner.hidden = false;
+    }
+
+    function decide(concedido) {
+      try {
+        window.localStorage.setItem(KEY, concedido ? "granted" : "denied");
+      } catch (e) {}
+      actualiza(concedido);
+      if (banner) banner.hidden = true;
+    }
+
+    document.addEventListener("click", function (ev) {
+      var el = ev.target.closest(
+        "[data-cookies-accept],[data-cookies-reject],[data-cookies-open]",
+      );
+      if (!el) return;
+      if (el.hasAttribute("data-cookies-accept")) {
+        ev.preventDefault();
+        decide(true);
+      } else if (el.hasAttribute("data-cookies-reject")) {
+        ev.preventDefault();
+        decide(false);
+      } else if (banner) {
+        ev.preventDefault();
+        banner.hidden = false;
+      }
+    });
+  })();
+</script>
