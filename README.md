@@ -107,15 +107,30 @@ La marca del canal manda: el **escudo** (círculo rojo, «TUANBYTE» apilado) es
 el favicon y preside la cabecera, y la tipografía de marca identificada del
 propio escudo (**Barlow 900**) se usa **solo** en el wordmark.
 
-## 🚢 Despliegue
+## 🚢 Despliegue y dominio
 
-Cada `push` a `main` compila y publica en GitHub Pages, y además hay un
+Cada `push` a `main` compila y publica en **GitHub Pages**; además hay un
 **rebuild programado diario** (cron `06:17 UTC`) para que los vídeos y la
 fecha de edición se refresquen solos aunque no se toque el repositorio.
 
-Dominio: `tuanbyte.es` (raíz, con `www` redirigido). El HTTPS lo emite GitHub
-con Let's Encrypt. Detalles y DNS en
-[`docs/info/despliegue-github-pages.md`](docs/info/despliegue-github-pages.md).
+El dominio vive así (DNS en Strato, sirviendo GitHub):
+
+| Nombre | Tipo | Valor |
+|---|---|---|
+| `tuanbyte.es` | A | `185.199.108.153` |
+| `tuanbyte.es` | AAAA | `2606:50c0:8000::153` |
+| `www.tuanbyte.es` | CNAME | `antoniohh.github.io.` |
+
+**La clave:** el `www` apunta *directo a `antoniohh.github.io`* (no al raíz),
+y el dominio canónico en *Settings → Pages* es el raíz. Con eso GitHub emite un
+único certificado que cubre **los dos nombres** (`tuanbyte.es` y
+`www.tuanbyte.es`), sirve el sitio en el raíz, redirige `www` hacia él y, con
+**Enforce HTTPS** activado, todo `http://` salta a `https://`.
+
+Ventajas del montaje: HTTPS automático y gratuito (Let's Encrypt, renovado por
+GitHub — no se paga SSL a Strato, que solo cubría el dominio principal), una
+sola URL canónica y cero mantenimiento. Guía completa, verificación y vuelta
+atrás en [`docs/info/despliegue-github-pages.md`](docs/info/despliegue-github-pages.md).
 
 ## 🔢 Versionado
 

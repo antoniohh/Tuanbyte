@@ -1,135 +1,103 @@
-# Despliegue a GitHub Pages — `www.tuanbyte.es`
+# Despliegue a GitHub Pages — `tuanbyte.es`
 
-Guía para publicar la web de Tuanbyte en **GitHub Pages** con el dominio
+Guía de publicación de la web de Tuanbyte en **GitHub Pages** con dominio
 propio. Complementa el plan `docs/plans/web-landing-plan.md`.
 
-## 0. Antes de empezar: qué dominio usará la web
-
-La web acabará sirviéndose en `https://tuanbyte.es/` (raíz) con
-`www.tuanbyte.es` como alias automático — ver sección 3: Ruta B. Durante el
-desarrollo y hasta el lanzamiento no se toca nada del DNS: la landing actual
-de Strato sigue en pie.
+Estado: **resuelto y en producción** (13/10/2026). Este documento explica la
+configuración final, por qué es así y cómo verificarla.
 
 ---
 
-## 1. Lo que hay que hacer en el repo
+## 1. Configuración final (la que hay hoy)
 
-1. **`public/CNAME`** (o archivo `CNAME` en la raíz del build): una línea
-   con el dominio principal:
+### DNS en Strato
 
-   ```
-   tuanbyte.es
-   ```
+| Nombre | Tipo | Valor | Para qué |
+|---|---|---|---|
+| `tuanbyte.es` | **A** | `185.199.108.153` | Sirve el sitio en el raíz |
+| `tuanbyte.es` | **AAAA** | `2606:50c0:8000::153` | Lo mismo por IPv6 |
+| `www.tuanbyte.es` | **CNAME** | `antoniohh.github.io.` | Alias directo a Pages |
 
-   GitHub sirve el sitio en ese dominio y redirige el `www` alias hacia él.
-2. **Workflow de despliegue**: `.github/workflows/deploy.yml`
-   (checkout → setup-node → npm ci → npm run build →
-   `actions/upload-pages-artifact` → `actions/deploy-pages`).
-   Referencia a copiar: el repo `antoniohh/Especiales`, que ya funciona.
-3. Inicializar el proyecto web con el stack elegido (ver plan) y asegurarse
-   de que `npm run build` genera el sitio estático en una carpeta
-   (`dist/` para Astro y para Vite).
+Solo hace falta esos tres registros. GitHub publica cuatro A y cuatro AAAA
+(108–111 / ::153–::156) por redundancia; con uno de cada ya funciona, y se
+pueden añadir después sin romper nada.
 
----
+> **La clave de todo:** el `www` apunta **directo a `antoniohh.github.io`**, no
+> al raíz. Es lo que permite que GitHub emita un certificado que cubre **los dos
+> nombres** (`DNS:tuanbyte.es, DNS:www.tuanbyte.es`).
 
-## 2. Activar Pages en GitHub (solo la primera vez)
+### GitHub Pages (repo → Settings → Pages)
 
-1. Repo `antoniohh/Tuanbyte` → **Settings** → menú izquierdo → **Pages**.
-2. **Build and deployment → Source: "GitHub Actions"** (no
-   "Deploy from a branch").
-3. **Custom domain**: `tuanbyte.es` → **Save**.
-4. Push a `main` y esperar a que el workflow termine en verde en **Actions**.
+- **Build and deployment → Source: `GitHub Actions`**.
+- **Custom domain: `tuanbyte.es`** — el raíz, que es el dominio canónico.
+  (No poner `www` aquí: rompería el candado del raíz.)
+- **Enforce HTTPS: activado** → todo `http://` redirige a `https://`.
 
-Nota: el error `Failed to create deployment (status: 404)` del primer intento
-ocurre si Pages sigue sin activar con Source = GitHub Actions. Nada más que
-re-ejecutar el job (*Re-run failed jobs*) tras activarlo.
+Resultado: quien entre por `tuanbyte.es` o por `www.tuanbyte.es` acaba en
+`https://tuanbyte.es/` con candado. **No se paga SSL a Strato**: el
+certificado lo emite GitHub (Let's Encrypt) y se renueva solo.
 
 ---
 
-## 3. DNS en Strato para el subdominio www
+## 2. Por qué es así (los tres tropiezos, resueltos)
 
-Descubrimiento importante (comprobado por DNS): **Strato no lista el `www` en
-"Mostrar subdominios" pero sí lo resuelve** — es un alias implícito:
+1. **El `www` de Strato es un alias implícito.** Strato resuelve el `www.` de
+   los dominios que aloja sin listarlo como subdominio editable
+   (`www → CNAME → raíz → IP de Strato`). Mientras el `www` apunte al raíz,
+   GitHub no puede reclamarlo para el certificado: el `https://www` sirve el
+   certificado genérico `*.github.io` y salta el aviso del navegador.
+   **Solución:** crear el subdominio `www` explícito en Strato y ponerle
+   `CNAME → antoniohh.github.io.`.
+2. **El raíz no admite CNAME.** Es una limitación del DNS, no de Strato: para
+   la raíz se usan registros **A** (y AAAA). De ahí la combinación A-para-el-
+   raíz + CNAME-para-el-www.
+3. **Cada cambio de dominio reinicia el chequeo.** Al re-guardar el dominio en
+   *Pages*, GitHub vuelve a poner "DNS Check in Progress" y bloquea el botón
+   *Enforce HTTPS* hasta terminar (de minutos a 24 h). Si el chequeo se repite
+   tras un fallo, GitHub puede pedir un **TXT de verificación**
+   (`_github-pages-challenge-…`) que se crea en Strato tal cual lo indique.
 
-```
-www.tuanbyte.es → CNAME → tuanbyte.es → 81.169.145.68 (hosting Strato)
-```
-
-Por eso parece que "www ya existe por defecto": Strato responde el `www.`
-de los dominios que aloja mediante ese alias interno, no editable. El raíz
-(`tuanbyte.es`) no admite CNAME (limitación del DNS), solo registros A/AAAA.
-
-### Ruta A — raíz a GitHub (recomendada, para el día del lanzamiento)
-
-Cuando la web nueva esté lista y publicada en GitHub:
-
-1. Dominio `tuanbyte.es` → Configuración de DNS → **Registro A →
-   administrar → "Dirección IP propia"** → `185.199.108.153`
-2. Añadir si el panel lo permite el **AAAA** →
-   `2606:50c0:8000::153`.
-
-Como el `www` implícito es un CNAME hacia el raíz, **sigue al raíz
-automáticamente**: ambas URLs resuelven a GitHub sin tocar el www ni crear
-subdominios. En **Settings → Pages**, el dominio `tuanbyte.es` es el
-principal: GitHub redirige www ↔ raíz al principal.
-
-⚠️ Este paso es el "lanzamiento": la landing vieja de Strato deja de
-servirse en el raíz. Es lo esperado, pero hacerlo solo con la web nueva ya
-publicada en GitHub.
-
-### Ruta B — crear subdominio `www` explícito (alternativa)
-
-Si se prefiriera servir la web desde `www` (por ejemplo, para no tocar el
-raíz todavía):
-
-1. **Mostrar subdominios** → **crear subdominio** `www`. Strato sustituye el
-   alias implícito por uno real y editable.
-2. Seleccionar `www` → **Configuración de DNS** → CNAME-Record →
-   "Modificar la entrada CNAME" → valor `antoniohh.github.io.` (con punto
-   final) → "Soy consciente…" → **Aceptar ajustes**.
-3. En la sección 1, el `CNAME` del repo pasaría a decir `www.tuanbyte.es`.
-4. En ese caso la web vive en `www.tuanbyte.es` y el raíz queda como esté
-   (parking/Strato).
-
-Extra de la Ruta B: no rompe nada mientras se hace — el raíz sigue
-sirviendo la web vieja de Strato hasta el lanzamiento final.
+Extra aprendido en el camino: el `404 Failed to create deployment` del primer
+despliegue significa que *Pages* aún no está activado con Source =
+`GitHub Actions`; se arregla activándolo y re-ejecutando el job.
 
 ---
 
-## 4. El dominio raíz `tuanbyte.es` (sin www) — ver Ruta B de la sección 3
-
-El DNS no permite CNAME en la raíz; se resuelve con registros A/AAAA. El raíz
-no necesita gestión adicional: al poner sus A/AAAA hacia GitHub (Ruta B), el
-`www` implícito lo sigue y GitHub redirige entre ambos al dominio principal.
-
-En **Settings → Pages**, marcar **Enforce HTTPS** cuando el "DNS check" esté
-en verde. El certificado SSL lo genera GitHub (Let's Encrypt), autorenovable —
-**no hay que pagar SSL a Strato**.
-
----
-
-## 5. Comprobación final
-
-- `https://tuanbyte.es/` — la web nueva.
-- `https://www.tuanbyte.es/` — sirve lo mismo / redirige al raíz.
-- Candado del navegador en verde.
-
-## 6. Rutina de publicación
+## 3. Verificación (comandos)
 
 ```bash
-git add -A
-git commit -m "cambio"
-git push
-```
+# DNS
+dig +short A tuanbyte.es                    # esperado: 185.199.108.153
+dig +short AAAA tuanbyte.es                 # esperado: 2606:50c0:8000::153
+dig +short CNAME www.tuanbyte.es            # esperado: antoniohh.github.io.
 
-El workflow recompila y publica en minutos.
+# Certificado (debe incluir los dos nombres)
+echo | openssl s_client -connect tuanbyte.es:443 -servername tuanbyte.es 2>/dev/null \
+  | openssl x509 -noout -ext subjectAltName
+# esperado: DNS:tuanbyte.es, DNS:www.tuanbyte.es
+
+# Comportamiento
+curl -sI https://tuanbyte.es/ | head -1        # 200
+curl -sI https://www.tuanbyte.es/ | head -4    # 301 → https://tuanbyte.es/
+curl -sI http://tuanbyte.es/ | head -4         # 301 → https://tuanbyte.es/ (Enforce HTTPS)
+```
 
 ---
 
-## Referencias
+## 4. Publicación
 
-- Guía resuelta en `Especiales/docs/info/despliegue-github-pages.md`
-  (mismo flujo, ya en producción).
-- Strato: el CNAME solo se configura en subdominios; el registro A sí admite
-  dominio y subdominio con "Dirección IP propia".
-- GitHub: `docs.github.com/es/pages` — dominios personalizados y Enforce HTTPS.
+Cada `push` a `main` compila y publica. Además hay un **rebuild diario
+programado** (cron `06:17 UTC`) para refrescar los vídeos y la fecha de
+edición aunque no se toque el repositorio.
+
+Rutina normal: `git add -A && git commit -m "…" && git push`.
+
+---
+
+## 5. Volver atrás (si hiciera falta)
+
+Los valores originales de la zona DNS (todo apuntando al hosting de Strato)
+están guardados en `docs/info/dns-snapshot-tuanbyte.md`. Strato no ofrece un
+botón de "deshacer": se vuelve re-introduciendo aquellos valores en su panel.
+El correo no corre riesgo mientras solo se toquen A/AAAA y CNAME del `www`
+(los MX van aparte).

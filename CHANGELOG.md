@@ -26,6 +26,10 @@ versión pone la marca, el contenido real y la licencia.
   `README.md` de proyecto.
 - **Rebuild diario programado** (cron `06:17 UTC`) para refrescar vídeos y
   fecha de edición sin intervención.
+- **Dominio resuelto**: raíz en GitHub Pages con registro A/AAAA y
+  `www.tuanbyte.es` con CNAME directo a `antoniohh.github.io`, de modo que un
+  único certificado cubre ambos nombres; `www` redirige al raíz y **Enforce
+  HTTPS** queda activado. Sin SSL de Strato.
 - **Línea de edición** en el hero: «edición continua — enero de 2016 a <mes> de
   <año> · N años en YouTube», con los años calculados en build.
 

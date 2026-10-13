@@ -59,3 +59,19 @@ anterior con un clic — se vuelve re-introduciendo los valores de esta tabla
 Strato (la web vieja, los ficheros) **no se pierden nunca** al cambiar el A:
 siguen en el servidor; sólo la resolución de nombres deja de apuntar allí
 mientras el A apunte a GitHub.
+
+---
+
+## Estado actual (2026-10-13) — la configuración en producción
+
+| Registro | Valor |
+|---|---|
+| `A` `tuanbyte.es` | `185.199.108.153` |
+| `AAAA` `tuanbyte.es` | `2606:50c0:8000::153` |
+| `CNAME` `www.tuanbyte.es` | `antoniohh.github.io.` |
+| MX / DKIM / DMARC | sin cambios (correo de Strato intacto) |
+
+Certificado vigente: `CN=tuanbyte.es` con
+`SAN: DNS:tuanbyte.es, DNS:www.tuanbyte.es` (Let's Encrypt vía GitHub Pages).
+Para volver al estado original de arriba basta re-introducir el A
+`81.169.145.68` y el AAAA `2a01:238:20a:202:1068::` en Strato.
