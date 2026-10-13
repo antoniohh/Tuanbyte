@@ -52,7 +52,8 @@ Los documentos que gobiernan el proyecto:
   | Últimos vídeos | Scrape de `/videos` | Feed RSS (filtrando Shorts) | `src/data/videos-fallback.json` |
   | Listas de reproducción | Scrape de `/playlists` (≥ 5 vídeos) | — | `src/data/playlists-fallback.json` |
 
-- **Sin backend, sin cookies, sin analítica.** Todo estático en GitHub Pages.
+- **Sin backend y sin base de datos.** Todo estático en GitHub Pages. La
+  analítica es **Google Analytics 4** (gtag), cargada solo en producción.
 
 ## 🗂️ Estructura del proyecto
 

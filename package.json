@@ -1,7 +1,7 @@
 {
   "name": "tuanbyte",
   "type": "module",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "description": "Web del canal Tuanbyte: el taller (mecánica casera, parcela, bricolaje y tecnología), impreso de nuevo en cada build.",
   "homepage": "https://tuanbyte.es",

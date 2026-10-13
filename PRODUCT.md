@@ -46,7 +46,8 @@ relevo Eclipse scrape + fallback JSON en repo).
   qué hace Tuanbyte (pilares), especiales, redes+contacto, pie.
 - Solo se enlaza lo que ya existe (canal, especiales, redes, email). Ningún
   hueco prospectivo.
-- Estático debe: sin backend, sin cookies, sin analítica hoy. El email de
+- Estático debe: sin backend ni base de datos. Analítica: Google Analytics 4
+  (gtag) solo en producción, para saber qué contenido se ve. El email de
   contacto es `info@tuanbyte.es`.
 - Idioma/es. Publicado en `https://tuanbyte.es/`.
 - Confirmación del día a día: "cero manual" — no se editarán textos con

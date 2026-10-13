@@ -5,6 +5,13 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
+## [1.3.0] — 2026-10-14
+
+### Añadido
+
+- **Google Analytics 4** (gtag.js, `G-JPK8PQEMEM`) en el `<head>`, cargado
+  **solo en producción** (los builds de desarrollo no envían datos).
+
 ## [1.2.0] — 2026-10-13
 
 Release final de producción de **tuanbyte.es**.
@@ -97,6 +104,7 @@ Puesta en marcha del proyecto en ocho pasos taggeados (`v1.0.0` → `v1.0.7`):
 - **v1.0.6** — Open Graph propia, JSON-LD y pulido de rendimiento.
 - **v1.0.7** — Estado de sesión documentado.
 
+[1.3.0]: ../../releases/tag/v1.3.0
 [1.2.0]: ../../releases/tag/v1.2.0
 [1.1.1]: ../../releases/tag/v1.1.1
 [1.0.0]: ../../releases/tag/v1.0.0
