@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.1.2",
   "private": true,
-  "description": "Web del canal Tuanbyte: el catálogo del taller (mecánica casera, bricolaje y tecnología) impreso de nuevo en cada build.",
+  "description": "Web del canal Tuanbyte: el taller (mecánica casera, parcela, bricolaje y tecnología), impreso de nuevo en cada build.",
   "homepage": "https://tuanbyte.es",
   "repository": {
     "type": "git",

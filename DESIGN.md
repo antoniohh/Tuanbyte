@@ -1,5 +1,5 @@
 ---
-name: Tuanbyte — el catálogo del taller
+name: El taller de Tuanbyte
 description: Catálogo de ferretería de barrio del año 1994 para el canal Tuanbyte — papel crema con veta, tinta de imprenta, minio rojo para los actos comerciales y cinta amarilla en las etiquetas.
 colors:
   paper: "#f2ead8"
@@ -55,7 +55,7 @@ components:
     textColor: "{colors.minium}"
 ---
 
-# Design System: Tuanbyte — el catálogo del taller
+# Design System: El taller de Tuanbyte
 
 ## Overview
 
