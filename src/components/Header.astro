@@ -10,7 +10,7 @@ const links = [
   { href: "#listas", label: "Listas" },
   { href: "#especiales", label: "Especiales" },
   { href: "#contacto", label: "Contacto" },
-];
+].map((l) => ({ ...l, href: absolute ? `/${l.href}` : l.href }));
 
 const tabClass =
   "border border-ink-line bg-paper px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] whitespace-nowrap transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5";
