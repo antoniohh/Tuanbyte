@@ -54,7 +54,7 @@ const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
           id={`ficha-${f.id}`}
           class="group scroll-mt-24 border-2 border-ink bg-paper open:col-span-full open:bg-paper-2/60 open:lg:grid open:lg:grid-cols-[24rem_1fr] open:lg:items-start"
         >
-          <summary class="flex h-full cursor-pointer flex-col p-3 transition-colors hover:bg-paper-2 [&::-webkit-details-marker]:hidden lg:group-open:h-auto lg:group-open:border-r-2 lg:group-open:border-ink">
+          <summary class="flex h-full cursor-pointer flex-col p-3 transition-colors hover:bg-paper-2 [&::-webkit-details-marker]:hidden group-open:h-auto lg:group-open:border-r-2 lg:group-open:border-ink">
             <span class="flex items-baseline justify-between">
               <span class="font-mono text-[0.625rem] text-ink-soft tabular-nums">
                 {String(f.rank).padStart(2, "0")}
