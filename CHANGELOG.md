@@ -5,7 +5,18 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
-## [1.1.0] — 2026-10-13
+## [1.1.2] — 2026-10-13
+
+Documentación de la configuración de dominio, ya resuelta.
+
+### Añadido
+
+- Guía de despliegue reescrita con la **configuración final**: raíz con A/AAAA
+  y `www` con CNAME directo a `antoniohh.github.io`, certificado único que
+  cubre ambos nombres y **Enforce HTTPS** activado.
+- Explicación del montaje en el `README.md` y snapshot DNS actualizado.
+
+## [1.1.1] — 2026-10-13
 
 Release de producción de **tuanbyte.es**. Sobre el esqueleto de la 1.0.x, esta
 versión pone la marca, el contenido real y la licencia.
@@ -71,5 +82,6 @@ Puesta en marcha del proyecto en ocho pasos taggeados (`v1.0.0` → `v1.0.7`):
 - **v1.0.6** — Open Graph propia, JSON-LD y pulido de rendimiento.
 - **v1.0.7** — Estado de sesión documentado.
 
-[1.1.0]: ../../releases/tag/v1.1.0
+[1.1.2]: ../../releases/tag/v1.1.2
+[1.1.1]: ../../releases/tag/v1.1.1
 [1.0.0]: ../../releases/tag/v1.0.0
