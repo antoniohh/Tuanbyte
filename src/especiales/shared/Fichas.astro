@@ -64,7 +64,7 @@ const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
               </span>
             </span>
 
-            <span class="mt-1 flex h-24 items-center justify-center">
+            <span class="mt-1 flex h-24 items-center justify-center lg:group-open:h-52">
               <img
                 src={f.img}
                 alt={f.name}
@@ -85,28 +85,19 @@ const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
             </span>
           </summary>
 
-          <div class="grid gap-6 border-t-2 border-ink px-5 py-5 lg:group-open:border-t-0">
-            <div class="flex flex-col gap-4">
-              <img
-                src={f.img}
-                alt={f.name}
-                class="h-40 w-full object-contain"
-                loading="lazy"
-              />
-              {
-                f.badge && f.diyText ? (
-                  <span
-                    class:list={[
-                      "self-start px-2 py-1 font-mono text-[0.625rem] uppercase tracking-[0.1em]",
-                      badgeClass[f.badge],
-                    ]}
-                  >
-                    casero {f.diyText}
-                  </span>
-                ) : null
-              }
-            </div>
-
+          <div class="border-t-2 border-ink px-5 py-5 lg:group-open:border-t-0">
+            {
+              f.badge && f.diyText ? (
+                <span
+                  class:list={[
+                    "mb-3 inline-block px-2 py-1 font-mono text-[0.625rem] uppercase tracking-[0.1em]",
+                    badgeClass[f.badge],
+                  ]}
+                >
+                  casero {f.diyText}
+                </span>
+              ) : null
+            }
             <div>
               <dl class="grid gap-x-8 sm:grid-cols-2">
                 {f.specs.map((s) => (
