@@ -7,13 +7,10 @@ const { absolute = false } = Astro.props;
 
 const links = [
   { href: "#catalogo", label: "Catálogo" },
-  { href: "#listas", label: "Listas" },
+  { href: "#listas", label: "Listas de reproducción" },
   { href: "#especiales", label: "Especiales" },
   { href: "#contacto", label: "Contacto" },
 ].map((l) => ({ ...l, href: absolute ? `/${l.href}` : l.href }));
-
-const tabClass =
-  "border border-ink-line bg-paper px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] whitespace-nowrap transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5";
 ---
 
 <header class="perfo-top border-b-2 border-ink bg-paper-2">
@@ -32,31 +29,54 @@ const tabClass =
             Tuanbyte
           </span>
         </a>
-        <nav class="hidden items-center gap-2 md:flex" aria-label="Secciones del catálogo">
-          {
-            links.map((l) => (
-              <a href={l.href} class={tabClass}>
-                {l.label}
-              </a>
-            ))
-          }
-        </nav>
-      </div>
-      <nav
-        class="grid grid-cols-4 border-t border-dashed border-ink-line md:hidden"
-        aria-label="Secciones del catálogo"
-      >
-        {
-          links.map((l) => (
-            <a
-              href={l.href}
-              class="border-r border-ink-line py-2 text-center font-mono text-[0.5625rem] uppercase tracking-[0.03em] text-ink-soft transition-colors last:border-r-0 hover:bg-strike/30 hover:text-ink min-[380px]:text-[0.625rem] min-[380px]:tracking-[0.08em]"
+
+        <details class="group relative" data-menu>
+          <summary
+            class="flex cursor-pointer select-none items-center gap-2 border border-ink-line bg-paper px-3 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink transition-colors hover:border-ink hover:bg-strike/40 sm:px-4 sm:py-1.5 [&::-webkit-details-marker]:hidden"
+            aria-label="Secciones de la portada"
+          >
+            Secciones
+            <svg
+              class="h-3 w-3 shrink-0 transition-transform group-open:rotate-180"
+              viewBox="0 0 12 8"
+              fill="none"
+              aria-hidden="true"
             >
-              {l.label}
-            </a>
-          ))
-        }
-      </nav>
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </summary>
+          <ul
+            class="absolute right-0 z-50 mt-2 w-60 border-2 border-ink bg-paper py-1 shadow-[4px_4px_0_0_var(--color-paper-3)]"
+          >
+            {
+              links.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    class="block px-4 py-2.5 font-mono text-xs uppercase tracking-[0.1em] text-ink-soft transition-colors hover:bg-strike/30 hover:text-ink"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
+      </div>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  (function () {
+    var menu = document.querySelector("details[data-menu]");
+    if (!menu) return;
+    document.addEventListener("click", function (ev) {
+      if (!menu.contains(ev.target)) menu.open = false;
+      else if (ev.target.closest("a")) menu.open = false;
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") menu.open = false;
+    });
+  })();
+</script>
