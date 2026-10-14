@@ -37,17 +37,27 @@ catálogo y la analítica con consentimiento. Todo commiteado; pendiente de
 - Género corregido: *ganadora* (motos) / *ganador* (coches).
 - Retirado el filete suelto del bloque *Dossier*.
 
-## Pendiente mañana
+## Verificado tras publicar
 
-1. **Publicar**: `git push` y, si quieres marcar la release, tag **v1.4.0**
-   (`git tag -a v1.4.0 -m "Especiales dentro del catálogo" && git push --tags`).
-2. **F7 del plan de migración** (lo haces tú):
-   - borrar el subdominio `especiales.tuanbyte.es` en Strato y en *Pages*;
-   - **archivar** el repo `antoniohh/Especiales`.
-3. Revisar en producción el garaje en el móvil real (los `<details>` y las
-   alturas se comportan distinto según el navegador).
-4. *Opcional*: la línea de portfolio en `antoniohorrillo.com` hacia
+- Repo al día: local = origin (`a953e73`), **tag `v1.4.0`** en origin.
+- Producción: `/`, `/especiales/`, `/especiales/guia-motos/`,
+  `/especiales/suvs-hev/` y `/cookies/` responden **200**; la portada sirve la
+  nav nueva y GA4 con consentimiento; el reportaje de SUVs trae «El escaparate:
+  los 8», el chip **ganador** y el JSON-LD (`Article` + `BreadcrumbList`).
+- **Subdominio viejo retirado**: `especiales.tuanbyte.es` ya no resuelve.
+- Garaje comprobado **en móvil contra producción** (viewport y touch de
+  teléfono): la ficha abre con la imagen a 160 px, sin scroll horizontal.
+
+## Pendiente para mañana
+
+1. **Archivar** el repo `antoniohh/Especiales` (Settings → Archive): su
+   contenido vive ya en este proyecto y el histórico se conserva.
+2. *Opcional*: línea de portfolio en `antoniohorrillo.com` hacia
    `https://tuanbyte.es/especiales`.
+3. *Opcional*: cuando GA4 acumule unos días, mirar qué reportaje se lee más y
+   decidir el siguiente especial (ya es copiar configuración + datos).
+4. Detalles de marca que quedaron en la bandeja: unificar los rojos/amarillos
+   del sitio con los exactos del kit (`#cf3b3b`/`#ffe100`) si apetece.
 
 ## Referencias
 
