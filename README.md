@@ -55,7 +55,9 @@ Los documentos que gobiernan el proyecto:
   | Listas de reproducción | Scrape de `/playlists` (≥ 5 vídeos) | — | `src/data/playlists-fallback.json` |
 
 - **Sin backend y sin base de datos.** Todo estático en GitHub Pages. La
-  analítica es **Google Analytics 4** (gtag), cargada solo en producción.
+  analítica es **Google Analytics 4** (gtag), cargada solo en producción y
+  sujeta a **Consent Mode v2**: nada se carga hasta que la persona acepta en
+  el aviso de cookies (con su página `/cookies` para revisarlo).
 
 ## 🗂️ Estructura del proyecto
 
@@ -68,7 +70,7 @@ Los documentos que gobiernan el proyecto:
 ├── public/
 │   ├── CNAME                      # tuanbyte.es
 │   ├── brand/                     # escudo de marca en varios tamaños
-│   ├── images/                    # OG y capturas de los especiales
+│   ├── images/                    # OG y portadas de los reportajes
 │   ├── favicon.png · favicon-96.png · apple-touch-icon.png
 │   ├── robots.txt · sitemap.xml · humans.txt
 ├── src/
@@ -103,6 +105,17 @@ npm run preview  # sirve el build local
 El build descarga los datos del canal (vídeos y listas). Si YouTube no está
 disponible, la compilación **no falla**: entra el material de reserva
 commiteado en `src/data/`.
+
+## 🧭 Especiales (los reportajes)
+
+Los reportajes comparativos viven **dentro del sitio**, no en un subdominio:
+índice editorial en `/especiales` y un reportaje por ruta. `guia-motos` (14
+motos) y `suvs-hev` (8 coches) comparten el mismo componente
+(`src/especiales/shared/Reportaje.astro`), así que cada página es solo
+configuración y datos. Cada reportaje trae portada, veredicto, ranking
+multicriterio, una rejilla de fichas desplegables (sin JavaScript) y sus
+apéndices técnicos. El plan de la migración, con sus fases, está en
+[`docs/plans/migracion-especiales.md`](docs/plans/migracion-especiales.md).
 
 ## 🎨 Sistema de diseño y marca
 

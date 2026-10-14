@@ -8,6 +8,20 @@ mismo pie.
 Estado: **F1–F4 y F6 hechas** (2026-10-14). Queda F7 (borrar el subdominio y
 archivar el repo, en manos del autor).
 
+## Resultado final (lo que se construyó)
+
+- Rutas: `/especiales`, `/especiales/guia-motos`, `/especiales/suvs-hev`.
+- **Un componente de reportaje** (`especiales/shared/Reportaje.astro`) alimentado
+  por configuración; las páginas no contienen marcado.
+- Piezas compartidas: `Portada`, `Veredicto` (banda de tinta), `Ranking`,
+  `Fichas` (**rejilla donde cada tarjeta es su ficha**, sin JS), `TablaTecnica`,
+  `Migas`.
+- Navegación: barra *El Taller* + *Especiales* con activo, migas en los
+  reportajes, pie con columna *secciones*. **Sin anclas de sección** (decisión
+  posterior al plan original).
+- SEO: canónica, OG propio y JSON-LD (`Article` + `BreadcrumbList`) por
+  reportaje, y las tres URLs en el `sitemap.xml`.
+
 Estado de partida (comprobado):
 
 - Proyecto *Especiales*: **SPA de React + react-router** con dos reportajes

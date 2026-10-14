@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-12T00:49:21Z",
+  "generatedAt": "2026-10-14T00:00:01Z",
   "title": "Design System: Tuanbyte — el catálogo del taller",
   "extensions": {
     "colorMeta": {
@@ -138,31 +138,61 @@
           "#efc84a",
           "#f5db8f"
         ]
+      },
+      "marca-rojo": {
+        "role": "brand",
+        "displayName": "Rojo de marca (colofón)",
+        "canonical": "#cf3b3b",
+        "tonalRamp": [
+          "#230707",
+          "#3c0d0d",
+          "#5a1515",
+          "#771d1d",
+          "#9a2727",
+          "#b73131",
+          "#cf3b3b",
+          "#e8a3a3"
+        ]
+      },
+      "marca-amarillo": {
+        "role": "brand-reserve",
+        "displayName": "Amarillo de marca (en reserva)",
+        "canonical": "#ffe100",
+        "tonalRamp": [
+          "#2e2a00",
+          "#4a4200",
+          "#665c00",
+          "#847800",
+          "#a39400",
+          "#c2b100",
+          "#ffe100",
+          "#fff599"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Condensada de folleto",
-        "purpose": "h1/h2 y títulos de pieza. Siempre mayúsculas, leading 0.9. Nunca en párrafos."
+        "purpose": "h1/h2 y títulos de pieza o ficha. Siempre mayúsculas, leading 0.9. Nunca en párrafos."
       },
       "body": {
         "displayName": "Cuerpo de folleto",
-        "purpose": "Párrafos, 56–68ch de medida, 17px base. Único registro para prosa."
+        "purpose": "Párrafos de folleto y de reportaje, 56–68ch de medida, 17px base. Único registro para prosa."
       },
       "marker": {
         "displayName": "Rotulador",
-        "purpose": "Notas de mano: bajadas, llamadas \"ver ficha ↗\", email del mostrador. Nunca datos medidos."
+        "purpose": "Notas de mano: bajadas, llamadas \"ver ficha ↗\" y \"ver ficha ↴\", email del contacto. Nunca datos medidos."
       },
       "mono": {
         "displayName": "Regleta",
-        "purpose": "Datos medidos (fechas, contadores, refs) y etiquetas UI en mayúsculas 0.12em. Nunca prosa ni voz."
+        "purpose": "Datos medidos (fechas, contadores, notas, refs) y etiquetas UI en mayúsculas 0.08–0.14em. Nunca prosa ni voz."
       }
     },
     "shadows": [
       {
         "name": "canto-apilado",
         "value": "capa absoluta .canto::before · inset: 4px -4px -4px 4px · background var(--color-paper-3) · z-index -1",
-        "purpose": "Profundidad de papelería: hoja desplazada detrás de toda tarjeta. Sin blur."
+        "purpose": "Profundidad de papelería: hoja desplazada detrás de toda tarjeta (pieza destacada, especial, contacto, cubierta del reportaje). Sin blur."
       },
       {
         "name": "sello-duro",
@@ -179,17 +209,22 @@
       {
         "name": "regleta-pulse",
         "value": "opacity 1 ↔ 0.25 · 2.2s steps(2, jump-none) infinite",
-        "purpose": "Latido LED del punto vivo y del caret ▍ de la regleta. Nunca fade suave."
+        "purpose": "Latido LED del punto vivo de la regleta. Nunca fade suave."
       },
       {
         "name": "sello-ease",
         "value": "transform/box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "El sello gira −1.5° y sube 1px al hover, como se descuelga del plástico."
+        "purpose": "El sello gira −1.5° y sube 1px al hover, como se descuelga del plástico. Los tilts de tarjeta siguen su línea."
       },
       {
         "name": "hover-color",
         "value": "color/border-color 150ms ease",
-        "purpose": "Transición estándar de hovers de texto hacia minio."
+        "purpose": "Transición estándar de hovers de texto hacia minio y de filas hacia paper-2."
+      },
+      {
+        "name": "ficha-despliegue",
+        "value": "<details>/<summary> nativo · estados en group-open/details[open] · medidas de maqueta cambiadas por CSS (.ficha-media)",
+        "purpose": "El garaje se despliega sin JavaScript ni animación inventada: el despliegue es de la plataforma."
       },
       {
         "name": "prefers-reduced-motion",
@@ -214,32 +249,32 @@
       "kind": "button",
       "refersTo": "sello",
       "description": "El sello rojo de suscribirse: único bloque minio grande del catálogo, sombra dura de tinta, gira al hover.",
-      "html": "<a class=\"ds-sello\" href=\"#\">Suscribirse al catálogo</a>",
+      "html": "<a class=\"ds-sello\" href=\"#\">Suscríbete al canal</a>",
       "css": ".ds-sello{display:inline-block;background:var(--color-minium,#c22f1d);color:var(--color-paper,#f2ead8);font-family:'Barlow','Arial Narrow',sans-serif;font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:0.025em;padding:1rem 1.5rem;box-shadow:3px 3px 0 0 var(--color-ink,#20211c);transition:transform 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1);}.ds-sello:hover{transform:rotate(-1.5deg) translateY(-1px);}.ds-sello:focus-visible{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
     },
     {
       "name": "Enlace rotulador",
       "kind": "custom",
       "refersTo": "typography.marker",
-      "description": "Llamada escrita a mano con subrayado de tinta: \"ver ficha ↗\", \"pasillo ↗\". Vira a minio al hover.",
-      "html": "<a class=\"ds-rotulador\" href=\"#\">ver las últimas piezas ↓</a>",
+      "description": "Llamada escrita a mano con subrayado de tinta: \"ver ficha ↗\", \"ver lista ↗\" y el par \"ver ficha ↴\" / \"cerrar ↥\" del garaje. Vira a minio al hover.",
+      "html": "<a class=\"ds-rotulador\" href=\"#\">leer el reportaje ↗</a>",
       "css": ".ds-rotulador{display:inline-block;font-family:'Caveat',cursive;font-weight:600;font-size:1.375rem;color:var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);padding-bottom:2px;transition:color 150ms ease,border-color 150ms ease;}.ds-rotulador:hover{color:var(--color-minium,#c22f1d);border-color:var(--color-minium,#c22f1d);}"
     },
     {
-      "name": "Pestaña de catálogo (nav)",
+      "name": "Ficha de cabecera (chip de nav)",
       "kind": "nav",
-      "refersTo": "nav-tab",
-      "description": "Tab de sección en mono mayúsculas; al hover el borde se llena de tinta y el fondo vira a seria al 40% (\"se pega la cinta\").",
-      "html": "<a class=\"ds-tab\" href=\"#\">Catálogo</a>",
-      "css": ".ds-tab{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);border:1px solid var(--color-ink-line,#b4a98f);padding:0.5rem 0.625rem;transition:background 150ms ease,border-color 150ms ease;}.ds-tab:hover{border-color:var(--color-ink,#20211c);background:rgba(233,182,17,0.4);}.ds-tab:focus-visible{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
+      "refersTo": "nav-chip",
+      "description": "Los dos estantes del catálogo —El Taller y Especiales— en mono mayúsculas. La página activa va en tinta plena (aria-current); la inactiva pega la cinta (seria 40%) al hover.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><a class=\"ds-chip ds-chip--on\" aria-current=\"page\" href=\"#\">El Taller</a><a class=\"ds-chip\" href=\"#\">Especiales</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:0.5rem;}.ds-chip{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);border:1px solid var(--color-ink-line,#b4a98f);padding:0.5rem 1rem;transition:background 150ms ease,border-color 150ms ease;}.ds-chip:hover{border-color:var(--color-ink,#20211c);background:rgba(233,182,17,0.4);}.ds-chip--on{background:var(--color-ink,#20211c);color:var(--color-paper,#f2ead8);}.ds-chip:focus-visible{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
     },
     {
       "name": "Ficha de pieza destacada",
       "kind": "card",
       "refersTo": "canto-apilado",
       "description": "Hoja paper sobre paper-3 (.canto) con cinta seria arriba: miniatura de YouTube con borde de tinta, título condensed y llamada en rotulador.",
-      "html": "<figure class=\"ds-pieza\"><p class=\"ds-pieza-ref\">pieza no. A1F4</p><div class=\"ds-pieza-thumb\">miniatura HQ — YouTube</div><h3 class=\"ds-pieza-title\">Restauración completa de la maleta CB250</h3><p class=\"ds-pieza-meta\">12/9/2026 · <b>18.204 vistas</b></p><span class=\"ds-pieza-ver\">ver esta pieza ↗</span></figure>",
-      "css": ".ds-pieza{position:relative;background:var(--color-paper,#f2ead8);padding:1.5rem 1.25rem 1.25rem;box-shadow:0 1px 0 0 var(--color-paper-3,#ddd0b2);font-family:'Barlow',system-ui,sans-serif;}.ds-pieza::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-pieza::after{content:\"\";position:absolute;top:-0.55rem;left:50%;width:5.5rem;height:1.6rem;transform:translateX(-50%) rotate(-3deg);background:color-mix(in srgb,var(--color-strike,#e9b611) 62%,transparent);border-left:1px dashed rgba(32,33,28,0.3);border-right:1px dashed rgba(32,33,28,0.3);}.ds-pieza-ref{display:flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-ink-soft,#5d574a);}.ds-pieza-ref::before{content:\"\";width:0.75rem;height:0.75rem;border:1.5px solid var(--color-minium,#c22f1d);}.ds-pieza-thumb{margin-top:0.75rem;aspect-ratio:16/9;border:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-pieza-title{margin-top:1rem;font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.2;color:var(--color-ink,#20211c);}.ds-pieza:hover .ds-pieza-title{color:var(--color-minium,#c22f1d);}.ds-pieza-meta{margin-top:0.25rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;color:var(--color-ink-soft,#5d574a);}.ds-pieza-meta b{color:var(--color-minium,#c22f1d);font-weight:500;}.ds-pieza-ver{display:inline-block;margin-top:0.75rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);padding-bottom:2px;}.ds-pieza:hover .ds-pieza-ver{color:var(--color-minium,#c22f1d);border-color:var(--color-minium,#c22f1d);}.ds-pieza:focus-within{outline:2px solid var(--color-minium,#c22f1d);outline-offset:2px;}"
+      "html": "<figure class=\"ds-pieza\"><p class=\"ds-pieza-ref\">vídeo nº A1F4</p><div class=\"ds-pieza-thumb\">miniatura HQ — YouTube</div><h3 class=\"ds-pieza-title\">Restauración completa de la maleta CB250</h3><p class=\"ds-pieza-meta\">12/9/2026 · <b>18.204 vistas</b></p><span class=\"ds-pieza-ver\">ver el vídeo ↗</span></figure>",
+      "css": ".ds-pieza{position:relative;background:var(--color-paper,#f2ead8);padding:1.5rem 1.25rem 1.25rem;box-shadow:0 1px 0 0 var(--color-paper-3,#ddd0b2);font-family:'Barlow',system-ui,sans-serif;}.ds-pieza::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-pieza::after{content:\"\";position:absolute;top:-0.55rem;left:50%;width:5.5rem;height:1.6rem;transform:translateX(-50%) rotate(-3deg);background:color-mix(in srgb,var(--color-strike,#e9b611) 62%,transparent);border-left:1px dashed rgba(32,33,28,0.3);border-right:1px dashed rgba(32,33,28,0.3);}.ds-pieza-ref{display:flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-ink-soft,#5d574a);}.ds-pieza-ref::before{content:\"\";width:0.75rem;height:0.75rem;border:1.5px solid var(--color-minium,#c22f1d);}.ds-pieza-thumb{margin-top:0.75rem;aspect-ratio:16/9;border:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-pieza-title{margin-top:1rem;font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.2;color:var(--color-ink,#20211c);}.ds-pieza:hover .ds-pieza-title{color:var(--color-minium,#c22f1d);}.ds-pieza-meta{margin-top:0.25rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;color:var(--color-ink-soft,#5d574a);}.ds-pieza-meta b{color:var(--color-minium,#c22f1d);font-weight:500;}.ds-pieza-ver{display:inline-block;margin-top:0.75rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);padding-bottom:2px;}.ds-pieza:hover .ds-pieza-ver{color:var(--color-minium,#c22f1d);border-color:var(--color-minium,#c22f1d);}"
     },
     {
       "name": "Fila de histórico (ledger row)",
@@ -253,9 +288,9 @@
       "name": "La regleta viva",
       "kind": "custom",
       "refersTo": "typography.mono",
-      "description": "Jaula de instrumento en tinta entre secciones: datos reales del build en mono, punto seria latiendo y valores en amarillo.",
-      "html": "<aside class=\"ds-regleta\"><span class=\"ds-regleta-dot\"></span><span class=\"ds-regleta-label\">en catálogo y cambiando</span><span>impresión: <b>12/10/2026</b></span><span>piezas listadas: <b>6</b></span><span class=\"ds-regleta-caret\">▍</span></aside>",
-      "css": ".ds-regleta{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 2rem;background:var(--color-ink,#20211c);border-top:2px solid var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);color:var(--color-paper,#f2ead8);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;letter-spacing:0.08em;padding:0.75rem 1.25rem;}.ds-regleta b{color:var(--color-strike,#e9b611);font-weight:400;}.ds-regleta-label{text-transform:uppercase;letter-spacing:0.14em;}.ds-regleta-dot{width:0.5rem;height:0.5rem;background:var(--color-strike,#e9b611);animation:ds-regleta-pulse 2.2s steps(2,jump-none) infinite;}.ds-regleta-caret{margin-left:auto;animation:ds-regleta-pulse 2.2s steps(2,jump-none) infinite;}@keyframes ds-regleta-pulse{0%,49%{opacity:1;}50%,100%{opacity:0.25;}}@media (prefers-reduced-motion:reduce){.ds-regleta-dot,.ds-regleta-caret{animation:none;}}"
+      "description": "Jaula de instrumento en tinta: datos reales del build en mono, punto seria latiendo y un enlace punteado. Banda invertida tasada nº 1.",
+      "html": "<aside class=\"ds-regleta\"><span class=\"ds-regleta-dot\"></span><span class=\"ds-regleta-label\">últimos vídeos</span><span>fecha del último vídeo: <b>3/10/2026</b></span><span>vídeos listados: <b>10</b></span><a class=\"ds-regleta-enlace\" href=\"#\">todos los vídeos ↗</a></aside>",
+      "css": ".ds-regleta{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 2rem;background:var(--color-ink,#20211c);border-top:2px solid var(--color-ink,#20211c);border-bottom:2px solid var(--color-ink,#20211c);color:var(--color-paper,#f2ead8);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;letter-spacing:0.08em;padding:0.75rem 1.25rem;}.ds-regleta b{color:var(--color-strike,#e9b611);font-weight:400;}.ds-regleta-label{text-transform:uppercase;letter-spacing:0.14em;}.ds-regleta-dot{width:0.5rem;height:0.5rem;background:var(--color-strike,#e9b611);animation:ds-regleta-pulse 2.2s steps(2,jump-none) infinite;}.ds-regleta-enlace{color:var(--color-strike,#e9b611);text-decoration:underline dotted;text-underline-offset:2px;}@keyframes ds-regleta-pulse{0%,49%{opacity:1;}50%,100%{opacity:0.25;}}@media (prefers-reduced-motion:reduce){.ds-regleta-dot{animation:none;}}"
     },
     {
       "name": "Cinta divisoria (TapeDivider)",
@@ -266,33 +301,64 @@
       "css": ".ds-cinta{color:var(--color-ink,#20211c);padding:2rem 0;}.ds-cinta svg{display:block;height:1rem;width:100%;}"
     },
     {
-      "name": "Folleto anexo",
+      "name": "Tarjeta de especial",
       "kind": "card",
       "refersTo": "canto-apilado",
-      "description": "Tarjeta de captura del especial: borde de tinta 2px, tilt de rotulador, .canto debajo, \"leer el folleto ↗\" en Caveat minio.",
-      "html": "<a class=\"ds-folleto\" href=\"#\"><div class=\"ds-folleto-shot\">captura del anexo</div><div class=\"ds-folleto-body\"><h3 class=\"ds-folleto-title\">Guía de motos de media cilindrada</h3><p class=\"ds-folleto-text\">14 motos a examen: fiabilidad, mantenimiento casero y precios.</p><span class=\"ds-folleto-ver\">leer el folleto ↗</span></div></a>",
-      "css": ".ds-folleto{position:relative;display:block;border:2px solid var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);transform:rotate(-0.8deg);font-family:'Barlow',system-ui,sans-serif;transition:color 150ms ease,transform 180ms cubic-bezier(0.16,1,0.3,1);}.ds-folleto::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-folleto:hover{transform:rotate(-0.8deg) translateY(-2px);}.ds-folleto-shot{aspect-ratio:16/10;border-bottom:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);display:grid;place-items:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-folleto-body{padding:1.25rem 1.5rem;}.ds-folleto-title{font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:-0.01em;color:var(--color-ink,#20211c);}.ds-folleto:hover .ds-folleto-title{color:var(--color-minium,#c22f1d);}.ds-folleto-text{margin-top:0.5rem;line-height:1.625;color:rgba(32,33,28,0.8);}.ds-folleto-ver{display:inline-block;margin-top:1rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-minium,#c22f1d);}"
+      "description": "La puerta de los reportajes: hoja paper sin marco con cinta seria y .canto, tilt de rotulador, corte de maqueta del ganador y \"leer el reportaje ↗\" en Caveat minio. Enlazan dentro del sitio.",
+      "html": "<a class=\"ds-especial\" href=\"#\"><div class=\"ds-especial-media\">corte de maqueta del ganador</div><p class=\"ds-especial-caption\">honda cl 500 · la ganadora</p><div class=\"ds-especial-linea\"><h3 class=\"ds-especial-title\">Guía de motos de media cilindrada</h3><span class=\"ds-especial-kicker\">14 modelos</span></div><p class=\"ds-especial-text\">14 motos a examen: fiabilidad, mantenimiento casero, precios y un ranking con cuentas claras.</p><p class=\"ds-especial-ver\">leer el reportaje ↗</p></a>",
+      "css": ".ds-especial{position:relative;display:block;background:var(--color-paper,#f2ead8);padding:1.5rem 1.25rem 1.25rem;transform:rotate(-0.7deg);font-family:'Barlow',system-ui,sans-serif;transition:transform 180ms cubic-bezier(0.16,1,0.3,1);}.ds-especial::before{content:\"\";position:absolute;inset:4px -4px -4px 4px;background:var(--color-paper-3,#ddd0b2);z-index:-1;}.ds-especial::after{content:\"\";position:absolute;top:-0.55rem;left:50%;width:5.5rem;height:1.6rem;transform:translateX(-50%) rotate(-3deg);background:color-mix(in srgb,var(--color-strike,#e9b611) 62%,transparent);border-left:1px dashed rgba(32,33,28,0.3);border-right:1px dashed rgba(32,33,28,0.3);}.ds-especial:hover{transform:rotate(-0.7deg) translateY(-2px);}.ds-especial-media{height:14rem;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-especial-caption{margin-top:0.75rem;text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-ink-soft,#5d574a);}.ds-especial-linea{display:flex;align-items:baseline;justify-content:space-between;gap:0.75rem;margin-top:1rem;}.ds-especial-title{font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:-0.01em;color:var(--color-ink,#20211c);transition:color 150ms ease;}.ds-especial:hover .ds-especial-title{color:var(--color-minium,#c22f1d);}.ds-especial-kicker{flex-shrink:0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-minium,#c22f1d);}.ds-especial-text{margin-top:0.75rem;line-height:1.625;color:rgba(32,33,28,0.8);}.ds-especial-ver{margin-top:1rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.25rem;color:var(--color-minium,#c22f1d);}"
+    },
+    {
+      "name": "Cuadro de honor (ranking)",
+      "kind": "card",
+      "refersTo": "fila-catalogo",
+      "description": "Ledger del reportaje con las ponderaciones a la vista en cabecera, fila ganadora resaltada a seria 25%, chip de victoria en minio y nota en mono tabular.",
+      "html": "<div class=\"ds-cuadro-wrap\"><table class=\"ds-cuadro\"><thead><tr><th>Pos.</th><th>Modelo</th><th class=\"ds-cuadro-r\">Fiabilidad <b>30%</b></th><th class=\"ds-cuadro-r\">Coste <b>25%</b></th><th class=\"ds-cuadro-r\">Nota</th></tr></thead><tbody><tr class=\"ds-cuadro-top\"><td class=\"ds-cuadro-pos\">01</td><td><span class=\"ds-cuadro-modelo\">Honda CL 500</span><span class=\"ds-chip-victoria\">ganadora</span></td><td class=\"ds-cuadro-num\">9,4</td><td class=\"ds-cuadro-num\">8,7</td><td class=\"ds-cuadro-num ds-cuadro-nota\">8,93</td></tr><tr><td class=\"ds-cuadro-pos\">02</td><td><span class=\"ds-cuadro-modelo ds-cuadro-modelo--llano\">Kawasaki Eliminator</span></td><td class=\"ds-cuadro-num\">8,8</td><td class=\"ds-cuadro-num\">7,9</td><td class=\"ds-cuadro-num ds-cuadro-nota\">8,31</td></tr></tbody></table></div>",
+      "css": ".ds-cuadro-wrap{overflow-x:auto;border:2px solid var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);}.ds-cuadro{width:100%;min-width:560px;border-collapse:collapse;text-align:left;font-family:'Barlow',system-ui,sans-serif;}.ds-cuadro th{padding:0.75rem 1rem;border-bottom:2px solid var(--color-ink,#20211c);background:var(--color-paper-2,#e9dfc8);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-ink-soft,#5d574a);}.ds-cuadro th b{font-weight:400;color:var(--color-ink-line,#b4a98f);}.ds-cuadro td{padding:0.75rem 1rem;transition:background 150ms ease;}.ds-cuadro tbody tr + tr td{border-top:1px solid var(--color-ink-line,#b4a98f);}.ds-cuadro tbody tr:hover td{background:var(--color-paper-2,#e9dfc8);}.ds-cuadro-top td{background:rgba(233,182,17,0.25);}.ds-cuadro-r{text-align:right;}.ds-cuadro-pos{font-family:'Barlow','Arial Narrow',sans-serif;font-weight:800;font-size:1.5rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--color-ink,#20211c);}.ds-cuadro-top .ds-cuadro-pos{color:var(--color-minium,#c22f1d);}.ds-cuadro-modelo{font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.125rem;color:var(--color-minium,#c22f1d);white-space:nowrap;}.ds-cuadro-modelo--llano{font-weight:600;color:var(--color-ink,#20211c);}.ds-chip-victoria{margin-left:0.75rem;display:inline-block;padding:0.125rem 0.5rem;vertical-align:middle;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.1em;background:var(--color-minium,#c22f1d);color:var(--color-paper,#f2ead8);}.ds-cuadro-num{text-align:right;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.875rem;font-variant-numeric:tabular-nums;color:var(--color-ink-soft,#5d574a);}.ds-cuadro-nota{font-size:1.125rem;font-weight:600;color:var(--color-ink,#20211c);}.ds-cuadro-top .ds-cuadro-nota{color:var(--color-minium,#c22f1d);}"
+    },
+    {
+      "name": "Ficha de garaje (escaparate)",
+      "kind": "card",
+      "refersTo": "typography.display",
+      "description": "Cada tarjeta del escaparate es su propia hoja de datos con <details>: cerrada muestra rango, nota y maqueta; abierta ocupa la fila entera y pasa a dos columnas (ficha con borde de 2px a la izquierda, specs a la derecha). Sin JavaScript.",
+      "html": "<details class=\"ds-garaje\" open><summary class=\"ds-garaje-resumen\"><span class=\"ds-garaje-cab\"><span class=\"ds-garaje-rank\">01</span><span class=\"ds-garaje-nota\">8,93</span></span><span class=\"ds-garaje-media\">corte de maqueta</span><span class=\"ds-garaje-nombre\">Honda CL 500</span><span class=\"ds-garaje-tipo\">retro · media cilindrada</span><span class=\"ds-garaje-ver cerrado\">ver ficha ↴</span><span class=\"ds-garaje-ver abierto\">cerrar ↥</span></summary><div class=\"ds-garaje-datos\"><span class=\"ds-sello-casero\">casero — mantenimiento suave</span><dl class=\"ds-garaje-specs\"><div><dt>motor</dt><dd>471 cc bicilíndrico</dd></div><div><dt>potencia</dt><dd>45,6 CV</dd></div><div><dt>peso</dt><dd>181 kg</dd></div><div><dt>precio</dt><dd>≈ 6.000 €</dd></div></dl><p class=\"ds-garaje-desc\">Ganadora por fiabilidad mecánica y precio contenido: se mantiene con las manos, con su coste real y sin letra pequeña.</p></div></details>",
+      "css": ".ds-garaje{display:grid;border:2px solid var(--color-ink,#20211c);background:var(--color-paper,#f2ead8);font-family:'Barlow',system-ui,sans-serif;}.ds-garaje summary::-webkit-details-marker{display:none;}.ds-garaje[open]{background:color-mix(in srgb,var(--color-paper-2,#e9dfc8) 60%,transparent);}@media (min-width:1024px){.ds-garaje[open]{grid-template-columns:24rem 1fr;align-items:start;}.ds-garaje[open] .ds-garaje-resumen{border-right:2px solid var(--color-ink,#20211c);}}.ds-garaje-resumen{display:flex;flex-direction:column;cursor:pointer;padding:0.75rem;height:100%;transition:background 150ms ease;}.ds-garaje[open] .ds-garaje-resumen{height:auto;}.ds-garaje-resumen:hover{background:var(--color-paper-2,#e9dfc8);}.ds-garaje[open] .ds-garaje-resumen:hover{background:transparent;}.ds-garaje-cab{display:flex;justify-content:space-between;align-items:baseline;}.ds-garaje-rank{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.625rem;font-variant-numeric:tabular-nums;color:var(--color-ink-soft,#5d574a);}.ds-garaje-nota{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.75rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--color-minium,#c22f1d);}.ds-garaje-media{margin-top:0.25rem;display:flex;align-items:center;justify-content:center;min-height:6rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.625rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-ink-soft,#5d574a);}.ds-garaje[open] .ds-garaje-media{min-height:10rem;}@media (min-width:1024px){.ds-garaje[open] .ds-garaje-media{min-height:13rem;}}.ds-garaje-nombre{margin-top:0.5rem;font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.25;color:var(--color-ink,#20211c);}.ds-garaje-tipo{margin-top:0.125rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-ink-soft,#5d574a);}.ds-garaje-ver{margin-top:auto;padding-top:0.5rem;font-family:'Caveat',cursive;font-weight:600;font-size:1.125rem;color:var(--color-ink,#20211c);}.ds-garaje .abierto{display:none;color:var(--color-ink-soft,#5d574a);}.ds-garaje[open] .cerrado{display:none;}.ds-garaje[open] .abierto{display:inline;}.ds-garaje-datos{border-top:2px solid var(--color-ink,#20211c);padding:1.25rem;}@media (min-width:1024px){.ds-garaje[open] .ds-garaje-datos{border-top:none;}}.ds-sello-casero{display:inline-block;margin-bottom:0.75rem;padding:0.25rem 0.5rem;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.1em;background:var(--color-ink,#20211c);color:var(--color-paper,#f2ead8);}.ds-garaje-specs{margin:0;padding:0;display:grid;gap:0 2rem;}.ds-garaje-specs div{display:flex;align-items:baseline;gap:0.75rem;border-bottom:1px solid color-mix(in srgb,var(--color-ink-line,#b4a98f) 60%,transparent);padding:0.375rem 0;}.ds-garaje-specs dt{width:7rem;flex-shrink:0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-ink-soft,#5d574a);}.ds-garaje-specs dd{margin:0;min-width:0;flex:1;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:0.8125rem;color:var(--color-ink,#20211c);}.ds-garaje-desc{margin-top:1rem;line-height:1.625;color:rgba(32,33,28,0.85);}"
+    },
+    {
+      "name": "Banda de veredicto invertido",
+      "kind": "custom",
+      "refersTo": "banda-veredicto",
+      "description": "Sección entera en tinta invertida: ganador en display, nota en mono seria con /10 apagado, lead y cuatro factores con filetes paper/20. Banda invertida tasada nº 3.",
+      "html": "<section class=\"ds-veredicto\"><h2 class=\"ds-veredicto-h\">El veredicto</h2><div class=\"ds-veredicto-cta\"><span class=\"ds-veredicto-ganadora\">Honda CL 500</span><span class=\"ds-veredicto-nota\">8,93<span>/10</span></span></div><p class=\"ds-veredicto-lead\">Con las cuentas en la mano queda nadie a menos de un punto: la CL 500 hace lo que promete y se mantiene sola.</p><ol class=\"ds-veredicto-factores\"><li><h3>Fiabilidad</h3><p>Motor de serie probado más allá de la garantía, sin sustos.</p></li><li><h3>Precio</h3><p>Nota calculada con precio de venta y mantenimiento de cinco años.</p></li><li><h3>Potencia-precio</h3><p>Lo que da cada caballo por cada euro, sin marketing de por medio.</p></li><li><h3>Polivalencia</h3><p>Del trayecto corto a la travesía, sin cambiar de moto.</p></li></ol></section>",
+      "css": ".ds-veredicto{background:var(--color-ink,#20211c);color:var(--color-paper,#f2ead8);padding:3.5rem 1.25rem;font-family:'Barlow',system-ui,sans-serif;}.ds-veredicto-h{margin:0;font-family:'Barlow','Arial Narrow',sans-serif;font-weight:800;font-size:2.25rem;line-height:0.9;letter-spacing:-0.01em;text-transform:uppercase;color:var(--color-paper,#f2ead8);}.ds-veredicto-cta{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.5rem 1.25rem;border-bottom:1px solid rgba(242,234,216,0.25);padding-bottom:1rem;margin-top:1.25rem;}.ds-veredicto-ganadora{font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.875rem;color:var(--color-paper,#f2ead8);}.ds-veredicto-nota{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:1.5rem;color:var(--color-strike,#e9b611);}.ds-veredicto-nota span{color:rgba(242,234,216,0.5);}.ds-veredicto-lead{margin:1.25rem 0 0;max-width:62ch;line-height:1.625;color:rgba(242,234,216,0.85);}.ds-veredicto-factores{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:0 2.5rem;}@media (min-width:640px){.ds-veredicto-factores{grid-template-columns:1fr 1fr;}}.ds-veredicto-factores li{border-top:1px solid rgba(242,234,216,0.2);padding:1.25rem 0;}.ds-veredicto-factores h3{margin:0;font-family:'Barlow','Arial Narrow',sans-serif;font-weight:700;font-size:1.25rem;color:var(--color-paper,#f2ead8);}.ds-veredicto-factores p{margin:0.5rem 0 0;font-size:0.875rem;line-height:1.625;color:rgba(242,234,216,0.7);}"
     }
   ],
   "narrative": {
     "northStar": "El catálogo de la ferretería de barrio, 1994",
-    "overview": "La web es un catálogo impreso que respira: papel abatido (#f2ead8) como superficie de todo el mundo, con grano de papel (ruido fractal al 4% sobre el body), tinta de imprenta (#20211c) para todo lo impreso, y dos tintas de rotulador con empleo comprometido: rojo minio (#c22f1d) para los actos comerciales y amarillo seria (#e9b611) para etiquetas y cinta. No hay pantallas oscuras ni cristal: hay hojas de papel apiladas. El sistema es denso, tipográfico y sin fotografía propia: la imagen real son las miniaturas de YouTube (borde de tinta de 2px, como foto pegada en el folleto) y las capturas del anexo. Todo número medido vive en monoespaciada; toda nota de mano vive en Caveat, como escrita con rotulador.",
+    "overview": "La web es multipage —portada \"El taller\", índice de especiales y reportajes— pero sigue siendo un catálogo impreso que respira: papel abatido (#f2ead8) como superficie de todo el mundo, con grano de papel (ruido fractal al 4% sobre el body), tinta de imprenta (#20211c) para todo lo impreso, y dos tintas de rotulador con empleo comprometido: rojo minio (#c22f1d) para los actos comerciales y amarillo seria (#e9b611) para etiquetas y cinta. El suelo es siempre papel; las bandas en tinta están tasadas (regleta, ficha del reportaje, veredicto) y son estructura, no pantallas. El sistema es denso, tipográfico y sin fotografía propia: la imagen real son las miniaturas de YouTube (borde de tinta de 2px, como foto pegada en el folleto) y los cortes de maqueta de los especiales. Todo número medido vive en monoespaciada; toda nota de mano vive en Caveat, como escrita con rotulador.",
     "keyCharacteristics": [
+      "Multipage con shell único (Header + Footer): la cabecera lleva dos fichas de navegación —El Taller y Especiales— y la activa va en tinta plena (bg-ink text-paper, aria-current=\"page\").",
       "Fronteras entre secciones dibujadas \"a cinta\": curva ondulada SVG (TapeDivider), nunca una línea recta decisiva.",
       "Profundidad por capas apiladas planas (.canto): una papeleta desplazada 4px detrás, sin sombras difuminadas.",
       "Cabecera con perforación de talonario (.perfo-top), como hoja arrancada.",
-      "La regleta viva: banda-instrumento en tinta con datos reales del build y punto seria latiendo.",
-      "El sello de suscripción: bloque minio con sombra dura desplazada 3px, el único elemento con fondo rojo grande de toda la página."
+      "Las bandas invertidas en tinta están numeradas: la regleta del taller, la \"ficha del reportaje\" bajo cada portada y el veredicto entero de cada especial. Tres, contadas.",
+      "El garaje del especial: rejilla de fichas <details> que al abrirse ocupan la fila entera y pasan a dos columnas — sin una línea de JavaScript.",
+      "El sello de suscripción: bloque minio con sombra dura desplazada 3px, el único bloque con fondo rojo grande de todo el catálogo (el colofón del footer usa la roja de marca, aparte)."
     ],
     "rules": [
       {
         "name": "La Regla del Acto Comercial",
-        "body": "El minio es la voz del mostrador: solo aparece donde se vende o se señala dinero/acción comercial (sello, precio, hover de llamada a la acción, marca). Si una pantalla acaba con más del 10% de minio, está gritando.",
+        "body": "El minio es la voz del mostrador: solo aparece donde se vende o se señala dinero/acción comercial (sello, precio, hover de llamada a la acción, marca) y donde un reportaje corona a su ganador (chip de victoria, nº 01, nota sobresaliente). Si una pantalla acaba con más del 10% de minio, está gritando.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de la Banda Invertida",
+        "body": "El fondo en tinta plena está tasado: la regleta del taller, la ficha del reportaje y el veredicto. Son jaula de instrumento o dictamen, no tema. Fuera de esa lista, el suelo es siempre papel.",
         "section": "colors"
       },
       {
         "name": "La Regla de la Cinta",
-        "body": "La seria no es una tinta de plenigrafía: es material adhesivo (cinta semitransparente) o valor medido en la regleta. Jamás fondo de sección ni texto principal fuera de la banda-instrumento.",
+        "body": "La seria no es una tinta de plenigrafía: es material adhesivo (cinta semitransparente), chip pequeño de novedad, resalte de la fila ganadora o valor medido en las bandas de instrumento. Jamás fondo de sección ni texto principal.",
         "section": "colors"
       },
       {
@@ -312,21 +378,24 @@
       }
     ],
     "dos": [
-      "Do reservar el minio para actos comerciales: sello de suscripción, precio, hover de CTA, nota de rotulador destacada, selección de texto.",
-      "Do escribir todo dato medido (fecha del build, contador, ref. de pieza, nº de vistas) en IBM Plex Mono.",
+      "Do reservar el minio para actos comerciales y dictámenes con pesos: sello de suscripción, hover de CTA, nota de rotulador destacada, chip de victoria, nº 01 del cuadro, nota de ficha, selección de texto.",
+      "Do escribir todo dato medido (fecha del build, contador, ref. de pieza, nota, vista) en IBM Plex Mono.",
       "Do separar secciones mayores con la curva TapeDivider y alternar bandas paper / paper-2.",
       "Do apilar profundidad con .canto (paper-3 desplazado 4px) y sombras duras sin blur.",
-      "Do redactar las llamadas con la voz del mostrador en Caveat: \"ver ficha ↗\", \"pasillo ↗\", \"ver las últimas piezas ↓\".",
+      "Do desplegar el escaparate con <details>/<summary> y estados en group-open: el despliegue es de la plataforma, no del taller; cero JavaScript.",
+      "Do marcar la página activa con aria-current=\"page\" y la ficha en tinta plena — la nav no adivina: declara.",
+      "Do redactar las llamadas con la voz del mostrador en Caveat: \"ver ficha ↗\", \"ver lista ↗\", \"leer el reportaje ↗\", el \"ver ficha ↴\" y su par \"cerrar ↥\" cuando la ficha está abierta.",
       "Do respetar prefers-reduced-motion: el pulso y los cintilleos se apagan, el scroll deja de ser smooth."
     ],
     "donts": [
       "Don't usar sombras difuminadas (blur > 0) jamás: la profundidad es de papelería, no de elevación.",
       "Don't partir secciones con reglas rectas de ancho completo: la frontera entre hojas siempre va a cinta (curva).",
-      "Don't redondear esquinas (radius 0 en tarjetas y bloques; la única curva es la cinta y la perforación).",
-      "Don't inventar colores fuera de las nueve tintas del catálogo ni gradientes de color; el ruido de grano es el único gradiente aceptable.",
-      "Don't poner fondo oscuro fuera de la regleta: el ink es jaula de instrumento, no tema.",
-      "Don't usar la seria como texto de navegación o como fondo de sección: es adhesivo (cinta al ≤62% de opacidad) y valor de regleta.",
-      "Don't usar fotos de banco: la única imaginería real son miniaturas de YouTube con borde de tinta y capturas del anexo, con su procedencia."
+      "Don't redondear esquinas (radius 0 en tarjetas, fichas abiertas y bandas invertidas; la única curva es la cinta y la perforación).",
+      "Don't inventar colores fuera de las once tintas del catálogo ni gradientes de color; el ruido de grano es el único gradiente aceptable.",
+      "Don't poner fondo oscuro fuera de las bandas tasadas (regleta, ficha del reportaje, veredicto): el ink es jaula de instrumento o dictamen, no tema.",
+      "Don't usar la seria como texto de navegación o como fondo de sección: es adhesivo (cinta al ≤62%), resalte de fila ganadora al 25%, chip pequeño de novedad y valor de banda de instrumento.",
+      "Don't usar fotos de banco ni enmarcar cortes de maqueta: la imaginería real son miniaturas de YouTube con borde de tinta y cortes recortados de los especiales, con su procedencia.",
+      "Don't añadir un tercer chip a la cabecera ni llamadas dentro de la nav: los estantes del catálogo son dos; lo demás cuelga de migas dentro del pliego."
     ]
   }
 }

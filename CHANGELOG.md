@@ -8,43 +8,46 @@ y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/
 ## [1.4.0] — 2026-10-14
 
 Migración de los especiales al catálogo: los reportajes dejan de vivir en un
-proyecto aparte y pasan a ser **páginas de este sitio**.
+proyecto aparte y pasan a ser **páginas de este sitio**, vestidas con el sistema
+del taller.
 
 ### Añadido
 
-- **Sección de especiales** en el sitio: índice editorial en `/especiales` y los
-  dos reportajes en `/especiales/guia-motos` y `/especiales/suvs-hev`, con el
-  sistema del catálogo (papel, cinta, minio, tipografías).
+- **Sección de especiales**: índice editorial en `/especiales` y los dos
+  reportajes en `/especiales/guia-motos` y `/especiales/suvs-hev`.
 - **Contenido portado completo**: portada, veredicto en banda de tinta, ranking
-  multicriterio, 14 + 8 fichas desplegables y los cuatro apéndices técnicos de
-  cada reportaje.
-- **Navegación multipágina**: la cabecera estrena la página real *Especiales*
-  con estado activo, migas dentro de los reportajes y las secciones de la
-  portada movidas a un **submenú** («Secciones ▾», sin anclas sueltas).
+  multicriterio, fichas y los apéndices técnicos de cada reportaje (4 tablas en
+  cada uno; en los SUVs, además, el cuadro didáctico *¿Qué es un HEV?*).
+- **El garaje / el escaparate**: una sola rejilla donde cada tarjeta es su
+  propia ficha. Cerrada enseña la foto recortada, el puesto y la nota; al
+  abrirla se despliega a lo ancho con la ficha completa (especificaciones en
+  filas, sello de mantenimiento casero y descripción), con la imagen creciendo
+  de 96 a 208 px.
+- **Un único componente de reportaje** (`especiales/shared/Reportaje.astro`):
+  las dos páginas son solo configuración y datos, sin marcado duplicado.
+- **Navegación multipágina**: la barra pasa a *El Taller* y *Especiales*, con
+  estado activo; migas de pan dentro de los reportajes; el pie estrena columna
+  *secciones* con esas dos entradas.
 - **SEO por reportaje**: canónica, Open Graph propio, JSON-LD
   (`Article` + `BreadcrumbList`) y entradas en el `sitemap.xml`.
-- **Cero JavaScript de framework**: se abandona React (el build anterior eran
-  ~270 KB de JS) y las fichas se despliegan con `<details>` nativo.
-
-- **El garaje / el escaparate**: una sola rejilla donde cada tarjeta es su
-  propia ficha. Cerrada muestra la foto recortada, el puesto y la nota; al
-  abrirla se despliega a lo ancho con la ficha completa (especificaciones en
-  filas, sello de mantenimiento casero y descripción). Sin JavaScript.
-- **Unificación**: un único componente `Reportaje.astro` pinta los dos
-  reportajes a partir de su configuración; cada página es solo datos y textos.
+- **Cero JavaScript de framework**: se abandona React y su router (~270 KB de
+  JS); las fichas se despliegan con `<details>` nativo.
 
 ### Cambiado
 
-- **Navegación sin anclas**: la barra queda en *El Taller* y *Especiales* (con
-  estado activo) y el pie en *secciones: El Taller y Especiales*. Los enlaces a
-  secciones de la portada se retiran (también el submenú).
 - La sección *Especiales* de la portada enlaza dentro del sitio y muestra las
   portadas de los modelos ganadores (antes, capturas del sitio antiguo).
+- Retirados todos los enlaces de sección de la barra y del pie (y el submenú
+  que los alojaba interinamente).
 
 ### Corregido
 
 - Concordancia de género: el chip del ranking dice **ganadora** en las motos y
   **ganador** en los coches.
+- La ficha abierta ya no duplica la fotografía ni deja hueco bajo la tarjeta, y
+  en móvil deja de estirarse (el `h-full` de la rejilla se anula al abrir).
+- Retirado el filete superior del bloque *Dossier*: era un resto del diseño
+  antiguo y flotaba suelto bajo la rejilla.
 
 ### Eliminado
 
