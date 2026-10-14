@@ -8,7 +8,7 @@ otro oficio —administrativo, médico, lo que sea— al que le gusta meter mano
 fin de semana, tiene unos 100 € para empezar y compra en el Lidl, el Aldi o la
 ferretería del barrio. No sabe si la Parkside le vale o se está equivocando.
 
-Estado: **plan v3, sin construir**. Decisiones del 2026-10-15 incorporadas.
+Estado: **plan v3, con F1 construida** (2026-10-15).
 
 ---
 
@@ -309,7 +309,7 @@ Tuanbyte dentro de la ficha abierta («verlo en el taller ↗»).
 | Fase | Entregable | Notas |
 |---|---|---|
 | **F0 · Mapa de vídeos** | Tabla familia → vídeo(s) de Tuanbyte. | Se propone desde los vídeos publicados y se corrige a mano. |
-| **F1 · Esqueleto** | `types.ts`, datos con **6 fichas reales**, página, `Etapas.astro`, `videos` en `Fichas.astro`, `Tag` a `shared/`, tarjeta y sitemap. Build verde. | Valida el formato **antes** de escribir 28 fichas. |
+| **F1 · Esqueleto** | ✅ **Hecha** (2026-10-15, commit `9680a76`). `types.ts`, 6 fichas reales, página, `Etapas.astro`, `videos` en `Fichas.astro`, `Tag` a `shared/`, tarjeta y sitemap. Build verde. | Validó el formato antes de escribir 28 fichas. |
 | **F2 · Fichas** | Las ~28 con sus seis specs y su descripción. | Por etapas: 1, 2, 3. |
 | **F3 · Imágenes** | Foto propia (o de catálogo) de las 28 familias, las 3 etapas y la portada; fotogramas de uso. | El único trabajo que no se hace en el ordenador. |
 | **F4 · Orden y veredicto** | Puntuación, ranking cerrado y veredicto con sus cuatro motivos. | Aquí se decide «la primera». |
