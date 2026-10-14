@@ -17,6 +17,7 @@ interface Ficha {
   desc: string;
   diyText?: string;
   badge?: "high" | "med" | "low";
+  videos?: { id: string; title: string }[];
 }
 
 interface Props {
@@ -112,6 +113,30 @@ const badgeClass: Record<NonNullable<Ficha["badge"]>, string> = {
                 ))}
               </dl>
               <p class="mt-4 leading-relaxed text-ink/85">{f.desc}</p>
+
+              {
+                f.videos?.length ? (
+                  <div class="mt-4 border-t border-ink-line/60 pt-3">
+                    <p class="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
+                      verlo en el taller
+                    </p>
+                    <ul class="mt-1.5 space-y-0.5">
+                      {f.videos.map((v) => (
+                        <li>
+                          <a
+                            href={`https://www.youtube.com/watch?v=${v.id}`}
+                            target="_blank"
+                            rel="noopener"
+                            class="font-marker text-lg text-minium underline decoration-dotted underline-offset-2 transition-colors hover:text-minium-dark"
+                          >
+                            {v.title} ↗
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null
+              }
             </div>
           </div>
         </details>

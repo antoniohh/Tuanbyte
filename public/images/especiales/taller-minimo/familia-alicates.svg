@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Foto pendiente: ALICATES">
+  <rect width="800" height="800" fill="#e9dfc8"/>
+  <rect x="26" y="26" width="748" height="748" fill="none" stroke="#b4a98f" stroke-width="3" stroke-dasharray="16 12"/>
+  <text x="400" y="320" text-anchor="middle" font-family="'Arial Narrow',sans-serif" font-size="150" font-weight="700" fill="#c22f1d">05</text>
+  <text x="400" y="470" text-anchor="middle" font-family="'Arial Narrow',sans-serif" font-size="46" font-weight="700" fill="#20211c">ALICATES</text>
+  <text x="400" y="580" text-anchor="middle" font-family="monospace" font-size="26" fill="#5d574a" letter-spacing="4">FOTO PENDIENTE</text>
+</svg>

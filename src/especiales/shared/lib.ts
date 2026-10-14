@@ -1,4 +1,4 @@
-import type { Tag } from "@/especiales/guia-motos/types";
+import type { Tag } from "./types";
 
 export function formatScore(value: number): string {
   return value.toFixed(2).replace(".", ",");

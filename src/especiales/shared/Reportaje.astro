@@ -5,6 +5,7 @@ import Footer from "@/components/Footer.astro";
 import Migas from "@/especiales/shared/Migas.astro";
 import Portada from "@/especiales/shared/Portada.astro";
 import Veredicto from "@/especiales/shared/Veredicto.astro";
+import Etapas from "@/especiales/shared/Etapas.astro";
 import Ranking from "@/especiales/shared/Ranking.astro";
 import Fichas from "@/especiales/shared/Fichas.astro";
 import TablaTecnica from "@/especiales/shared/TablaTecnica.astro";
@@ -19,6 +20,14 @@ interface Tabla {
   modelKey?: string;
 }
 
+interface Etapa {
+  n: number;
+  title: string;
+  lema: string;
+  presupuesto: string;
+  items: { label: string; id?: string }[];
+}
+
 interface Props {
   cfg: {
     slug: string;
@@ -28,8 +37,10 @@ interface Props {
     ogImage: string;
     portada: Record<string, unknown>;
     veredicto: Record<string, unknown>;
+    etapas?: { title?: string; desc: string; items: Etapa[] };
     tablaAntes?: Tabla;
     ranking: {
+      title?: string;
       desc: string;
       criteria: { key: string; label: string; weight: string }[];
       rows: Record<string, unknown>[];
@@ -57,6 +68,16 @@ const { cfg } = Astro.props;
     <Veredicto {...cfg.veredicto} />
 
     {
+      cfg.etapas && (
+        <Etapas
+          title={cfg.etapas.title}
+          desc={cfg.etapas.desc}
+          etapas={cfg.etapas.items}
+        />
+      )
+    }
+
+    {
       cfg.tablaAntes && (
         <TablaTecnica
           id={cfg.tablaAntes.id}
@@ -70,6 +91,7 @@ const { cfg } = Astro.props;
     }
 
     <Ranking
+      title={cfg.ranking.title}
       desc={cfg.ranking.desc}
       criteria={cfg.ranking.criteria}
       rows={cfg.ranking.rows as never}

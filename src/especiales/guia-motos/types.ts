@@ -1,6 +1,8 @@
+import type { Medal, Tag } from "@/especiales/shared/types";
+
+export type { Medal, Tag };
+
 export type DiyLevel = "high" | "med" | "low";
-export type Tag = "winner" | "new" | "bmw" | null;
-export type Medal = "gold" | "silver" | "bronze" | null;
 
 export interface Bike {
   id: string;

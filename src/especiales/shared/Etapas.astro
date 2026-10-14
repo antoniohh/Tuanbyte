@@ -1,0 +1,74 @@
+---
+interface Item {
+  label: string;
+  id?: string;
+}
+
+interface Etapa {
+  n: number;
+  title: string;
+  lema: string;
+  presupuesto: string;
+  items: Item[];
+}
+
+interface Props {
+  id?: string;
+  title?: string;
+  desc: string;
+  etapas: Etapa[];
+}
+
+const { id = "ruta", title = "La ruta", desc, etapas } = Astro.props;
+---
+
+<section id={id} class="scroll-mt-24">
+  <div class="mx-auto max-w-6xl px-5 pt-14 sm:px-8 lg:pt-20">
+    <h2
+      class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl"
+    >
+      {title}
+    </h2>
+    <p class="mt-2 max-w-[68ch] text-sm leading-relaxed text-ink-soft">{desc}</p>
+  </div>
+
+  <div class="mx-auto mt-8 grid max-w-6xl gap-4 px-5 sm:px-8 lg:grid-cols-3">
+    {
+      etapas.map((e) => (
+        <article class="canto flex flex-col border-2 border-ink bg-paper p-5">
+          <div class="flex items-baseline justify-between gap-3">
+            <span class="font-display text-5xl font-extrabold leading-none text-minium tabular-nums">
+              {String(e.n).padStart(2, "0")}
+            </span>
+            <span class="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
+              {e.presupuesto}
+            </span>
+          </div>
+
+          <h3 class="mt-3 font-display text-2xl font-bold uppercase leading-tight tracking-tight text-ink">
+            {e.title}
+          </h3>
+          <p class="mt-2 font-marker text-xl leading-snug text-minium">{e.lema}</p>
+
+          <ul class="mt-4 space-y-1.5 border-t border-ink-line/60 pt-4">
+            {e.items.map((it) => (
+              <li class="flex items-baseline gap-2">
+                <span class="font-mono text-[0.625rem] text-ink-line">·</span>
+                {it.id ? (
+                  <a
+                    href={`#ficha-${it.id}`}
+                    class="font-mono text-[0.75rem] text-ink underline decoration-dotted underline-offset-2 transition-colors hover:text-minium"
+                  >
+                    {it.label}
+                  </a>
+                ) : (
+                  <span class="font-mono text-[0.75rem] text-ink-soft">{it.label}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

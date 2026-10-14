@@ -20,6 +20,16 @@ const reportajes = [
     caption: "kia niro hev · el ganador",
     tilt: "lg:rotate-[0.8deg]",
   },
+  {
+    href: "/especiales/taller-minimo",
+    title: "El taller mínimo viable",
+    kicker: "desde 100 €",
+    text: "Qué comprar para hacerle el mantenimiento a tu moto o tu coche en casa, en qué orden y de qué marca. De lo más básico a lo más específico.",
+    img: "/images/especiales/taller-minimo/portada.svg",
+    alt: "El kit de arranque del taller",
+    caption: "el kit de arranque",
+    tilt: "lg:-rotate-[0.6deg]",
+  },
 ];
 ---
 
@@ -38,7 +48,7 @@ const reportajes = [
       mismos criterios con los que elijo y mantengo lo que enseño en el canal.
     </p>
 
-    <div class="mt-10 grid gap-8 lg:grid-cols-2">
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
       {
         reportajes.map((r) => (
           <a

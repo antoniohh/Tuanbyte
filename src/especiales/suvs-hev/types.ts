@@ -1,6 +1,7 @@
 export type DiyLevel = "high" | "med" | "low";
-export type Tag = "winner" | "new" | null;
-export type Medal = "gold" | "silver" | "bronze" | null;
+import type { Medal, Tag } from "@/especiales/shared/types";
+
+export type { Medal, Tag };
 
 export interface Car {
   id: string;

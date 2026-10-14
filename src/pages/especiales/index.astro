@@ -5,7 +5,7 @@ import Footer from "@/components/Footer.astro";
 
 const title = "Especiales · reportajes a fondo de Tuanbyte";
 const description =
-  "Reportajes comparativos de elaboración propia con tablas, fichas y ranking multicriterio: guía de motos de media cilindrada y SUVs híbridos HEV.";
+  "Reportajes comparativos de elaboración propia con tablas, fichas y ranking multicriterio: guía de motos de media cilindrada, SUVs híbridos HEV y el taller mínimo viable.";
 
 const reportajes = [
   {
@@ -29,6 +29,17 @@ const reportajes = [
     alt: "Kia Niro HEV, ganador de la comparativa de SUVs",
     caption: "kia niro hev · el ganador",
     tilt: "lg:rotate-[0.8deg]",
+  },
+  {
+    href: "/especiales/taller-minimo",
+    title: "El taller mínimo viable",
+    kicker: "desde 100 €",
+    blurb:
+      "Qué herramientas comprar para hacerle el mantenimiento a tu moto o tu coche en casa, en qué orden y de qué marca. Sin ser mecánico y sin dejarte un sueldo.",
+    img: "/images/especiales/taller-minimo/portada.svg",
+    alt: "El kit de arranque del taller",
+    caption: "el kit de arranque",
+    tilt: "lg:-rotate-[0.6deg]",
   },
 ];
 
@@ -69,7 +80,7 @@ const jsonLd = [
     </section>
 
     <section class="mx-auto mt-12 max-w-6xl px-5 sm:px-8 lg:mt-16">
-      <div class="grid gap-8 lg:grid-cols-2">
+      <div class="grid gap-8 lg:grid-cols-3">
         {
           reportajes.map((r) => (
             <a

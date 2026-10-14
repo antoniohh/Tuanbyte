@@ -1,0 +1,145 @@
+---
+import Reportaje from "@/especiales/shared/Reportaje.astro";
+import { etapas, herramientas, marcas, orden, rutas } from "@/especiales/taller-minimo/data/taller";
+
+const seoTitle = "El taller mínimo viable · Qué herramientas comprar y en qué orden";
+const seoDescription =
+  "Qué herramientas comprar para hacerle el mantenimiento a tu moto o tu coche en casa, en qué orden y de qué marca: tres etapas, fichas y presupuestos desde 100 €.";
+
+const fichas = herramientas.map((h) => ({
+  id: h.id,
+  name: h.name,
+  type: h.type,
+  rank: h.rank,
+  scoreValue: h.scoreValue,
+  img: h.img,
+  specs: h.specs,
+  desc: h.desc,
+  videos: h.videos,
+}));
+
+const cfg = {
+  slug: "taller-minimo",
+  migas: "El taller mínimo viable",
+  seoTitle,
+  seoDescription,
+  ogImage: "images/especiales/taller-minimo/portada.svg",
+  portada: {
+    subtitle: "Qué comprar para empezar, y en qué orden",
+    title: "El taller mínimo viable",
+    intro:
+      "Le haces el mantenimiento a tu moto o a tu coche y no eres mecánico. Ese es todo el requisito. Aquí está lo que hace falta comprar, en qué orden, de qué marca y por cuánto: desde los 100 € del primer juego de vasos hasta lo específico de tu modelo.",
+    intro2:
+      "No hay nada patrocinado: son las herramientas que se usan en el taller, con precios orientativos y sin enlaces de afiliación.",
+    img: "/images/especiales/taller-minimo/portada.svg",
+    imgAlt: "El kit de arranque del taller",
+    caption: "el kit de arranque · foto pendiente",
+    strip: ["3 etapas", "desde 100 €", "sin patrocinio"],
+  },
+  veredicto: {
+    winner: 'Juego de vasos 3/8" y carraca',
+    score: "9,60",
+    lead: 'Si solo vas a comprar una cosa, compra esta. El juego de vasos de 3/8" con carraca y vasos de 6 puntas es lo que se coge el 80 % del tiempo: afloja y aprieta casi todo, no redondea las tuercas duras y, con dos extensiones y una junta universal, llega a donde no entra nada más. Es la reina del taller mínimo.',
+    factors: [
+      {
+        title: "Es la que más se usa",
+        text: "De cada diez trabajos, ocho empiezan con una carraca en la mano.",
+      },
+      {
+        title: "No redondea nada",
+        text: "Las 6 puntas agarran la tuerca por la cara, no por la esquina, y no la estropean cuando está dura.",
+      },
+      {
+        title: "Vale desde 25 €",
+        text: "La versión del súper hace el trabajo; la buena cuesta unos 60 € y dura toda la vida.",
+      },
+      {
+        title: "Abre la puerta a lo demás",
+        text: "Sin vasos no se puede empezar. Con ellos, el resto de la lista se compra cuando hace falta.",
+      },
+    ],
+    img: "/images/especiales/taller-minimo/familia-vasos-38.svg",
+    imgAlt: 'Juego de vasos 3/8" con carraca',
+  },
+  etapas: {
+    title: "La ruta",
+    desc: "De lo más básico a lo más específico. Las que llevan enlace ya tienen ficha desplegable; el resto llega en las siguientes tandas.",
+    items: etapas,
+  },
+  ranking: {
+    title: "El orden",
+    desc: "Ponderación: lo usarás 40 % · sin ella no puedes 40 % · barata 20 %. El orden es el de compra: la primera es la que hay que tener antes.",
+    criteria: [
+      { key: "uso", label: "Lo usarás", weight: "40%" },
+      { key: "desbloqueo", label: "Sin ella no puedes", weight: "40%" },
+      { key: "barata", label: "Barata", weight: "20%" },
+    ],
+    rows: orden,
+    winnerLabel: "la primera",
+  },
+  fichas: {
+    title: "El taller, de un vistazo",
+    desc: "Pica en cualquiera para desplegar su ficha: para qué sirve, qué desbloquea, la compra barata, la compra buena y el error típico que hay que evitar. Con el vídeo donde se usa.",
+    items: fichas,
+  },
+  dossier: {
+    tablas: [
+      {
+        id: "marcas",
+        title: "Las marcas, una a una",
+        desc: "Las que se encuentran en el súper y en la ferretería, con lo bueno, lo flojo y el veredicto. Ninguna es buena en todo.",
+        columns: [
+          { label: "Marca", key: "marca" },
+          { label: "Gama", key: "gama" },
+          { label: "Lo bueno", key: "bueno" },
+          { label: "Lo flojo", key: "flojo" },
+          { label: "Veredicto", key: "veredicto" },
+        ],
+        rows: marcas,
+        modelKey: "marca",
+      },
+      {
+        id: "presupuestos",
+        title: "Los tres presupuestos",
+        desc: "Tres rutas de compra según lo que quieras gastarte. Precios orientativos.",
+        columns: [
+          { label: "Ruta", key: "ruta" },
+          { label: "Qué entra", key: "entra" },
+          { label: "Hasta dónde llegas", key: "llegas" },
+          { label: "Marcas", key: "marcas" },
+        ],
+        rows: rutas,
+        modelKey: "ruta",
+      },
+    ],
+  },
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: seoTitle,
+      description: seoDescription,
+      image: "https://tuanbyte.es/images/especiales/taller-minimo/portada.svg",
+      datePublished: "2026-10-15",
+      dateModified: "2026-10-15",
+      inLanguage: "es",
+      author: { "@type": "Person", name: "Tuanbyte" },
+      publisher: { "@type": "Organization", name: "Tuanbyte" },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://tuanbyte.es/especiales/taller-minimo",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Especiales", item: "https://tuanbyte.es/especiales" },
+        { "@type": "ListItem", position: 2, name: "El taller mínimo viable", item: "https://tuanbyte.es/especiales/taller-minimo" },
+      ],
+    },
+  ],
+};
+---
+
+<Reportaje cfg={cfg} />

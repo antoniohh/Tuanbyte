@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Foto pendiente: el kit de arranque">
+  <rect width="1200" height="800" fill="#e9dfc8"/>
+  <rect x="30" y="30" width="1140" height="740" fill="none" stroke="#b4a98f" stroke-width="3" stroke-dasharray="18 14"/>
+  <text x="600" y="330" text-anchor="middle" font-family="'Arial Narrow',sans-serif" font-size="82" font-weight="700" fill="#20211c">EL KIT DE ARRANQUE</text>
+  <text x="600" y="420" text-anchor="middle" font-family="'Arial Narrow',sans-serif" font-size="34" fill="#c22f1d">VASOS · LLAVES · ALLEN · ALICATES</text>
+  <text x="600" y="560" text-anchor="middle" font-family="monospace" font-size="28" fill="#5d574a" letter-spacing="5">FOTO PENDIENTE</text>
+</svg>
