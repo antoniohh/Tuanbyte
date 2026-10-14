@@ -289,8 +289,8 @@ Tuanbyte dentro de la ficha abierta («verlo en el taller ↗»).
 - Lista **manual**, elegida a mano. Aquí es donde brillan tus comparativas de
   marcas.
 - **Paso previo (F0)**: montar el **mapa de vídeos** (familia → vídeo/s), con lo
-  que ya tienes publicado. Lo propongo yo a partir de tu lista de vídeos y tú lo
-  corriges.
+  que ya tienes publicado. Primera propuesta en el **anexo** del final; falta
+  paginar el resto del canal.
 
 ## 14. SEO, rutas y enlaces
 
@@ -332,3 +332,38 @@ Tuanbyte dentro de la ficha abierta («verlo en el taller ↗»).
 - **Cada vídeo nuevo de herramienta** puede añadir una ficha o un enlace.
 - **La etapa 3 crece sola**: cada trabajo que hagas puede añadir una pieza sin
   tocar nada más que datos.
+
+---
+
+## Anexo · Mapa de vídeos (primera propuesta)
+
+Sacado de la **primera página del canal (30 vídeos)**. Falta paginar el resto.
+
+### Vídeos de herramienta (sostienen las familias básicas)
+
+| Vídeo | Cubre |
+|---|---|
+| *Herramientas de Parkside, Workzone y Bosch \| Llaves, Destornilladores, Alicates, Puntas y Vasos* | familias **1, 2, 3, 5** y la tabla de marcas |
+| *Destornilladores, Alicates, Puntas y Vasos de Parkside y Bosch* | familias **1 y 5** |
+| *Herramientas Parkside y Workzone en mi Honda CB250 \| ¿Merecen la pena?* | el **veredicto de marcas** |
+
+### Vídeos de uso (la herramienta trabajando)
+
+| Familia | Vídeo |
+|---|---|
+| 6 · Llave de bujías | *Mantenimiento y limpieza de las bujías NGK CR6HSA* |
+| 1 · Destornilladores | *Cambio del filtro de aire de la CB250* |
+| 1 · Destornilladores | *Instalación del cable y engranaje del velocímetro* |
+| 2 y 5 · Llaves y alicates | *Nueva maneta de embrague en la CB250* |
+| 18 · Purga de frenos | *Cambio de zapatas de freno de tambor trasero* |
+| 23 · Herramienta de cadena | *Cambio del kit de arrastre (cadena, piñón y corona)* |
+| 23 · Herramienta de cadena | *Cómo tensar la cadena de transmisión* |
+| 19 · Multímetro | *LED en la CB250, partes 1 y 2* |
+| 22 · Bandejas y químicos | *Restauración de la maleta / plásticos con Sisbrill* |
+
+### Lo que falta
+
+- **Paginar el canal**: solo hay la primera página (30 vídeos).
+- **Lado coche**: el canal está centrado en la CB250, así que las familias de
+  coche (25, 26, 27) se quedarán sin vídeo propio hasta que grabes alguno. Se
+  pueden ilustrar con foto mientras.
