@@ -1,0 +1,92 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<BaseLayout
+  title="Privacidad — TuanSocial"
+  description="Qué datos trata TuanSocial, dónde se guardan y con quién se comparten. En corto: solo lo imprescindible para publicar en tus redes."
+>
+  <Header />
+  <main class="mx-auto max-w-3xl px-5 py-14 sm:px-8 lg:py-20">
+    <h1 class="font-display text-4xl font-extrabold uppercase tracking-tight text-ink sm:text-5xl">
+      Privacidad
+    </h1>
+    <p class="mt-4 font-marker text-2xl text-minium">
+      en corto: solo lo imprescindible para publicar
+    </p>
+
+    <div class="mt-10 space-y-8 leading-relaxed text-ink/90">
+      <section>
+        <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+          Qué es TuanSocial
+        </h2>
+        <p class="mt-2">
+          TuanSocial es una herramienta de uso propio que sirve para compartir un vídeo de YouTube en
+          las redes sociales del propio creador (Facebook, Instagram, X, WhatsApp y TikTok). No es un
+          servicio abierto al público: la usa su titular con sus propias cuentas.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+          Qué datos se tratan
+        </h2>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li><strong>Los datos del vídeo:</strong> su dirección, su título, su miniatura y el texto que escribes.</li>
+          <li><strong>Los datos de las cuentas conectadas:</strong> el identificador de cada cuenta y los
+            <em>tokens</em> de acceso que emiten las plataformas (Meta y TikTok) al autorizarlas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+          Dónde se guardan
+        </h2>
+        <p class="mt-2">
+          En el servidor donde corre la herramienta, que pertenece a su titular. Los <em>tokens</em> de
+          acceso se guardan <strong>cifrados</strong>. No se usan cookies de terceros ni publicidad.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+          Para qué y con quién
+        </h2>
+        <p class="mt-2">
+          Los datos se usan <strong>solo</strong> para publicar el contenido en las redes que tú eliges.
+          El contenido se envía únicamente a las plataformas donde lo publicas (Meta y TikTok), según
+          sus propias condiciones y políticas de privacidad. <strong>No se venden ni se ceden</strong> a
+          nadie más.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+          Cuánto tiempo
+        </h2>
+        <p class="mt-2">
+          Mientras la cuenta siga conectada. Puedes desconectar cualquier cuenta en cualquier momento y
+          se borran sus <em>tokens</em>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+          Contacto
+        </h2>
+        <p class="mt-2">
+          Para cualquier duda sobre esto, o para ejercer tus derechos:
+          <a
+            href="mailto:info@tuanbyte.es"
+            class="font-marker text-xl text-ink underline decoration-minium decoration-wavy underline-offset-4 hover:text-minium"
+          >
+            info@tuanbyte.es
+          </a>
+        </p>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
