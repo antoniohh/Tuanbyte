@@ -1,0 +1,40 @@
+---
+// Página puente para OAuth (TikTok).
+// TikTok exige una URL de redirección con https y dominio real, y rechaza
+// "localhost". Esta página recibe el ?code=... y lo reenvía a la app, que
+// corre en local. No se muestra ni se indexa.
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Conectando…</title>
+    <style>
+      body {
+        margin: 0;
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        background: #f2ead8;
+        color: #20211c;
+        font-family: system-ui, sans-serif;
+      }
+      p {
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Conectando con la aplicación…</p>
+    <script is:inline>
+      ;(function () {
+        var destino = 'https://localhost:8000/api/oauth/callback'
+        if (window.location.search) destino += window.location.search
+        window.location.replace(destino)
+      })()
+    </script>
+  </body>
+</html>
