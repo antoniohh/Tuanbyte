@@ -94,7 +94,7 @@
 ---
 
 ### Bloque D · Cierre de versión y publicación
-* [ ] Actualizar `CHANGELOG.md` documentando la versión **v1.5.0** (Especial «El taller mínimo viable» y corrección de Google Consent Mode v2).
-* [ ] Actualizar versión en `package.json` a `1.5.0`.
-* [ ] Crear tag git `v1.5.0`.
-* [ ] `git push origin main --tags` para disparar el flujo de despliegue en GitHub Pages.
+* [x] Actualizar `CHANGELOG.md` documentando la versión **v1.5.0** (Especial «El taller mínimo viable»), **v1.5.1** (SEO trailing slash) y **v1.5.2** (Consent Mode v2 regional).
+* [x] Actualizar versión en `package.json` a `1.5.2`.
+* [x] Crear tag git `v1.5.0` y `v1.5.1`.
+* [ ] `git push origin main` para desplegar en producción.

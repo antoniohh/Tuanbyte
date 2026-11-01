@@ -6,10 +6,13 @@ Sesión de reactivación y finalización de la **Ruta 1 (Etapa 1: Con 100 € em
 
 ## Hecho en esta sesión
 
-### 1. Consentimiento de cookies y Google Consent Mode v2
-- Sincronización en `<head>` de `gtag('consent', 'default')` leyendo `localStorage` (`tb-consent`) de forma idéntica a la solución de **GlucoLuna**.
-- Eliminados los avisos de secuenciación de Google Tag Assistant (las visitas con consentimiento previo nacen directamente con `analytics_storage: 'granted'`).
-- Mantención estricta de `ad_storage`, `ad_user_data` y `ad_personalization` en `'denied'`.
+### 1. Consentimiento de cookies y Google Consent Mode v2 (v1.5.0, v1.5.1 y v1.5.2)
+- Sincronización en `<head>` de `gtag('consent', 'default')` leyendo `localStorage` (`tb-consent`) de forma directa.
+- Eliminados los avisos de secuenciación de Google Tag Assistant (las visitas con consentimiento previo nacen directamente con todas las señales en `'granted'`).
+- **Corrección crítica (v1.5.2) ante el aviso de GA4 («Tasa de consentimiento del 0 % detectada en algunos territorios»)**:
+  - Delimitada la denegación preventiva por defecto (`region`) exclusivamente al Espacio Económico Europeo (EEE), Reino Unido y Suiza.
+  - Para usuarios fuera del EEE (LATAM, EE. UU., etc.), el consentimiento nace concedido, evitando la penalización del 0 % en tráfico internacional.
+  - Al pulsar «Aceptar», el banner actualiza el paquete completo de señales (`analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization`), evitando que GA4 reporte una tasa del 0 % en señales de usuario.
 - Activado `anonymize_ip: true` en `gtag('config')`.
 - Aviso de cookies visible tanto en dev como en prod, con retardo de 300 ms y enlaces `[data-cookies-open]` y `[data-open-cookie-preferences]`.
 

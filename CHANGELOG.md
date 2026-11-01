@@ -5,6 +5,30 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
+## [1.5.2] — 2026-11-01
+
+Corrección crítica de Google Consent Mode v2 para resolver el aviso de «Tasa de consentimiento del 0 % detectada en algunos territorios» en Google Analytics 4.
+
+### Corregido
+
+- **Google Consent Mode v2 delimitado por región**:
+  - Restricción del estado `denied` predeterminado exclusivamente al territorio del Espacio Económico Europeo (EEE), Reino Unido y Suiza (`region: ['AT', 'BE', 'BG', ... 'GB', 'CH']`).
+  - Para usuarios fuera del EEE (América Latina, EE. UU., etc.), el consentimiento nace concedido de acuerdo con las directrices de Google, eliminando la penalización de tasa de consentimiento del 0 % en tráfico internacional.
+- **Concesión completa de señales de consentimiento**:
+  - Al pulsar «Aceptar» en el aviso de cookies, `gtag('consent', 'update')` actualiza el paquete íntegro de señales (`analytics_storage`, `ad_storage`, `ad_user_data` y `ad_personalization`), evitando que GA4 reporte un 0 % de consentimiento en mediciones y datos de usuario.
+  - Al pulsar «Solo lo necesario», se deniegan explícitamente todas las señales.
+  - Si el usuario ya aceptó previamente (guardado en `localStorage`), la página se inicializa en `<head>` directamente con todas las señales concedidas.
+
+## [1.5.1] — 2026-11-01
+
+Alineación técnica de URLs canónicas, enlaces internos y sitemap para Google Search Console.
+
+### Corregido
+
+- **URLs canónicas con barra final (`trailingSlash: 'always'`)**:
+  - Configurado `trailingSlash: 'always'` en `astro.config.mjs` para homogeneizar la generación de rutas estáticas con servidor web.
+  - Actualizados todos los enlaces internos y el `sitemap.xml` para incluir siempre la barra final (`/cookies/`, `/privacidad/`, `/terminos/`, `/especiales/`), resolviendo los avisos de redirección 301 en Google Search Console.
+
 ## [1.5.0] — 2026-11-01
 
 Tercer reportaje especial: **«El taller mínimo viable»** con su Ruta 1 completa,
@@ -233,6 +257,8 @@ Puesta en marcha del proyecto en ocho pasos taggeados (`v1.0.0` → `v1.0.7`):
 - **v1.0.6** — Open Graph propia, JSON-LD y pulido de rendimiento.
 - **v1.0.7** — Estado de sesión documentado.
 
+[1.5.2]: ../../releases/tag/v1.5.2
+[1.5.1]: ../../releases/tag/v1.5.1
 [1.5.0]: ../../releases/tag/v1.5.0
 [1.4.0]: ../../releases/tag/v1.4.0
 [1.3.0]: ../../releases/tag/v1.3.0

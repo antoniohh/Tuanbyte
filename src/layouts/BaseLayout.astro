@@ -67,13 +67,39 @@ const ogImage = new URL(image ?? "images/og.png", site).href;
 
       var isGranted = savedConsent === "granted";
 
-      gtag("consent", "default", {
-        analytics_storage: isGranted ? "granted" : "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        wait_for_update: 500,
-      });
+      if (isGranted) {
+        // Si el usuario ya aceptó previamente, se inicia directamente como concedido
+        gtag("consent", "default", {
+          analytics_storage: "granted",
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+        });
+      } else {
+        // Resto del mundo (fuera del EEE): concedido por defecto según la normativa internacional
+        gtag("consent", "default", {
+          analytics_storage: "granted",
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+        });
+
+        // Territorios bajo RGPD (Espacio Económico Europeo + Reino Unido + Suiza):
+        // Bloqueo estricto por defecto hasta que el usuario interactúe con el banner
+        gtag("consent", "default", {
+          analytics_storage: "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          wait_for_update: 500,
+          region: [
+            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
+            "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LI", "LT", "LU",
+            "MT", "NL", "NO", "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+            "GB", "CH",
+          ],
+        });
+      }
 
       gtag("js", new Date());
       gtag("config", "G-JPK8PQEMEM", {

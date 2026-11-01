@@ -46,8 +46,12 @@
 
     function actualiza(concedido) {
       if (typeof window.gtag !== "function") return;
+      var estado = concedido ? "granted" : "denied";
       window.gtag("consent", "update", {
-        analytics_storage: concedido ? "granted" : "denied",
+        analytics_storage: estado,
+        ad_storage: estado,
+        ad_user_data: estado,
+        ad_personalization: estado,
       });
     }
 
