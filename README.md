@@ -81,11 +81,11 @@ Los documentos que gobiernan el proyecto:
 │   ├── layouts/BaseLayout.astro   # head, metadatos, fuentes, JSON-LD
 │   ├── lib/                       # videos.ts · playlists.ts (scrape + fallback)
 │   ├── especiales/                # reportajes: shared/ (piezas y Reportaje.astro)
-│   │                              # + guia-motos/(data) y suvs-hev/(data)
+│   │                              # + guia-motos, suvs-hev y taller-minimo (data)
 │   ├── pages/
 │   │   ├── index.astro            # el taller (portada)
 │   │   ├── cookies.astro          # cookies y datos
-│   │   └── especiales/            # índice + guia-motos + suvs-hev
+│   │   └── especiales/            # índice + guia-motos + suvs-hev + taller-minimo
 │   └── styles/global.css          # tokens @theme, texturas y utilidades
 ├── DESIGN.md · PRODUCT.md         # verdad de diseño y de producto
 ├── CHANGELOG.md · LICENSE         # cambios y licencia
@@ -110,13 +110,16 @@ commiteado en `src/data/`.
 ## 🧭 Especiales (los reportajes)
 
 Los reportajes comparativos viven **dentro del sitio**, no en un subdominio:
-índice editorial en `/especiales` y un reportaje por ruta. `guia-motos` (14
-motos) y `suvs-hev` (8 coches) comparten el mismo componente
-(`src/especiales/shared/Reportaje.astro`), así que cada página es solo
-configuración y datos. Cada reportaje trae portada, veredicto, ranking
-multicriterio, una rejilla de fichas desplegables (sin JavaScript) y sus
-apéndices técnicos. El plan de la migración, con sus fases, está en
-[`docs/plans/migracion-especiales.md`](docs/plans/migracion-especiales.md).
+índice editorial en `/especiales` y un reportaje por ruta:
+- `guia-motos`: 14 motos de media cilindrada a examen.
+- `suvs-hev`: 8 SUVs híbridos completos (HEV) de segmentos B y C.
+- `taller-minimo`: **El taller mínimo viable**, qué herramientas comprar en qué orden y de qué marca (3 etapas, fichas con vídeos de reparaciones de la CB250 y dossier de costes/pares).
+
+Comparten el mismo componente base (`src/especiales/shared/Reportaje.astro`),
+así que cada página es solo configuración y datos. Cada reportaje trae portada,
+veredicto, ranking multicriterio, una rejilla de fichas desplegables (sin
+JavaScript) y sus apéndices técnicos. El plan del especial del taller está en
+[`docs/plans/especial-taller-minimo.md`](docs/plans/especial-taller-minimo.md).
 
 ## 🎨 Sistema de diseño y marca
 

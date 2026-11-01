@@ -47,9 +47,6 @@
     function actualiza(concedido) {
       if (typeof window.gtag !== "function") return;
       window.gtag("consent", "update", {
-        ad_storage: concedido ? "granted" : "denied",
-        ad_user_data: concedido ? "granted" : "denied",
-        ad_personalization: concedido ? "granted" : "denied",
         analytics_storage: concedido ? "granted" : "denied",
       });
     }
@@ -59,10 +56,11 @@
       guardado = window.localStorage.getItem(KEY);
     } catch (e) {}
 
-    if (guardado === "granted" || guardado === "denied") {
-      actualiza(guardado === "granted");
-    } else if (banner) {
-      banner.hidden = false;
+    // Si aún no ha decidido, mostramos el aviso tras un breve retardo
+    if (!guardado && banner) {
+      setTimeout(function () {
+        banner.hidden = false;
+      }, 300);
     }
 
     function decide(concedido) {
@@ -75,7 +73,7 @@
 
     document.addEventListener("click", function (ev) {
       var el = ev.target.closest(
-        "[data-cookies-accept],[data-cookies-reject],[data-cookies-open]",
+        "[data-cookies-accept],[data-cookies-reject],[data-cookies-open],[data-open-cookie-preferences]",
       );
       if (!el) return;
       if (el.hasAttribute("data-cookies-accept")) {

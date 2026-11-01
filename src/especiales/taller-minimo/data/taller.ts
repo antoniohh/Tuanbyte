@@ -1,9 +1,17 @@
-import type { EtapaRow, Herramienta, MarcaRow, OrdenRow, RutaRow } from "../types";
+import type {
+  ErrorTrampaRow,
+  EtapaRow,
+  Herramienta,
+  MarcaRow,
+  OrdenRow,
+  ParAprieteRow,
+  RutaRow,
+  TallerVsCasaRow,
+} from "../types";
 
 const IMG = "/images/especiales/taller-minimo";
 
-// Los tres vídeos de herramienta del canal, que son la base de las familias
-// básicas.
+// Vídeos de herramienta y mantenimiento real del canal de Tuanbyte
 const V_HERRAMIENTAS = {
   id: "Ovpp1por238",
   title: "Herramientas de Parkside, Workzone y Bosch",
@@ -11,6 +19,22 @@ const V_HERRAMIENTAS = {
 const V_DESTORNILLADORES = {
   id: "OSF2KLLOB_Y",
   title: "Destornilladores, alicates, puntas y vasos de Parkside y Bosch",
+};
+const V_BUJIAS = {
+  id: "q40eUGqUn14",
+  title: "Mantenimiento y limpieza de las bujías NGK CR6HSA",
+};
+const V_KIT_ARRASTRE = {
+  id: "wWDMRdUs2GY",
+  title: "Cambio del Kit de Arrastre HONDA CB250 | Cadena, Piñón y Corona",
+};
+const V_ZAPATAS_FRENO = {
+  id: "Xx6CxvFWn54",
+  title: "Cambio de Zapatas de Freno de Tambor Trasero CB250",
+};
+const V_TENSAR_CADENA = {
+  id: "BhODSlUcSxg",
+  title: "Cómo tensar la cadena de transmisión en la CB250",
 };
 
 export const herramientas: Herramienta[] = [
@@ -20,7 +44,7 @@ export const herramientas: Herramienta[] = [
     type: "común · moto y coche",
     rank: 1,
     scoreValue: 9.6,
-    img: `${IMG}/familia-vasos-38.svg`,
+    img: `${IMG}/familia-vasos-38.jpg`,
     etapa: 1,
     alcance: "común",
     specs: [
@@ -58,7 +82,7 @@ export const herramientas: Herramienta[] = [
     type: "común · moto y coche",
     rank: 2,
     scoreValue: 8.9,
-    img: `${IMG}/familia-llaves-combinadas.svg`,
+    img: `${IMG}/familia-llaves-combinadas.jpg`,
     etapa: 1,
     alcance: "común",
     specs: [
@@ -96,7 +120,7 @@ export const herramientas: Herramienta[] = [
     type: "común · moto y coche",
     rank: 3,
     scoreValue: 8.7,
-    img: `${IMG}/familia-destornilladores.svg`,
+    img: `${IMG}/familia-destornilladores.jpg`,
     etapa: 1,
     alcance: "común",
     specs: [
@@ -134,7 +158,7 @@ export const herramientas: Herramienta[] = [
     type: "común · moto y coche",
     rank: 4,
     scoreValue: 8.6,
-    img: `${IMG}/familia-llaves-allen.svg`,
+    img: `${IMG}/familia-llaves-allen.jpg`,
     etapa: 1,
     alcance: "común",
     specs: [
@@ -172,7 +196,7 @@ export const herramientas: Herramienta[] = [
     type: "común · moto y coche",
     rank: 5,
     scoreValue: 8.2,
-    img: `${IMG}/familia-alicates.svg`,
+    img: `${IMG}/familia-alicates.jpg`,
     etapa: 1,
     alcance: "común",
     specs: [
@@ -210,7 +234,7 @@ export const herramientas: Herramienta[] = [
     type: "común · moto y coche",
     rank: 6,
     scoreValue: 7.8,
-    img: `${IMG}/familia-llave-bujias.svg`,
+    img: `${IMG}/familia-llave-bujias.jpg`,
     etapa: 1,
     alcance: "común",
     specs: [
@@ -240,9 +264,121 @@ export const herramientas: Herramienta[] = [
       },
     ],
     desc: "Es la herramienta más barata del taller y la que más veces se usa, porque la bujía es lo primero que se revisa cuando algo no arranca bien o gasta de más. Necesita dos medidas (16 y 21 mm) porque no todas las motos y coches usan la misma, y conviene que lleve junta de goma para que la bujía no se caiga dentro del hueco.",
-    videos: [
-      { id: "q40eUGqUn14", title: "Mantenimiento y limpieza de las bujías NGK CR6HSA" },
+    videos: [V_BUJIAS],
+  },
+  {
+    id: "martillo-mazo",
+    name: "Martillo y mazo de goma / nylon",
+    type: "común · moto y coche",
+    rank: 7,
+    scoreValue: 7.6,
+    img: `${IMG}/familia-martillo-mazo.jpg`,
+    etapa: 1,
+    alcance: "común",
+    specs: [
+      {
+        label: "Para qué",
+        value: "Desclavar ejes, soltar tambores pegados, asentar juntas y dar toques firmes sin deformar.",
+      },
+      {
+        label: "Sin ella no puedes",
+        value: "Sacar un eje pasante de rueda o una tapa de cárter sellada. Con la mano o tirando no cede.",
+      },
+      {
+        label: "Compra barata",
+        value: "Bazar o Parkside: martillo de peña y mazo de nylon de doble cara — unos 10 € los dos.",
+      },
+      {
+        label: "Compra buena",
+        value: "Bellota o Stanley con mango de fibra de vidrio antichoque — unos 22 € los dos.",
+      },
+      {
+        label: "Marcas",
+        value: "Bellota, Stanley, Parkside, marcas de bazar.",
+      },
+      {
+        label: "El error típico",
+        value: "Golpear aluminio, roscas o cárteres con el martillo de acero sin protección. Marcas la pieza o rompes un nervio para siempre.",
+      },
     ],
+    desc: "En el taller rige una máxima: gasta en lo que mide y ahorra en lo que golpea. Un martillo de acero de bazar de 5 € sirve perfectamente para golpear un botador. Pero la verdadera joya es el mazo de doble cabeza de goma y nylon: te permite soltar tambores de freno agarrados, sacar ejes de rueda pasantes y ajustar tapas de motor sin rayar el metal ni deformar las roscas.",
+    videos: [V_ZAPATAS_FRENO, V_KIT_ARRASTRE],
+  },
+  {
+    id: "gato-caballete",
+    name: "Caballete (moto) o borriquetas (coche)",
+    type: "seguridad y elevación",
+    rank: 8,
+    scoreValue: 7.5,
+    img: `${IMG}/familia-gato-caballete.jpg`,
+    etapa: 1,
+    alcance: "común",
+    specs: [
+      {
+        label: "Para qué",
+        value: "Mantener el vehículo suspendido con estabilidad absoluta para trabajar en ruedas, frenos o cadena.",
+      },
+      {
+        label: "Sin ella no puedes",
+        value: "Desmontar ninguna rueda ni meterte bajo el chasis con seguridad. En moto, dejarla nivelada para medir niveles.",
+      },
+      {
+        label: "Compra barata",
+        value: "Caballete trasero moto (~25 €) o pareja de borriquetas plegables en Lidl/Aldi (~20 €).",
+      },
+      {
+        label: "Compra buena",
+        value: "Caballete Puig o Bike-Lift con ruedas de goma (~65 €); borriquetas de cremallera de 3T (~45 €).",
+      },
+      {
+        label: "Marcas",
+        value: "Parkside, Puig, Mannesmann, Michelin.",
+      },
+      {
+        label: "El error típico",
+        value: "Trabajar debajo del coche apoyado solo en el gato hidráulico. El gato levanta; la borriqueta es lo que te salva la vida.",
+      },
+    ],
+    desc: "No se puede hacer mecánica con el vehículo en falso. En la moto, un caballete de basculante trasero (o el central si lo lleva) es imprescindible para tensar la cadena, revisar el freno trasero y cambiar el aceite con la moto recta. En el coche, la regla de oro de cualquier mecánico aficionado es no meter jamás una extremidad debajo sin antes haber apoyado el chasis sobre borriquetas de acero.",
+    videos: [V_TENSAR_CADENA, V_KIT_ARRASTRE],
+  },
+  {
+    id: "linterna-frontal",
+    name: "Linterna frontal recargable",
+    type: "iluminación de trabajo",
+    rank: 9,
+    scoreValue: 7.3,
+    img: `${IMG}/familia-linterna-frontal.jpg`,
+    etapa: 1,
+    alcance: "común",
+    specs: [
+      {
+        label: "Para qué",
+        value: "Dirigir el haz de luz exactamente donde miras, dejando las dos manos libres para las herramientas.",
+      },
+      {
+        label: "Sin ella no puedes",
+        value: "Ver bien en pasos de rueda oscuros, el interior del vano motor o bajo el depósito en garajes comunitarios.",
+      },
+      {
+        label: "Compra barata",
+        value: "Frontal recargable USB de Parkside o bazar — unos 8 a 12 €.",
+      },
+      {
+        label: "Compra buena",
+        value: "Petzl Tikkina o linterna de trabajo COB magnética — unos 25 a 35 €.",
+      },
+      {
+        label: "Marcas",
+        value: "Parkside, Petzl, Ledlenser, Stanley.",
+      },
+      {
+        label: "El error típico",
+        value: "Usar la linterna del móvil: se cae al suelo, se llena de grasa, tapas la luz con tu propia mano y se apaga sola.",
+      },
+    ],
+    desc: "La mitad de los tornillos que se trasroscan o se redondean en un garaje no es por falta de fuerza, sino porque no se ve dónde encaja la punta. Una linterna frontal ligera sujeta a la cabeza ilumina exactamente lo que estás mirando, deja ambas manos libres para sostener la carraca recta y evita hacer malabares peligrosos con el móvil lleno de grasa.",
+    videos: [V_HERRAMIENTAS],
   },
 ];
 
@@ -253,6 +389,9 @@ export const orden: OrdenRow[] = [
   { model: "Llaves Allen en mm", tag: null, uso: 8, desbloqueo: 9, barata: 9, nota: 8.6 },
   { model: "Alicates", tag: null, uso: 8, desbloqueo: 8, barata: 9, nota: 8.2 },
   { model: "Llave de bujías", tag: null, uso: 7, desbloqueo: 8, barata: 9, nota: 7.8 },
+  { model: "Martillo y mazo de goma / nylon", tag: null, uso: 7, desbloqueo: 7, barata: 9.5, nota: 7.6 },
+  { model: "Caballete (moto) o borriquetas (coche)", tag: null, uso: 7, desbloqueo: 9, barata: 6.5, nota: 7.5 },
+  { model: "Linterna frontal recargable", tag: null, uso: 8, desbloqueo: 6, barata: 9.5, nota: 7.3 },
 ];
 
 export const etapas: EtapaRow[] = [
@@ -268,9 +407,9 @@ export const etapas: EtapaRow[] = [
       { label: "Llaves Allen en mm", id: "llaves-allen" },
       { label: "Alicates", id: "alicates" },
       { label: "Llave de bujías", id: "llave-bujias" },
-      { label: "Martillo y mazo" },
-      { label: "Gato y caballete o borriquetas" },
-      { label: "Linterna frontal" },
+      { label: "Martillo y mazo", id: "martillo-mazo" },
+      { label: "Gato y caballete o borriquetas", id: "gato-caballete" },
+      { label: "Linterna frontal", id: "linterna-frontal" },
     ],
   },
   {
@@ -363,6 +502,41 @@ export const marcas: MarcaRow[] = [
     flojo: "Solo hace alicates y herramienta de corte; precio alto.",
     veredicto: "En alicates, el final del camino.",
   },
+  {
+    marca: "Milwaukee",
+    gama: "Profesional / Top taller",
+    bueno: "La reina absoluta en llaves de impacto a batería y carracas eléctricas para automoción. Ecosistema M12 y M18 casi indestructible.",
+    flojo: "Precios muy altos. Está pensada para profesionales que amortizan la máquina facturando horas a diario.",
+    veredicto: "Fuera de presupuesto inicial, pero el estándar al que aspirar en herramienta a batería de automoción.",
+  },
+  {
+    marca: "DeWalt",
+    gama: "Profesional / Obra y taller",
+    bueno: "Potencia bruta, motores brushless muy duros y plataforma de baterías XR de 18V extendidísima.",
+    flojo: "Herramientas a menudo voluminosas y pesadas; más orientadas a construcción que a mecánica fina de moto.",
+    veredicto: "Para taladrar chasis, cepillar o meter caña sin compasión, una fiera infatigable.",
+  },
+  {
+    marca: "Makita",
+    gama: "Profesional / Precisión y ergonomía",
+    bueno: "Ergonomía insuperable, gatillos progresivos suaves y el ecosistema 18V LXT más grande del mundo (taller, jardín y hogar).",
+    flojo: "Hay muchas falsificaciones online y gamas blancas/rojas de entrada que no tienen la calidad de la serie azul-turquesa.",
+    veredicto: "El equilibrio perfecto entre tacto, durabilidad y catálogo infinito si das el salto profesional.",
+  },
+  {
+    marca: "Metabo",
+    gama: "Profesional / Especialista en metal",
+    bueno: "El gran referente alemán en amoladoras angulares y tratamiento de metal. Motores Marathon térmicamente imbatibles.",
+    flojo: "Difícil de encontrar en grandes superficies; servicio técnico y accesorios de precio elevado.",
+    veredicto: "Si en tu proyecto hay que cortar tubo de escape, sanear chasis o desbastar óxido duro, no tienen rival.",
+  },
+  {
+    marca: "Facom",
+    gama: "Profesional / Alta automoción",
+    bueno: "El clásico legendario de los talleres oficiales. Tolerancias exactas que no dañan tornillería y garantía de por vida real.",
+    flojo: "Precios de concesionario: un maletín de vasos puede superar los 250 € con facilidad.",
+    veredicto: "Pata negra en herramienta manual. Conocerla evita pagar gato por liebre en marcas que se dicen 'profesionales'.",
+  },
 ];
 
 export const rutas: RutaRow[] = [
@@ -383,5 +557,122 @@ export const rutas: RutaRow[] = [
     entra: "Todo lo anterior más lo específico de tu moto o tu coche y las máquinas.",
     llegas: "Reparaciones mayores, sin depender de nadie.",
     marcas: "Bahco, Knipex, Einhell",
+  },
+];
+
+export const tallerVsCasa: TallerVsCasaRow[] = [
+  {
+    trabajo: "Cambio de aceite y filtro",
+    taller: "110–160 €",
+    casa: "~35 €",
+    ahorro: "75–125 €",
+    herramienta: 'Vasos 3/8" (17 mm), embudo y bandeja',
+  },
+  {
+    trabajo: "Pastillas de freno delanteras",
+    taller: "130–190 €",
+    casa: "~28 €",
+    ahorro: "100–160 €",
+    herramienta: 'Carraca 3/8", vaso Allen/Torx y alicate',
+  },
+  {
+    trabajo: "Bujías de encendido (moto/coche)",
+    taller: "75–130 €",
+    casa: "~24 €",
+    ahorro: "50–105 €",
+    herramienta: "Llave o vaso de bujías 16/21 mm con goma",
+  },
+  {
+    trabajo: "Kit de arrastre moto (cadena + piñón + corona)",
+    taller: "220–310 €",
+    casa: "~95 €",
+    ahorro: "125–215 €",
+    herramienta: 'Vasos 3/8" y 1/2", llaves fijas y caballete',
+  },
+  {
+    trabajo: "Sustitución de batería",
+    taller: "140–210 €",
+    casa: "~65 €",
+    ahorro: "75–145 €",
+    herramienta: "Llave combinada 10 mm y destornillador",
+  },
+  {
+    trabajo: "Filtros de aire y habitáculo",
+    taller: "65–95 €",
+    casa: "~18 €",
+    ahorro: "45–75 €",
+    herramienta: "Destornillador plano o estrella básico",
+  },
+];
+
+export const paresApriete: ParAprieteRow[] = [
+  {
+    operacion: "Tapón de vaciado del cárter (aceite)",
+    par: "20–30 Nm",
+    llave: 'Dinamométrica media 3/8" (20–100 Nm)',
+    aviso: "¡Cárter de aluminio blando! Si aprietas a ojo trasroscas la rosca del cárter. Arandela de cobre nueva siempre.",
+  },
+  {
+    operacion: "Bujías de encendido",
+    par: "12–25 Nm",
+    llave: 'Dinamométrica pequeña 1/4" o media 3/8"',
+    aviso: "Enroscar primero a mano hasta hacer tope. Jamás entrar cruzado. En aluminio el exceso parte la rosca.",
+  },
+  {
+    operacion: "Tornillos de pinza de freno al soporte",
+    par: "30–50 Nm",
+    llave: 'Dinamométrica media 3/8" (20–100 Nm)',
+    aviso: "Punto crítico de seguridad vial. Limpiar rosca vieja y aplicar fijador de roscas medio (azul).",
+  },
+  {
+    operacion: "Tuercas de rueda (coche)",
+    par: "110–130 Nm",
+    llave: 'Dinamométrica grande 1/2" (40–210 Nm)',
+    aviso: "Apretar en estrella/cruz con la rueda apoyada en el suelo pero sin todo el peso del coche encima.",
+  },
+  {
+    operacion: "Eje de rueda trasera (moto)",
+    par: "85–100 Nm",
+    llave: 'Dinamométrica grande 1/2" (40–210 Nm)',
+    aviso: "Mantener alineados los tensores de basculante a ambos lados antes de dar el par final y asegurar el pasador.",
+  },
+  {
+    operacion: "Tapa de balancines / cárteres pequeños",
+    par: "8–12 Nm",
+    llave: 'Dinamométrica pequeña 1/4" (5–25 Nm)',
+    aviso: "Pares muy bajos: con una carraca grande se parten los tornillos de M6 como si fueran mantequilla. Apretar en cruz.",
+  },
+];
+
+export const erroresTrampas: ErrorTrampaRow[] = [
+  {
+    error: "El maletín de 200 piezas de bazar por 29 €",
+    porQuePasa: "El reclamo de tener 'de todo' por dos duros para empezar.",
+    consecuencia: "Puntas de acero blando que se desintegran al tercer apriete, carracas que saltan dientes y vasos holgados que redondean tuercas.",
+    solucion: "Compra un juego compacto de marca fiable (Parkside, Stanley, Bahco) centrado únicamente en medidas reales de 8 a 19 mm.",
+  },
+  {
+    error: "Usar la llave inglesa para tuercas rebeldes",
+    porQuePasa: "Comodidad de no buscar la medida fija o no tener el vaso adecuado.",
+    consecuencia: "La mordaza ajustable flexa inevitablemente bajo par alto y redondea las esquinas de la tuerca dejándola inservible.",
+    solucion: "Usa siempre llave combinada de estrella o vaso de 6 caras de la medida milimétrica exacta.",
+  },
+  {
+    error: "Vasos de 12 caras (bihexagonales) en tornillos agarrotados",
+    porQuePasa: "Entran más fácil en sitios estrechos porque encajan en más ángulos.",
+    consecuencia: "Hacen contacto solo en el vértice de la arista. Con tuercas oxidadas o muy apretadas, saltan y desbocan la cabeza.",
+    solucion: "Vasos de 6 caras (hexagonales) para aflojar y apretar con fuerza: transmiten el par por las caras planas.",
+  },
+  {
+    error: "Guardar la dinamométrica con el muelle comprimido",
+    porQuePasa: "Terminar la faena de noche y guardarla en la caja tal cual se ha usado a 100 Nm.",
+    consecuencia: "El resorte interno pierde elasticidad por fatiga y la herramienta queda descalibrada, apretando de más o de menos.",
+    solucion: "Regla sagrada de taller: tras cada uso, devolver la escala al cero o valor mínimo antes de cerrar el estuche.",
+  },
+  {
+    error: "Meter un tubo alargador al mango de la carraca",
+    porQuePasa: "Un tornillo de eje o basculante que no afloja con la fuerza del brazo.",
+    consecuencia: "Revienta los dientes del trinquete de la carraca o dobla el eje del mecanismo.",
+    solucion: "Para hacer fuerza bruta usa una barra fija articulada (maneral de fuerza). La carraca es para avanzar rápido, no para partir tuercas.",
   },
 ];

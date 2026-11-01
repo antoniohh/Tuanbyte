@@ -53,36 +53,37 @@ const ogImage = new URL(image ?? "images/og.png", site).href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    {
-      import.meta.env.PROD && (
-        <>
-          {/* Google tag (gtag.js) — GA4 con Consent Mode v2: todo denegado hasta
-              que la persona acepte en el aviso de cookies. */}
-          <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              window.dataLayer.push(arguments);
-            }
-            gtag("consent", "default", {
-              ad_storage: "denied",
-              ad_user_data: "denied",
-              ad_personalization: "denied",
-              analytics_storage: "denied",
-              wait_for_update: 500,
-            });
-          </script>
-          <script
-            is:inline
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-JPK8PQEMEM"
-          />
-          <script is:inline>
-            gtag("js", new Date());
-            gtag("config", "G-JPK8PQEMEM");
-          </script>
-        </>
-      )
-    }
+    <!-- Google Consent Mode v2 & Google tag (gtag.js) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      var savedConsent = null;
+      try {
+        savedConsent = localStorage.getItem("tb-consent");
+      } catch (e) {}
+
+      var isGranted = savedConsent === "granted";
+
+      gtag("consent", "default", {
+        analytics_storage: isGranted ? "granted" : "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500,
+      });
+
+      gtag("js", new Date());
+      gtag("config", "G-JPK8PQEMEM", {
+        anonymize_ip: true,
+      });
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JPK8PQEMEM"
+    ></script>
 
     <script
       type="application/ld+json"
@@ -122,6 +123,6 @@ const ogImage = new URL(image ?? "images/og.png", site).href;
   </head>
   <body class="bg-paper text-ink min-h-dvh antialiased">
     <slot />
-    {import.meta.env.PROD && <Cookies />}
+    <Cookies />
   </body>
 </html>

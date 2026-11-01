@@ -48,3 +48,25 @@ export interface RutaRow {
   llegas: string;
   marcas: string;
 }
+
+export interface TallerVsCasaRow {
+  trabajo: string;
+  taller: string;
+  casa: string;
+  ahorro: string;
+  herramienta: string;
+}
+
+export interface ParAprieteRow {
+  operacion: string;
+  par: string;
+  llave: string;
+  aviso: string;
+}
+
+export interface ErrorTrampaRow {
+  error: string;
+  porQuePasa: string;
+  consecuencia: string;
+  solucion: string;
+}

@@ -5,6 +5,79 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
+## [1.5.0] — 2026-11-01
+
+Tercer reportaje especial: **«El taller mínimo viable»** con su Ruta 1 completa,
+fotografía de catálogo, dossier técnico ampliado y corrección integral del aviso
+de cookies y Google Consent Mode v2.
+
+### Añadido
+
+- **Especial «El taller mínimo viable»** (`/especiales/taller-minimo`):
+  - **Ruta 1 completa («Con 100 € empiezas»)**: 9 familias de herramientas
+    (vasos 3/8", llaves fijas 6-22 mm, destornilladores, Allen en mm, alicates,
+    llave de bujías, martillo/mazo de nylon, caballete/borriquetas y linterna
+    frontal) con sus seis especificaciones de taller, descripciones y precios.
+  - **Vídeos vinculados de Tuanbyte**: cada ficha enlaza vídeos del canal donde se
+    usa la herramienta en reparaciones reales de la Honda CB250 (bujías NGK,
+    zapatas de tambor, kit de arrastre, tensado de cadena).
+  - **Componente `Etapas.astro`**: navegación visual por las tres etapas del taller
+    con anclas `#ficha-<id>` para desplegar directamente la ficha correspondiente.
+  - **Dossier técnico con 5 tablas**:
+    1. *Las marcas, una a una*: marcas de súper/ferretería más las grandes
+       referencias profesionales (**Milwaukee, DeWalt, Makita, Metabo y Facom**).
+    2. *Los tres presupuestos*: rutas de 100 €, 300 € y 600 €.
+    3. *Taller vs. Casa*: tabla económica de ahorro neto por operación
+       (aceite, pastillas, bujías, kit de arrastre, batería, filtros).
+    4. *Pares de apriete y dinamométricas*: valores en Nm y justificación de las
+       tres llaves dinamométricas (1/4", 3/8" y 1/2").
+    5. *Errores y trampas típicas*: las 5 trampas habituales del principiante
+       (maletín de 200 piezas, llave inglesa en tornillos agarrotados, etc.).
+- **Fotografía de producto**: 10 imágenes en alta resolución estilo catálogo
+  cenital sobre fondo de papel kraft claro de taller (`public/images/especiales/taller-minimo/`),
+  más tarjeta Open Graph (`og.png`, 1200×630 px) para compartir en redes.
+
+### Corregido
+
+- **Google Consent Mode v2**:
+  - Lectura síncrona en `<head>` de `localStorage` (`tb-consent`) antes de declarar
+    `gtag('consent', 'default')`, evitando el error de secuenciación y advertencias
+    en Google Tag Assistant cuando el usuario ya había aceptado previamente.
+  - Mantenimiento estricto de `ad_storage`, `ad_user_data` y `ad_personalization` en
+    `'denied'` (solo se concede `analytics_storage` al aceptar, eliminando advertencias
+    de Google Ads).
+  - Añadido `'anonymize_ip': true` en la configuración de GA4.
+  - El aviso de cookies y el botón «Revisar mi decisión» funcionan de manera homogénea
+    en desarrollo y producción.
+
+### Eliminado
+
+- Retirados los placeholders SVG provisionales que decían "FOTO PENDIENTE".
+
+## [1.4.4] — 2026-10-18
+
+### Añadido
+
+- Página puente `/oauth` para gestionar la autenticación y reenvío de código en el login de TikTok (app local).
+
+## [1.4.3] — 2026-10-18
+
+### Añadido
+
+- Enlaces directos a las páginas de Privacidad y Términos de uso en el pie de página.
+
+## [1.4.2] — 2026-10-18
+
+### Añadido
+
+- Páginas legales de Privacidad (`/privacidad`) y Términos de uso (`/terminos`) de TuanSocial.
+
+## [1.4.1] — 2026-10-14
+
+### Añadido
+
+- Plan inicial y mapa de vídeos de Tuanbyte para el especial del taller mínimo.
+
 ## [1.4.0] — 2026-10-14
 
 Migración de los especiales al catálogo: los reportajes dejan de vivir en un
@@ -160,6 +233,8 @@ Puesta en marcha del proyecto en ocho pasos taggeados (`v1.0.0` → `v1.0.7`):
 - **v1.0.6** — Open Graph propia, JSON-LD y pulido de rendimiento.
 - **v1.0.7** — Estado de sesión documentado.
 
+[1.5.0]: ../../releases/tag/v1.5.0
+[1.4.0]: ../../releases/tag/v1.4.0
 [1.3.0]: ../../releases/tag/v1.3.0
 [1.2.0]: ../../releases/tag/v1.2.0
 [1.1.1]: ../../releases/tag/v1.1.1
