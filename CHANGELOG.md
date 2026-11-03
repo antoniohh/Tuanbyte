@@ -5,6 +5,18 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
+## [1.5.4] — 2026-11-03
+
+Actualización de precisión técnica en el aviso de cookies y la política de privacidad conforme a Google Consent Mode v2.
+
+### Modificado y Mejorado
+
+- **Aviso de Cookies (`src/components/Cookies.astro`)**:
+  - Sustituida la frase imprecisa «Solo se carga si me das permiso» por una explicación exacta: «Solo guarda cookies y recopila estadísticas si me das permiso. Sin publicidad personalizada».
+- **Política de Cookies (`src/pages/cookies.astro`)**:
+  - Incorporada explicación exhaustiva sobre la arquitectura técnica de Google Consent Mode v2.
+  - Documentación detallada del bloqueo estricto inicial en el EEE/Reino Unido/Suiza (`denied` en las cuatro señales: `analytics_storage`, `ad_storage`, `ad_user_data` y `ad_personalization`), la modalidad anónima sin cookies ante el rechazo y la actualización íntegra al aceptar sin perfilado publicitario.
+
 ## [1.5.2] — 2026-11-01
 
 Corrección crítica de Google Consent Mode v2 para resolver el aviso de «Tasa de consentimiento del 0 % detectada en algunos territorios» en Google Analytics 4.

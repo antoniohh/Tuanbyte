@@ -31,20 +31,33 @@ import Footer from "@/components/Footer.astro";
 
       <section>
         <h2 class="font-display text-2xl font-bold uppercase tracking-tight text-ink">
-          Analítica (Google Analytics 4)
+          Analítica y Google Consent Mode v2
         </h2>
         <p class="mt-2">
-          Si le das a <strong>Aceptar</strong>, se carga Google Analytics 4 con
-          las cookies <code class="font-mono text-sm">_ga</code> y
-          <code class="font-mono text-sm">_ga_XXXX</code>, que sirven para saber
-          qué vídeos, listas y secciones se ven más. Nada de datos personales:
-          ni nombre, ni correo, ni publicidad.
+          Esta web utiliza <strong>Google Analytics 4</strong> mediante la arquitectura oficial de
+          <strong>Google Consent Mode v2</strong> para medir qué vídeos, listas y secciones
+          resultan de mayor utilidad.
         </p>
         <p class="mt-2">
-          Si eliges <strong>Solo lo necesario</strong>, no se carga nada de
-          Google y la web funciona igual. Esta web no usa cookies propias de
-          ningún otro tipo (ni sesión, ni carrito, ni publicidad).
+          En cumplimiento del RGPD y las directrices de la AEPD:
         </p>
+        <ul class="mt-2 list-disc list-inside space-y-1">
+          <li>
+            <strong>Para visitantes de la Unión Europea (EEE), Reino Unido y Suiza:</strong> todas las señales
+            de almacenamiento y tratamiento (<code class="font-mono text-xs">analytics_storage</code>,
+            <code class="font-mono text-xs">ad_storage</code>, <code class="font-mono text-xs">ad_user_data</code>,
+            <code class="font-mono text-xs">ad_personalization</code>) nacen <strong>estrictamente denegadas (<code class="font-mono text-xs">denied</code>)</strong> por defecto.
+          </li>
+          <li>
+            <strong>Si eliges «Solo lo necesario» (o rechazas):</strong> no se escribe ninguna cookie analítica ni publicitaria en tu dispositivo. Google Analytics opera únicamente mediante señales anónimas sin cookies ni identificadores personales.
+          </li>
+          <li>
+            <strong>Si pulsas «Aceptar»:</strong> se concede la medición analítica y se habilitan las cookies técnicas de sesión y recuento (<code class="font-mono text-xs">_ga</code>, <code class="font-mono text-xs">_ga_JPK8PQEMEM</code>). Las señales del estándar Consent Mode v2 se sincronizan de forma íntegra para certificar tu autorización ante Google. <strong>Tuanbyte no realiza campañas publicitarias ni utiliza tus datos para remarketing comercial</strong>.
+          </li>
+          <li>
+            <strong>Para usuarios fuera del EEE:</strong> el consentimiento se inicializa concedido conforme a los marcos regulatorios internacionales aplicables.
+          </li>
+        </ul>
       </section>
 
       <section>

@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 6 * * *"
+    # Programado a primera hora (00:36 UTC = 01:36 CET invierno / 02:36 CEST verano)
+    # para compensar el retardo de colas de GitHub Actions (~6-7 h) y desplegar sobre las 07:45 - 08:30 AM
+    - cron: "36 0 * * *"
   workflow_dispatch:
 
 permissions:
