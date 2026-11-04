@@ -111,52 +111,48 @@ nuevo y tres retoques mínimos.
 | Etapa | Título | Qué resuelve | Presupuesto |
 |---|---|---|---|
 | **1** | *Con 100 € empiezas* | Aceite, filtros, bujías, pastillas, ajustes básicos. No quedarte tirado. | **~100–150 €** |
-| **2** | *Cuando ya te manchas las manos* | Frenos, rodamientos, motor, electricidad. | **~300–600 €** |
-| **3** | *Cuando el trabajo lo pide* | Lo específico de tu moto o tu coche, y las máquinas (taladro, amoladora, compresor). | Lo que pida el trabajo |
+| **2** | *Cuando ya te manchas las manos* | Mecánica avanzada tradicional: cadena/radios, extractores, dinamométricas, frenos, bujes. | **~250–450 €** |
+| **3** | *El salto moderno: a batería y diagnosis* | Herramientas eléctricas (llave de impacto, taladro, carraca a batería) y diagnosis OBD2 (app y escáner). | Según necesidad |
 
 **Motos y coches a la vez**, de lo más básico a lo más específico: eso es el
 orden del reportaje y el de cada etapa. Cada una lleva su **foto de familia**
 (plano cenital) para que se lea como una estantería que se va llenando.
 
-## 7. El catálogo: ~28 fichas
+## 7. El catálogo: ~24 fichas
 
 Cada ficha es **una familia**, no una herramienta suelta. Numeradas por **orden
 de compra**: la ficha 1 es lo primero que se compra, así que la rejilla *es* la
 respuesta a la pregunta del reportaje.
 
-### Etapa 1 · Con 100 € empiezas (10)
-1. Destornilladores (plano, estrella y Pozidriv)
-2. Llaves combinadas (fijas), 6–22 mm
-3. **Juego de vasos 3/8" + carraca** ← candidata a ganadora
+### Etapa 1 · Con 100 € empiezas (9 fichas operativas)
+1. Juego de vasos 3/8" y carraca (ganadora del veredicto)
+2. Llaves combinadas (fijas) 6–22 mm
+3. Destornilladores (plano, estrella y Pozidriv/JIS)
 4. Llaves Allen (hex) en mm
 5. Alicates (universal, punta larga, corte)
-6. Llave de bujías
-7. Dinamométrica (20–100 Nm)
-8. Martillo y mazo
-9. Gato y caballete (moto) o borriquetas (coche)
-10. Linterna frontal
+6. Llave de bujías 16 y 21 mm
+7. Martillo y mazo de nylon/goma
+8. Gato y caballete (moto) o borriquetas (coche)
+9. Linterna frontal recargable
 
-### Etapa 2 · Cuando ya te manchas las manos (12)
-11. Carraca 1/2" y vasos grandes
-12. Vasos largos, extensiones y junta universal
-13. Vasos Torx y Allen
-14. Dinamométrica grande (40–200 Nm)
-15. Dinamométrica pequeña (5–25 Nm)
-16. Extractores de tornillos pasados
-17. Alicates de manguitos y llave de grifa
-18. Purga de frenos
-19. Multímetro
-20. Calibre y galgas
-21. Banco de trabajo y tornillo de banco
-22. Bandejas, embudos y bomba de aceite
+### Etapa 2 · Cuando ya te manchas las manos (Mecánica avanzada tradicional)
+10. Herramienta de cadena (tronchacadenas / remachador) y llave de radios (moto)
+11. Extractores más comunes (garras 2-3 patas, extractor de volante magnético, extractores a izquierdas de tornillos partidos y rótulas)
+12. Carraca 1/2" y vasos grandes (ruedas, tuercas de embrague/eje/buje)
+13. Vasos largos, extensiones y vasos Torx / Allen de vaso
+14. Dinamométrica grande (40–210 Nm)
+15. Dinamométrica pequeña de precisión (5–25 Nm)
+16. Kit de purga y sangrado de frenos
+17. Calibre (pie de rey) y galgas de espesores
+18. Banco de trabajo / tornillo de banco, bandejas de vaciado y embudos
 
-### Etapa 3 · Cuando el trabajo lo pide (6)
-23. Herramienta de cadena y llave de radios *(moto)*
-24. Extractor de volante y bloqueadores *(moto)*
-25. Extractores de rótulas y silentblocks *(coche)*
-26. Llaves de tubo de freno y dobladora *(coche)*
-27. **Diagnóstico OBD2** *(coche — enlace al futuro especial)*
-28. Taladro, amoladora y compresor
+### Etapa 3 · El salto moderno: a batería y diagnosis electrónica
+19. Llave de impacto a batería 1/2" («la de las tuercas», con vasos Cr-Mo de impacto)
+20. Taladro / atornillador a batería con percutor (taladrado, cepillos de alambre, brocas escalonadas)
+21. Carraca eléctrica compacta a batería (3/8" o 1/4" para vanos motor y trabajo rápido)
+22. Diagnosis OBD2 básica (adaptador Bluetooth/Wi-Fi + App móvil para códigos DTC y motor)
+23. Diagnosis avanzada multimarca (escáner autónomo con pantalla tipo Autel/Launch/Topdon para reseteo de servicios, freno de mano eléctrico, ABS, DPF y batería)
+24. Cargador / mantenedor inteligente de batería y multímetro automotriz
 
 > **Las tres dinamométricas** (pequeña, media y grande) son las que ya hay en el
 > taller. Se cuentan con foto y vídeo propios, y su rango es lo que justifica la

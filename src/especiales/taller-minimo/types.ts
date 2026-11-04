@@ -31,6 +31,8 @@ export interface EtapaRow {
   title: string;
   lema: string;
   presupuesto: string;
+  href?: string;
+  active?: boolean;
   items: { label: string; id?: string }[];
 }
 

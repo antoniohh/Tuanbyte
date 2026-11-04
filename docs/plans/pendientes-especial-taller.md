@@ -69,27 +69,25 @@
 ---
 
 ### Bloque C · Expansión del catálogo (Fases futuras)
-* [ ] **Etapa 2 · «Cuando ya te manchas las manos» (12 familias):**
+* [ ] **Etapa 2 · «Cuando ya te manchas las manos» (Mecánica avanzada tradicional):**
   - Redacción de fichas e integración técnica:
-    10. Carraca 1/2" y vasos grandes (ruedas, tuercas de embrague/eje).
-    11. Vasos largos, extensiones y junta cardán universal.
-    12. Vasos Torx y puntas Allen de impacto.
-    13. Dinamométrica grande (40–210 Nm).
-    14. Dinamométrica pequeña (5–25 Nm).
-    15. Extractores de tornillos partidos o pasados.
-    16. Alicates para abrazaderas elásticas de manguito.
-    17. Kit de purga y sangrado de frenos.
-    18. Multímetro digital para diagnosis eléctrica y batería.
-    19. Calibre (pie de rey) y galgas de espesores.
-    20. Tornillo de banco y banco de trabajo portátil.
-    21. Bandeja de vaciado, embudos y bomba de trasvase.
-* [ ] **Etapa 3 · «Cuando el trabajo lo pide» (6 familias):**
-  - 22. Herramienta de cadena (cortador/remachador) y llave de radios (moto).
-  - 23. Extractor de volante magnético y bloqueadores de embrague (moto).
-  - 24. Extractores de rótulas de suspensión y silentblocks (coche).
-  - 25. Llaves para racores de freno abiertas y dobladora de tubo (coche).
-  - 26. Escáner de diagnosis OBD2 (enlace a reportaje dedicado).
-  - 27. Máquinas de taller: taladro percutor, amoladora y compresor de aire.
+    10. Herramienta de cadena (tronchacadenas / remachador) y llave de radios (moto).
+    11. Extractores más comunes (extractor de garras 2-3 patas para rodamientos/poleas, extractor de volante magnético, extractores a izquierdas de tornillos partidos y extractor de rótulas).
+    12. Carraca 1/2" y vasos grandes (ruedas, tuercas de embrague/eje/buje).
+    13. Vasos largos, extensiones y vasos Torx / Allen de vaso.
+    14. Dinamométrica grande (40–210 Nm).
+    15. Dinamométrica pequeña de precisión (5–25 Nm).
+    16. Kit de purga y sangrado de frenos.
+    17. Calibre (pie de rey) y galgas de espesores (ajuste de válvulas y bujías).
+    18. Tornillo de banco, bandejas de vaciado y embudos.
+* [ ] **Etapa 3 · «El salto moderno: a batería y diagnosis electrónica»:**
+  - Redacción de fichas e integración técnica:
+    19. Llave de impacto a batería 1/2" («la de las tuercas», con vasos Cr-Mo de impacto).
+    20. Taladro / atornillador a batería con percutor (taladrado, cepillos de alambre, brocas escalonadas).
+    21. Carraca eléctrica compacta a batería (3/8" o 1/4" para vanos motor y trabajo rápido).
+    22. Diagnosis OBD2 básica (adaptador Bluetooth/Wi-Fi + App móvil para códigos DTC y motor).
+    23. Diagnosis avanzada multimarca (escáner autónomo con pantalla tipo Autel/Launch/Topdon para reseteo de servicios, freno de mano eléctrico, ABS, DPF y batería).
+    24. Cargador / mantenedor inteligente de batería y multímetro automotriz.
 
 ---
 

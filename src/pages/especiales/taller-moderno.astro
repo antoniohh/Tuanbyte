@@ -1,0 +1,223 @@
+---
+import Reportaje from "@/especiales/shared/Reportaje.astro";
+import {
+  diagnosisNiveles,
+  ecosistemasBateria,
+  erroresTrampas,
+  herramientas,
+  orden,
+  rutas,
+  tallerVsCasa,
+  trilogiaEtapas,
+} from "@/especiales/taller-moderno/data/taller";
+
+const seoTitle = "Taller moderno · Herramientas a batería y diagnosis OBD2";
+const seoDescription =
+  "La revolución del taller casero: llaves de impacto a batería, carracas eléctricas y sistemas de diagnosis OBD2 sencillos y avanzados para moto y coche.";
+
+const fichas = herramientas.map((h) => ({
+  id: h.id,
+  name: h.name,
+  type: h.type,
+  rank: h.rank,
+  scoreValue: h.scoreValue,
+  img: h.img,
+  specs: h.specs,
+  desc: h.desc,
+  videos: h.videos,
+}));
+
+const cfg = {
+  slug: "taller-moderno",
+  migas: "Taller moderno",
+  seoTitle,
+  seoDescription,
+  ogImage: "images/especiales/taller-moderno/og.png",
+  portada: {
+    subtitle: "Etapa 3 · Herramienta a batería y diagnosis electrónica",
+    title: "Taller moderno",
+    intro:
+      "Se acabaron los tubos alargadores, el compresor neumático ruidoso y el miedo a las luces del cuadro. La revolución de los motores sin escobillas (brushless) a batería y los escáneres OBD2 te permite hacer en casa lo que antes requería un elevador profesional y software de concesionario.",
+    intro2:
+      "Análisis sin patrocinio: probamos plataformas a batería accesibles (Parkside, Einhell, Bosch) y sistemas de diagnosis reales de taller.",
+    img: "/images/especiales/taller-moderno/portada.jpg",
+    imgAlt: "Herramientas a batería y diagnosis en el taller",
+    caption: "kit moderno a batería y diagnosis · foto de taller",
+    strip: ["Etapa 3 de 3", "6 familias modernas", "batería y OBD2", "sin patrocinio"],
+  },
+  veredicto: {
+    winner: 'Llave de impacto a batería 1/2" ("la de las tuercas")',
+    score: "9,60",
+    lead: 'La máquina que revoluciona el taller en casa. Afloja tuercas de rueda, embragues y ejes agarrotados en dos segundos sin que la rueda gire ni forzar la espalda. Con motores brushless compactos y baterías de litio de alta descarga, jubila definitivamente al compresor de aire en un garaje particular.',
+    factors: [
+      {
+        title: "Percusión tangencial sin retroceso",
+        text: "Mete miles de impactos secos por minuto directamente en la tuerca: no transmite torsión a tu muñeca ni hace girar el eje.",
+      },
+      {
+        title: "Afloja lo que la mano no puede",
+        text: "Desclava tornillos con fijador de roscas o agarrotados por el óxido en los que una carraca manual se dobla.",
+      },
+      {
+        title: "Velocidad de trabajo",
+        text: "Sustituir cuatro ruedas de coche o desmontar un kit de arrastre se hace en minutos sin esfuerzo físico.",
+      },
+      {
+        title: "Totalmente inalámbrica",
+        text: "Sin cables por el suelo ni mangueras de aire comprimido de 8 bares silbando en el garaje.",
+      },
+    ],
+    img: "/images/especiales/taller-moderno/familia-llave-impacto.jpg",
+    imgAlt: 'Llave de impacto 1/2" a batería con vasos de impacto Cr-Mo',
+  },
+  apartadoDestacado: {
+    id: "guia-diagnosis",
+    kicker: "Guía electrónica de taller",
+    title: "El mapa de la diagnosis: del conector del móvil al escáner multimarca",
+    intro:
+      "El puerto OBD2 estándar de 16 pines es la ventana al cerebro electrónico de cualquier coche desde 2001 (y motos Euro 5). Pero no todas las herramientas leen lo mismo. Aquí tienes la diferencia real entre una app de 15 € y una máquina autónoma de taller:",
+    blocks: [
+      {
+        title: "Diagnosis de bolsillo · Móvil",
+        subtitle: "15–40 € · Bluetooth / Wi-Fi",
+        text: "Adaptadores compactos (tipo ELM327, Carista o Veepeak) que se comunican con apps móviles gratuitas como Car Scanner. \n\nLeen el protocolo genérico EOBD del motor: dicen por qué se encendió la luz de 'Check Engine' (código DTC), muestran datos de sensores en vivo y apagan la avería.",
+        note: "Limitación: Solo leen módulo de motor; no entran en ABS, Airbag ni gestionan frenos eléctricos.",
+      },
+      {
+        title: "Escáneres de mano · Multimarca",
+        subtitle: "120–250 € · Pantalla táctil",
+        text: "Tabletas dedicadas con cable directo (Autel, Launch, Topdon). Entran en todos los módulos del coche: motor, ABS, Airbag, BSI y dirección. \n\nLo más importante: tienen funciones de servicio para retraer el freno de mano eléctrico al cambiar pastillas, purgar el ABS o registrar batería nueva.",
+        note: "El punto dulce: Se amortiza solo en el primer cambio de pastillas traseras en casa.",
+      },
+      {
+        title: "Software de marca · Nivel concesionario",
+        subtitle: "60–350 € · Portátil / Cable dedicado",
+        text: "Sistemas específicos por grupo automovilístico (VCDS/VAG-COM para Volkswagen/Audi/Seat/Skoda, BimmerCode o ISTA para BMW). \n\nPermite codificación binaria de centralitas (long coding), activar funciones de confort ocultas de fábrica y adaptar componentes nuevos.",
+        note: "Aviso de taller: Requiere hacer copia de seguridad de la centralita antes de modificar.",
+      },
+    ],
+  },
+  etapas: {
+    title: "La ruta: tres entregas",
+    desc: "El recorrido completo del taller casero, de lo imprescindible a la diagnosis. Pulsa en cada ruta para abrir su especial dedicado:",
+    items: trilogiaEtapas,
+    currentEtapa: 3,
+  },
+  ranking: {
+    title: "El orden de compra moderno",
+    desc: "Ponderación: lo usarás 40 % · sin ella no puedes 40 % · barata 20 %. Orden de adquisición para dar el salto a batería y diagnosis.",
+    criteria: [
+      { key: "uso", label: "Lo usarás", weight: "40%" },
+      { key: "desbloqueo", label: "Sin ella no puedes", weight: "40%" },
+      { key: "barata", label: "Barata", weight: "20%" },
+    ],
+    rows: orden,
+    winnerLabel: "la imprescindible",
+  },
+  fichas: {
+    title: "Las herramientas eléctricas y diagnosis, una a una",
+    desc: "Pica en cualquiera para ver sus ventajas reales, qué averías desbloquea, la compra económica recomendada, la opción pro y los errores que debes evitar.",
+    items: fichas,
+  },
+  dossier: {
+    tablas: [
+      {
+        id: "ecosistemas-bateria",
+        title: "Ecosistemas de baterías: qué plataforma elegir",
+        desc: "La regla de oro: la batería manda. Cuando eliges una marca de 18V/20V, te casas con sus baterías para todas tus máquinas.",
+        columns: [
+          { label: "Plataforma / Marca", key: "marca" },
+          { label: "Gama", key: "gama" },
+          { label: "Lo bueno", key: "bueno" },
+          { label: "Lo flojo", key: "flojo" },
+          { label: "Veredicto", key: "veredicto" },
+        ],
+        rows: ecosistemasBateria,
+        modelKey: "marca",
+      },
+      {
+        id: "diagnosis-niveles",
+        title: "Comparativa de diagnosis: qué hace cada nivel",
+        desc: "Desde la lectura básica en el smartphone hasta la codificación avanzada de centralitas.",
+        columns: [
+          { label: "Nivel de diagnosis", key: "nivel" },
+          { label: "Hardware necesario", key: "hardware" },
+          { label: "Coste orientativo", key: "coste", mono: true },
+          { label: "Sistemas que abarca", key: "alcance" },
+          { label: "Operaciones que desbloquea", key: "operaciones" },
+        ],
+        rows: diagnosisNiveles,
+        modelKey: "nivel",
+      },
+      {
+        id: "presupuestos",
+        title: "Los tres presupuestos del taller moderno",
+        desc: "Rutas de compra según quieras arrancar con diagnosis móvil o equipar el garaje completo a batería.",
+        columns: [
+          { label: "Ruta", key: "ruta" },
+          { label: "Qué entra", key: "entra" },
+          { label: "Hasta dónde llegas", key: "llegas" },
+          { label: "Marcas", key: "marcas" },
+        ],
+        rows: rutas,
+        modelKey: "ruta",
+      },
+      {
+        id: "taller-vs-casa",
+        title: "Taller vs. Casa: la rentabilidad de la diagnosis y batería",
+        desc: "Lo que cobran en taller por operaciones electrónicas sencillas frente al coste de amortizar tu propia máquina.",
+        columns: [
+          { label: "Mantenimiento / Trabajo", key: "trabajo" },
+          { label: "En taller", key: "taller", align: "right" },
+          { label: "En casa", key: "casa", align: "right" },
+          { label: "Ahorro neto", key: "ahorro", align: "right" },
+          { label: "Herramienta necesaria", key: "herramienta" },
+        ],
+        rows: tallerVsCasa,
+        modelKey: "trabajo",
+      },
+      {
+        id: "errores-trampas",
+        title: "Errores y trampas típicas con herramientas a batería y diagnosis",
+        desc: "Peligros habituales al usar herramientas de impacto y precauciones con centralitas electrónicas.",
+        columns: [
+          { label: "La trampa o error", key: "error" },
+          { label: "¿Por qué se cae?", key: "porQuePasa" },
+          { label: "Consecuencia real", key: "consecuencia" },
+          { label: "Regla de taller", key: "solucion" },
+        ],
+        rows: erroresTrampas,
+        modelKey: "error",
+      },
+    ],
+  },
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: seoTitle,
+      description: seoDescription,
+      image: "https://tuanbyte.es/images/especiales/taller-moderno/og.png",
+      datePublished: "2026-11-04",
+      dateModified: "2026-11-04",
+      inLanguage: "es",
+      author: { "@type": "Person", name: "Tuanbyte" },
+      publisher: { "@type": "Organization", name: "Tuanbyte" },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://tuanbyte.es/especiales/taller-moderno/",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Especiales", item: "https://tuanbyte.es/especiales/" },
+        { "@type": "ListItem", position: 2, name: "Taller moderno", item: "https://tuanbyte.es/especiales/taller-moderno/" },
+      ],
+    },
+  ],
+};
+---
+
+<Reportaje cfg={cfg} />

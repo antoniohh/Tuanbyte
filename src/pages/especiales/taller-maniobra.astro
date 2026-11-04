@@ -1,0 +1,222 @@
+---
+import Reportaje from "@/especiales/shared/Reportaje.astro";
+import {
+  erroresTrampas,
+  herramientas,
+  marcas,
+  orden,
+  paresApriete,
+  rutas,
+  tallerVsCasa,
+  trilogiaEtapas,
+} from "@/especiales/taller-maniobra/data/taller";
+
+const seoTitle = "Taller de maniobra · Herramientas de mecánica avanzada para moto y coche";
+const seoDescription =
+  "Pasa al siguiente nivel del taller en casa: carraca 1/2\", herramienta de cadena, extractores, dinamométricas y purga de frenos. Qué comprar y en qué orden.";
+
+const fichas = herramientas.map((h) => ({
+  id: h.id,
+  name: h.name,
+  type: h.type,
+  rank: h.rank,
+  scoreValue: h.scoreValue,
+  img: h.img,
+  specs: h.specs,
+  desc: h.desc,
+  videos: h.videos,
+}));
+
+const cfg = {
+  slug: "taller-maniobra",
+  migas: "Taller de maniobra",
+  seoTitle,
+  seoDescription,
+  ogImage: "images/especiales/taller-maniobra/og.png",
+  portada: {
+    subtitle: "Etapa 2 · Cadena, extractores, dinamométricas y fuerza",
+    title: "Taller de maniobra",
+    intro:
+      "Has cambiado el aceite y las pastillas. Ahora toca meterse en faena seria: sustituir un kit de arrastre completo, soltar tuercas de rueda y eje apretadas a 100 Nm, purgar frenos y usar dinamométricas para no trasroscar nada en el bloque. Esta es la herramienta que te hace autónomo de verdad.",
+    intro2:
+      "Todo probado en reparaciones reales de taller casero: precios orientativos, marcas honestas y sin enlaces patrocinados.",
+    img: "/images/especiales/taller-maniobra/portada.jpg",
+    imgAlt: "Herramientas de mecánica avanzada en el taller",
+    caption: "kit de mecánica avanzada · foto de taller",
+    strip: ["Etapa 2 de 3", "8 familias operativas", "desde 120 €", "sin patrocinio"],
+  },
+  veredicto: {
+    winner: 'Carraca 1/2" y vasos grandes (13–32 mm)',
+    score: "9,50",
+    lead: 'La reina indiscutible de la fuerza bruta. Cuando una tuerca de eje trasero, un tornillo de basculante o una rueda se resisten a la carraca común de 3/8", la de 1/2" con palanca de 45 cm y vasos de 6 caras suelta cualquier tornillo clavado sin flexar, sin redondear cabezas y sin jugarte los nudillos.',
+    factors: [
+      {
+        title: "Soporta pares extremos",
+        text: "Aguanta más de 300 Nm de torsión donde las carracas medianas parten el trinquete.",
+      },
+      {
+        title: "Palanca de fábrica",
+        text: "Su mango largo multiplica la fuerza de tu brazo sin tener que meterle tubos alargadores peligrosos.",
+      },
+      {
+        title: "Medidas que desbloquean",
+        text: "Vasos de 17, 19, 22, 24, 27 y 32 mm: las medidas indispensables para ruedas, bujes y coronas.",
+      },
+      {
+        title: "Inversión de por vida",
+        text: "Una buena carraca de 1/2\" de acero cromo-vanadio no se desgasta jamás en un taller casero.",
+      },
+    ],
+    img: "/images/especiales/taller-maniobra/familia-carraca-vasos-12.jpg",
+    imgAlt: 'Carraca 1/2" con vasos métricos grandes',
+  },
+  apartadoDestacado: {
+    id: "cuadradillos-pulgadas",
+    kicker: "Análisis técnico de taller",
+    title: 'El enigma de las pulgadas: 1/4", 3/8" y 1/2" explicados en cristiano',
+    intro:
+      '¿Por qué en Europa y Japón, donde todos los tornillos y tuercas son métricos (10, 13, 17, 19 mm), las carracas se siguen midiendo en fracciones de pulgada? El motivo es histórico: a comienzos del siglo XX, Gran Bretaña y EE. UU. (con marcas pioneras como Snap-on en los años 20 y las normativas SAE de aviación) patentaron el sistema de vaso intercambiable con cuadradillo macho-hembra. Cuando el resto del planeta adoptó el milímetro para las tuercas, el anclaje de la herramienta se mantuvo universal en pulgadas para que cualquier vaso métrico del mundo encajara en cualquier carraca existente.',
+    blocks: [
+      {
+        title: '1/4" (6,35 mm) · Precisión',
+        subtitle: "0 a 25 Nm · Vasos 4–14 mm",
+        text: "Diseñada para espacios angostos y pares muy bajos. Se maneja con la muñeca. Es la medida para tapas de balancines, carburadores, inyectores, interiores y sensores. \n\nSi le metes la fuerza de todo el cuerpo o un tubo, el cuadradillo se quiebra como si fuera de cristal.",
+        note: "Regla de oro: Si el tornillo es menor de M8 o aprieta sobre aluminio fino, usa siempre 1/4\".",
+      },
+      {
+        title: '3/8" (9,52 mm) · El equilibrio',
+        subtitle: "20 a 100 Nm · Vasos 8–19 mm",
+        text: "El gran comodín del taller. Nació para ofrecer la fuerza necesaria sin el peso ni el volumen de la de 1/2\". Entra en el 80 % de los huecos del motor. \n\nEs perfecta para bujías, tapones de cárter, pinzas de freno y soportes de motor de tamaño medio.",
+        note: "Regla de oro: La herramienta que más horas pasa en tus manos en el día a día.",
+      },
+      {
+        title: '1/2" (12,7 mm) · Fuerza bruta',
+        subtitle: "50 a 350+ Nm · Vasos 13–34 mm",
+        text: "La herramienta pesada de automoción. Su cuadradillo macizo de casi 13 mm y mangos de 40 a 50 cm multiplican tu esfuerzo. \n\nIndispensable para soltar tuercas de rueda, ejes de basculante, amortiguadores y tornillos oxidados por los años.",
+        note: "Regla de oro: Jamás uses adaptadores reductores para aflojar con fuerza; se parten.",
+      },
+    ],
+  },
+  etapas: {
+    title: "La ruta: tres entregas",
+    desc: "El recorrido completo del taller casero, de lo imprescindible a la diagnosis. Pulsa en cada ruta para abrir su especial dedicado:",
+    items: trilogiaEtapas,
+    currentEtapa: 2,
+  },
+  ranking: {
+    title: "El orden de compra",
+    desc: "Ponderación: lo usarás 40 % · sin ella no puedes 40 % · barata 20 %. Ordenadas por prioridad para quien ya da el salto a mecánica avanzada.",
+    criteria: [
+      { key: "uso", label: "Lo usarás", weight: "40%" },
+      { key: "desbloqueo", label: "Sin ella no puedes", weight: "40%" },
+      { key: "barata", label: "Barata", weight: "20%" },
+    ],
+    rows: orden,
+    winnerLabel: "la reina",
+  },
+  fichas: {
+    title: "Las herramientas de maniobra, una a una",
+    desc: "Pica en cualquiera para ver para qué sirve, qué trabajo desbloquea, la compra recomendada de súper, el salto de calidad y el error que debes evitar.",
+    items: fichas,
+  },
+  dossier: {
+    tablas: [
+      {
+        id: "marcas",
+        title: "Las marcas de maniobra analizadas",
+        desc: "Marcas clave en herramienta manual pesada, dinamometría y útiles de automoción.",
+        columns: [
+          { label: "Marca", key: "marca" },
+          { label: "Gama", key: "gama" },
+          { label: "Lo bueno", key: "bueno" },
+          { label: "Lo flojo", key: "flojo" },
+          { label: "Veredicto", key: "veredicto" },
+        ],
+        rows: marcas,
+        modelKey: "marca",
+      },
+      {
+        id: "presupuestos",
+        title: "Los tres presupuestos de maniobra",
+        desc: "Desde el kit básico de fuerza para ruedas y cadena hasta el taller avanzado con dinamometría doble.",
+        columns: [
+          { label: "Ruta", key: "ruta" },
+          { label: "Qué entra", key: "entra" },
+          { label: "Hasta dónde llegas", key: "llegas" },
+          { label: "Marcas", key: "marcas" },
+        ],
+        rows: rutas,
+        modelKey: "ruta",
+      },
+      {
+        id: "taller-vs-casa",
+        title: "Taller vs. Casa: amortización en mecánica intermedia",
+        desc: "Trabajos típicos que dan respeto al aficionado pero que con la herramienta adecuada se pagan solos en una tarde.",
+        columns: [
+          { label: "Mantenimiento / Trabajo", key: "trabajo" },
+          { label: "En taller", key: "taller", align: "right" },
+          { label: "En casa", key: "casa", align: "right" },
+          { label: "Ahorro neto", key: "ahorro", align: "right" },
+          { label: "Herramienta necesaria", key: "herramienta" },
+        ],
+        rows: tallerVsCasa,
+        modelKey: "trabajo",
+      },
+      {
+        id: "pares-apriete",
+        title: "Pares de apriete críticos en chasis y transmisión",
+        desc: "Tornillos donde apretar a ojo es jugarse una avería grave o un susto en carretera.",
+        columns: [
+          { label: "Operación / Elemento", key: "operacion" },
+          { label: "Par típico", key: "par", align: "right", mono: true },
+          { label: "Dinamométrica recomendada", key: "llave" },
+          { label: "Aviso de taller", key: "aviso" },
+        ],
+        rows: paresApriete,
+        modelKey: "operacion",
+      },
+      {
+        id: "errores-trampas",
+        title: "Errores y trampas típicas en mecánica avanzada",
+        desc: "Las pifias más caras y cómo evitarlas con disciplina de taller.",
+        columns: [
+          { label: "La trampa o error", key: "error" },
+          { label: "¿Por qué se cae?", key: "porQuePasa" },
+          { label: "Consecuencia real", key: "consecuencia" },
+          { label: "Regla de taller", key: "solucion" },
+        ],
+        rows: erroresTrampas,
+        modelKey: "error",
+      },
+    ],
+  },
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: seoTitle,
+      description: seoDescription,
+      image: "https://tuanbyte.es/images/especiales/taller-maniobra/og.png",
+      datePublished: "2026-11-04",
+      dateModified: "2026-11-04",
+      inLanguage: "es",
+      author: { "@type": "Person", name: "Tuanbyte" },
+      publisher: { "@type": "Organization", name: "Tuanbyte" },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://tuanbyte.es/especiales/taller-maniobra/",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Especiales", item: "https://tuanbyte.es/especiales/" },
+        { "@type": "ListItem", position: 2, name: "Taller de maniobra", item: "https://tuanbyte.es/especiales/taller-maniobra/" },
+      ],
+    },
+  ],
+};
+---
+
+<Reportaje cfg={cfg} />

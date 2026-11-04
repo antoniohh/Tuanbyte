@@ -5,6 +5,31 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y este proyecto se adhiere a [versionado semántico](https://semver.org/lang/es/).
 
+## [1.6.0] — 2026-11-04
+
+Lanzamiento de la **Trilogía completa de Especiales de Taller** en Tuanbyte:
+- **Parte 1:** `/especiales/taller-minimo/` (Con 100 € empiezas - Herramienta esencial).
+- **Parte 2:** `/especiales/taller-maniobra/` (Cuando ya te manchas las manos - Mecánica avanzada: cadena, extractores, dinamométricas y análisis del cuadradillo en pulgadas).
+- **Parte 3:** `/especiales/taller-moderno/` (El salto moderno: llaves de impacto a batería, carracas eléctricas y diagnosis electrónica OBD2).
+
+### Añadido
+- **Especial «Taller de maniobra» (`/especiales/taller-maniobra`)**:
+  - 8 familias completas con fichas técnicas, vídeos de Tuanbyte y compras recomendadas (Carraca 1/2", cadena y radios, dinamométrica grande/pequeña, extractores mecánicos, vasos largos/Torx, purga de frenos, calibre/galgas, tornillo de banco y fluidos).
+  - Bloque editorial técnico destacado: *«El enigma de las pulgadas: 1/4", 3/8" y 1/2" explicados en cristiano»* con historia y límites de rotura.
+  - Tablas técnicas de dossier: marcas de maniobra, presupuestos, amortización taller vs casa y pares de apriete críticos.
+- **Especial «Taller moderno» (`/especiales/taller-moderno`)**:
+  - 6 familias modernas (Llave de impacto 1/2" con vasos Cr-Mo, taladro percutor brushless, carraca eléctrica, diagnosis OBD2 Bluetooth, escáner multimarca y cargador/multímetro).
+  - Bloque editorial técnico destacado: *«El mapa de la diagnosis: del conector del móvil al escáner multimarca»* (Niveles 1, 2 y 3).
+  - Tablas de dossier: comparativa de plataformas a batería (Parkside, Einhell, Milwaukee, Bosch), niveles de diagnosis y tabla de amortización.
+- **Componente `Etapas.astro` interactivo**:
+  - Cajas de ruta clicables con navegación bidireccional entre las tres entregas de la saga, indicador `Estás aquí` y anclas directas a las fichas.
+- **Fotografía de catálogo generada con IA**:
+  - Generadas las imágenes cenitales con fondo de papel kraft claro de taller y estética knolling para todas las familias y portadas de la Ruta 2 y Ruta 3.
+- **Catálogo de Especiales (`/especiales/`) e índice `sitemap.xml`**:
+  - Incorporadas las tarjetas de la Ruta 2 y Ruta 3 con sus enlaces y descripciones en la cuadrícula de reportajes.
+- **Planificación del próximo especial (`docs/plans/proximo-especial-programador-web.md`)**:
+  - Hoja de ruta completa para el especial sobre el setup y entorno del programador web (Linux, PHP, Node.js, IDEs y Agentes de IA).
+
 ## [1.5.4] — 2026-11-03
 
 Actualización de precisión técnica en el aviso de cookies y la política de privacidad conforme a Google Consent Mode v2.

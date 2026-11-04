@@ -16,6 +16,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tuanbyte.es/especiales/taller-maniobra/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tuanbyte.es/especiales/taller-moderno/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tuanbyte.es/especiales/guia-motos/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

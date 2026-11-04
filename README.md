@@ -35,7 +35,8 @@ Los documentos que gobiernan el proyecto:
 | [`DESIGN.md`](DESIGN.md) | Sistema de diseño: tokens, tipografía, leyes de composición. |
 | [`docs/plans/web-landing-plan.md`](docs/plans/web-landing-plan.md) | Plan por fases de la web. |
 | [`docs/plans/migracion-especiales.md`](docs/plans/migracion-especiales.md) | Plan para traer los especiales dentro del catálogo. |
-| [`docs/plans/especial-taller-minimo.md`](docs/plans/especial-taller-minimo.md) | Plan del tercer especial: el taller mínimo viable. |
+| [`docs/plans/especial-taller-minimo.md`](docs/plans/especial-taller-minimo.md) | Plan de la trilogía del taller en casa (mínimo, maniobra y moderno). |
+| [`docs/plans/proximo-especial-programador-web.md`](docs/plans/proximo-especial-programador-web.md) | Plan del cuarto especial: el entorno del programador web moderno. |
 | [`docs/info/despliegue-github-pages.md`](docs/info/despliegue-github-pages.md) | Publicación, dominio y DNS. |
 
 ## 🧱 Arquitectura
@@ -81,11 +82,11 @@ Los documentos que gobiernan el proyecto:
 │   ├── layouts/BaseLayout.astro   # head, metadatos, fuentes, JSON-LD
 │   ├── lib/                       # videos.ts · playlists.ts (scrape + fallback)
 │   ├── especiales/                # reportajes: shared/ (piezas y Reportaje.astro)
-│   │                              # + guia-motos, suvs-hev y taller-minimo (data)
+│   │                              # + guia-motos, suvs-hev, taller-minimo, taller-maniobra, taller-moderno
 │   ├── pages/
 │   │   ├── index.astro            # el taller (portada)
 │   │   ├── cookies.astro          # cookies y datos
-│   │   └── especiales/            # índice + guia-motos + suvs-hev + taller-minimo
+│   │   └── especiales/            # índice + guia-motos + suvs-hev + trilogía de taller
 │   └── styles/global.css          # tokens @theme, texturas y utilidades
 ├── DESIGN.md · PRODUCT.md         # verdad de diseño y de producto
 ├── CHANGELOG.md · LICENSE         # cambios y licencia
@@ -113,13 +114,14 @@ Los reportajes comparativos viven **dentro del sitio**, no en un subdominio:
 índice editorial en `/especiales` y un reportaje por ruta:
 - `guia-motos`: 14 motos de media cilindrada a examen.
 - `suvs-hev`: 8 SUVs híbridos completos (HEV) de segmentos B y C.
-- `taller-minimo`: **El taller mínimo viable**, qué herramientas comprar en qué orden y de qué marca (3 etapas, fichas con vídeos de reparaciones de la CB250 y dossier de costes/pares).
+- `taller-minimo`: **El taller mínimo viable (Parte 1)**, qué comprar para empezar el mantenimiento en casa por 100 €.
+- `taller-maniobra`: **Taller de maniobra (Parte 2)**, mecánica avanzada: carraca 1/2", kit de arrastre de moto, extractores mecánicos, dinamométrica doble y el misterio del cuadradillo en pulgadas.
+- `taller-moderno`: **Taller moderno (Parte 3)**, la revolución inalámbrica: llaves de impacto a batería, carracas eléctricas y diagnosis electrónica OBD2 (móvil y escáner multimarca).
 
 Comparten el mismo componente base (`src/especiales/shared/Reportaje.astro`),
 así que cada página es solo configuración y datos. Cada reportaje trae portada,
-veredicto, ranking multicriterio, una rejilla de fichas desplegables (sin
-JavaScript) y sus apéndices técnicos. El plan del especial del taller está en
-[`docs/plans/especial-taller-minimo.md`](docs/plans/especial-taller-minimo.md).
+veredicto, selector interactivo de rutas de la trilogía, ranking multicriterio,
+una rejilla de fichas desplegables (sin JavaScript) y sus apéndices técnicos.
 
 ## 🎨 Sistema de diseño y marca
 
